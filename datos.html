@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,25 @@
     <link rel="stylesheet" href="extensiones y otros archivos/css_datos_voce.css" type="text/css" charset="utf-8">
     <title>Document</title>
 </head>
+
 <body>
     <label style="color: green;">Dolares</label>
     <input id="dol" type="number">
     <br>
-    <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span style="color: red ;">res</span></label>
+    <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span
+            style="color: red ;">res</span></label>
     <input id="bol" type="number">
     <br>
     <label>Tasa de Cambio</label>
     <input id="ts_cam" type="number">
     <br>
-    <label><span style="color: green">Dolares</span> a <span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span style="color: red ;">res</span></label>
+    <label><span style="color: green">Dolares</span> a <span style="color: yellow ;">Bol</span><span
+            style="color: blue ;">iva</span><span style="color: red ;">res</span></label>
     <input type="button" value="Enviar" onclick="dolbol()">
     <br>
     <p id="resultdolbol"></p>
-    <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span style="color: red ;">res</span> a <span style="color: green">Dolares</span></label>
+    <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span
+            style="color: red ;">res</span> a <span style="color: green">Dolares</span></label>
     <input type="button" value="Enviar" onclick="boldol()">
     <br>
     <p id="resultboldol"></p>
@@ -32,40 +37,40 @@
         var tas
         var p
         function dolbol() {
-            dol=parseFloat(document.getElementById("dol").value)
-            document.getElementById("dol").value=""
-            tasa=parseFloat(document.getElementById("ts_cam").value)
-            document.getElementById("ts_cam").value=""
+            dol = parseFloat(document.getElementById("dol").value)
+            document.getElementById("dol").value = ""
+            tasa = parseFloat(document.getElementById("ts_cam").value)
+            document.getElementById("ts_cam").value = ""
             if (dol.lenght !== 0 && dol !== "" && tasa !== "0" && dol !== "0" && tasa !== "") {
-                console.log(dol,tasa)
-                resultado=parseFloat(dol)*parseFloat(tasa)
+                console.log(dol, tasa)
+                resultado = parseFloat(dol) * parseFloat(tasa)
                 console.log(resultado)
-                if(resultado < 0) {
-                    p=document.getElementById("resultdolbol").innerHTML='Es negativo'
+                if (resultado < 0) {
+                    p = document.getElementById("resultdolbol").innerHTML = 'Es negativo'
                 } else {
-                    p=document.getElementById("resultdolbol").innerHTML=resultado.toFixed(2)
+                    p = document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2)
                 }
             } else {
-                p=document.getElementById("resultdolbol").innerHTML='Error'   
+                p = document.getElementById("resultdolbol").innerHTML = 'Error'
             }
         }
         function boldol() {
-            tasa=document.getElementById("ts_cam").value
-            document.getElementById("ts_cam").value=""
-            bol=document.getElementById("bol").value
-            document.getElementById("bol").value=""
-            console.log(bol,tasa)
+            tasa = document.getElementById("ts_cam").value
+            document.getElementById("ts_cam").value = ""
+            bol = document.getElementById("bol").value
+            document.getElementById("bol").value = ""
+            console.log(bol, tasa)
             if (bol.lenght !== 0 && bol !== "" && tasa !== "0" && bol !== "0" && tasa !== "") {
-                console.log(bol,tasa)
-                resultado=parseFloat(bol)/parseFloat(tasa)
+                console.log(bol, tasa)
+                resultado = parseFloat(bol) / parseFloat(tasa)
                 console.log(resultado)
-                if(resultado < 0) {
-                    p=document.getElementById("resultboldol").innerHTML='Es negativo'
+                if (resultado < 0) {
+                    p = document.getElementById("resultboldol").innerHTML = 'Es negativo'
                 } else {
-                    p=document.getElementById("resultboldol").innerHTML=resultado.toFixed(2)
+                    p = document.getElementById("resultboldol").innerHTML = resultado.toFixed(2)
                 }
             } else {
-                p=document.getElementById("resultboldol").innerHTML='Error'   
+                p = document.getElementById("resultboldol").innerHTML = 'Error'
             }
         }
     </script>
@@ -74,5 +79,13 @@
     <input type="number" id="promnum">
     <br>
     <input type="button" onclick="promedios()">
+    <script>
+        function promedios() {
+            while (condition) {
+                
+            }
+        }
+    </script>
 </body>
+
 </html>
