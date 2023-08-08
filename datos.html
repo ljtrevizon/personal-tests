@@ -41,7 +41,7 @@
             document.getElementById("dol").value = ""
             tasa = parseFloat(document.getElementById("ts_cam").value)
             document.getElementById("ts_cam").value = ""
-            if (dol.lenght !== 0 && dol !== "" && tasa !== "0" && dol !== "0" && tasa !== "") {
+            if (dol.lenght !== 0 || dol !== "" || tasa !== "0" || dol !== "0" || tasa !== "") {
                 console.log(dol, tasa)
                 resultado = parseFloat(dol) * parseFloat(tasa)
                 console.log(resultado)
@@ -60,7 +60,7 @@
             bol = document.getElementById("bol").value
             document.getElementById("bol").value = ""
             console.log(bol, tasa)
-            if (bol.lenght !== 0 && bol !== "" && tasa !== "0" && bol !== "0" && tasa !== "") {
+            if (bol.lenght !== 0 || bol !== "" || tasa !== "0" || bol !== "0" || tasa !== "") {
                 console.log(bol, tasa)
                 resultado = parseFloat(bol) / parseFloat(tasa)
                 console.log(resultado)
@@ -78,12 +78,12 @@
     <label>Ingrese la cantidad de notas:</label>
     <input type="number" id="promnum">
     <br>
-    <input type="button" onclick="promedios()">
+    <input type="button" onclick="promedio()">
+    <div id="divprom">
+    </div>
     <script>
-        function promedios() {
-            while (condition) {
-                
-            }
+        function promedio() {
+            //
         }
     </script>
 </body>
