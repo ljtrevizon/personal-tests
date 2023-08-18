@@ -41,7 +41,7 @@
                 document.getElementById("resultdolbol").innerHTML = 'Error';
             } else {
                 const resultado = dol * tasa;
-                document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2);
+                document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2)+" Bs";
             }
         }
         function calculateResult() {
@@ -54,7 +54,7 @@
                 document.getElementById("resultboldol").innerHTML = 'Error';
             } else {
                 const resultado = parseFloat(bol) / parseFloat(tasa);
-                document.getElementById("resultboldol").innerHTML = resultado.toFixed(2);
+                document.getElementById("resultboldol").innerHTML = resultado.toFixed(2)+" $";
             }
         }
     </script>
