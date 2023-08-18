@@ -163,10 +163,10 @@
     <script>
         function Nombre(nombre, edad, grado, cedula, sexo, telefono) {
             this.nombre = nombre,
-            this.edad = edad,
-            this.grado = grado,
-            this.cedula = cedula,
-            this.sexo = sexo
+                this.edad = edad,
+                this.grado = grado,
+                this.cedula = cedula,
+                this.sexo = sexo
             this.telefono = telefono
         }
         var nombres = []
@@ -314,7 +314,7 @@
     <input type="button" onclick="pais()" value="Enviar">
     <script>
         var bandera = document.getElementById("bandera")
-        var official_name= document.getElementById("official_name")
+        var official_name = document.getElementById("official_name")
         function pais() {
             var codigo = document.getElementById("paises").value
             console.log(codigo)
@@ -330,12 +330,39 @@
                     return resp.json()
                 })
                 .then(function (data) {
-                    obj=data
-                    bandera.src=obj.flag_urls.svg
-                    official_name.value=obj.official_name
+                    obj = data
+                    bandera.src = obj.flag_urls.svg
+                    official_name.value = obj.official_name
                     console.log(obj.flag_urls.svg)
                 })
                 .catch(err => console.error(err));
+        }
+    </script>
+    <hr>
+    <label>Ingrese el id del album en Deezer (los numeros en la url)</label>
+    <input type="text" id="album_id">
+    <br>
+    <img src="" id="img_album">
+    <br>
+    <input type="button" onclick="album()" value="Enviar">
+    <script>
+        var img_album = document.getElementById("img_album")
+        function album() {
+            var album_id = document.getElementById("album_id").value
+            const settings = {
+                async: true,
+                crossDomain: true,
+                url: 'https://deezerdevs-deezer.p.rapidapi.com/album/'+album_id,
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '3a60105bb7msh8dc9fbe2b106cacp1b316fjsnbf21f23983aa',
+                    'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+                }
+            };
+            $.ajax(settings).done(function (response) {
+                img_album.src= response.cover_medium
+                console.log(response);
+            });
         }
     </script>
 </body>

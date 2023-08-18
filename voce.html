@@ -12,38 +12,8 @@
 <body>
   <input type="button" id="arrfun5" value="ejecutar">
   <script>
-    var c = []
-    function Personitas(nombre, edad) {
-      this.nombre = nombre,
-        this.edad = edad,
-        this.mayoria = function () {
-          if (this.edad.match(/[^a-z]/) && this.edad.match(/[^A-Z]/)) {
-            if (parseInt(this.edad) >= 18) {
-              return "es mayor de edad."
-            } else {
-              return "es menor de edad."
-            }
-          }
+    
 
-        }
-    }
-    $("#arrfun5").click(function () {
-      var i = 0
-      while (i <= 5) {
-        var nombre = prompt("Ingrese un nombre.")
-        console.log(nombre)
-        var edad = prompt("Ingrese su edad.")
-        console.log(edad)
-        if (edad.match(/\d+/)) {
-          c.push(new Personitas(nombre, edad))
-        } else {
-          console.log("a")
-        }
-        console.log(c + i)
-        console.log(c[i].mayoria())
-        i++
-      }
-    })
   </script>
 </body>
 
