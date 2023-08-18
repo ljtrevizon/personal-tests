@@ -142,7 +142,7 @@
             var color = document.getElementById("color").value;
             $("#p4").css("color", color);
             console.log(color);
-            if (color=="#ffffff") {
+            if (color == "#ffffff") {
                 $("#p4").css("background-color", "black");
             } else {
                 $("#p4").css("background-color", "white");
@@ -193,7 +193,6 @@
             document.getElementById("sexo").value = "";
             var telefono = document.getElementById("telefono").value;
             document.getElementById("telefono").value = "";
-            console.log(nombre + " " + edad + " " + grado + " " + cedula + " " + sexo + " " + telefono)
             if (nombre == "" || edad == 0 || isNaN(edad) || grado == "" || sexo == "" || cedula == "" || telefono == "") {
                 alert("Error")
             } else {
@@ -202,6 +201,7 @@
             }
         }
     </script>
+    <hr>
 </body>
 
 </html>
