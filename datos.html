@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="extensiones y otros archivos/jquery-3.6.1.js"></script>
     <link rel="stylesheet" href="extensiones y otros archivos/css_datos_voce.css" type="text/css" charset="utf-8">
-    <title>Document</title>
+    <title>Pruebas</title>
 </head>
 
 <body>
@@ -160,12 +160,62 @@
     <script>
         function changeColor() {
             var color = document.getElementById("color").value;
-            $("#p4").css("color",color);
-            document.getElementById("p4").innerHTML = "El codigo HEX es: "+color;
+            $("#p4").css("color", color);
+            document.getElementById("p4").innerHTML = "El codigo HEX es: " + color;
         }
     </script>
     <hr>
-    
+    <label>Tu nombre:</label>
+    <input type="text" id="nombre">
+    <br>
+    <label>Tu edad:</label>
+    <input type="number" id="edad">
+    <br>
+    <label>Nivel academico:</label>
+    <input type="text" id="grado">
+    <br>
+    <label>Cedula</label>
+    <input type="number" id="cedula">
+    <br>
+    <label>Sexo</label>
+    <input type="text" id="sexo">
+    <br>
+    <label>Telefono</label>
+    <input type="number" id="telefono">
+    <br>
+    <input type="button" onclick="datos()" value="Enviar">
+    <script>
+        function Nombre(nombre, edad, grado, cedula, sexo, telefono) {
+            this.nombre = nombre,
+            this.edad = edad,
+            this.grado = grado,
+            this.cedula = cedula,
+            this.sexo = sexo
+            this.telefono = telefono
+        }
+        var nombres = []
+        function datos() {
+            var nombre = document.getElementById("nombre").value;
+            document.getElementById("nombre").value = "";
+            var edad = parseInt(document.getElementById("edad").value);
+            document.getElementById("edad").value = "";
+            var grado = document.getElementById("grado").value;
+            document.getElementById("grado").value = "";
+            var cedula = document.getElementById("cedula").value;
+            document.getElementById("cedula").value = "";
+            var sexo = document.getElementById("sexo").value;
+            document.getElementById("sexo").value = "";
+            var telefono = document.getElementById("telefono").value;
+            document.getElementById("telefono").value = "";
+            console.log(nombre + " " + edad + " " + grado + " " + cedula + " " + sexo + " " + telefono)
+            if (nombre == "" || edad == 0 || isNaN(edad) || grado == "" || sexo == "" || cedula == "" || telefono == "") {
+                alert("Error")
+            } else {
+                nombres.push(new Nombre(nombre, edad, grado, cedula, sexo, telefono));
+                console.log(nombres)
+            }
+        }
+    </script>
 </body>
 
 </html>
