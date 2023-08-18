@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="extensiones y otros archivos/jquery-3.6.1.js"></script>
     <link rel="stylesheet" href="extensiones y otros archivos/css_datos_voce.css" type="text/css" charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Pruebas</title>
 </head>
 
@@ -196,10 +197,58 @@
     <input type="text" id="user">
     <br>
     <input type="button" onclick="datos2()" value="Enviar">
+    <br>
+    <label>Nombre</label>
+    <input type="text" id="nombre_user">
+    <br>
+    <label>Login</label>
+    <input type="text" id="login">
+    <br>
+    <label>ID</label>
+    <input type="text" id="id">
+    <br>
+    <label>Avatar</label>
+    <img class="imgRedonda" src="" id="avatar">
+    <br>
+    <label>URL</label>
+    <a href="" id="url_user">Link</a>
+    <br>
     <script>
+        var login = document.getElementById("login")
+        var id = document.getElementById("id")
+        var avatar = document.getElementById("avatar")
+        var url_user = document.getElementById("url_user")
+        var nombre_user = document.getElementById("nombre_user")
         function datos2() {
-            var user = document.getElementById("user").value;
-            
+            var url = "https://api.github.com/users/" + document.getElementById("user").value
+            fetch(url)
+            .then((resp) => {
+                if(resp.status == 404)  {
+                    alert("El usuario no existe.")
+                    return false
+                }
+                return resp.json() 
+                
+            })
+            .then(function(data) {
+                if (data === false) {
+                    return false;
+                }
+                obj = data
+                login.value = obj.login
+                id.value = obj.id
+                avatar.src = obj.avatar_url
+                url_user.href = obj.html_url
+                nombre_user.value = obj.name
+                console.log(login)
+                console.log(id)
+                console.log(avatar)
+                console.log(url_user)
+                console.log(nombre_user)
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
         }
     </script>
 </body>
