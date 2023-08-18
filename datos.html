@@ -161,6 +161,12 @@
         function changeColor() {
             var color = document.getElementById("color").value;
             $("#p4").css("color", color);
+            console.log(color);
+            if (color=="#ffffff") {
+                $("#p4").css("background-color", "black");
+            } else {
+                $("#p4").css("background-color", "white");
+            }
             document.getElementById("p4").innerHTML = "El codigo HEX es: " + color;
         }
     </script>
