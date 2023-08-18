@@ -151,6 +151,21 @@
             }
         }
     </script>
+    <hr>
+    <label>Elige el color al cual quieres cambiar las letras</label>
+    <input type="color" id="color">
+    <br>
+    <input type="button" onclick="changeColor()" value="Cambiar">
+    <p id="p4">El codigo HEX es:</p>
+    <script>
+        function changeColor() {
+            var color = document.getElementById("color").value;
+            $("#p4").css("color",color);
+            document.getElementById("p4").innerHTML = "El codigo HEX es: "+color;
+        }
+    </script>
+    <hr>
+    
 </body>
 
 </html>
