@@ -22,12 +22,12 @@
     <br>
     <label><span style="color: green">Dolares</span> a <span style="color: yellow ;">Bol</span><span
             style="color: blue ;">iva</span><span style="color: red ;">res</span></label>
-    <input type="button" value="Enviar" onclick="dolbol()">
+    <input type="button" value="Enviar" onclick="calculateDolbol()">
     <br>
     <p id="resultdolbol"></p>
     <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span
             style="color: red ;">res</span> a <span style="color: green">Dolares</span></label>
-    <input type="button" value="Enviar" onclick="boldol()">
+    <input type="button" value="Enviar" onclick="calculateResult()">
     <br>
     <p id="resultboldol"></p>
     <script>
@@ -37,16 +37,11 @@
             const tasa = parseFloat(document.getElementById("ts_cam").value);
             document.getElementById("ts_cam").value = "";
 
-            if (dol !== 0 || tasa !== 0 || !isNaN(dol) || !isNaN(tasa)) {
-                const resultado = dol * tasa;
-
-                if (resultado < 0) {
-                    document.getElementById("resultdolbol").innerHTML = 'Es negativo';
-                } else {
-                    document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2);
-                }
-            } else {
+            if (dol == 0 || tasa == 0 || isNaN(dol) || isNaN(tasa) || dol < 0 || tasa < 0) {
                 document.getElementById("resultdolbol").innerHTML = 'Error';
+            } else {
+                const resultado = dol * tasa;
+                document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2);
             }
         }
         function calculateResult() {
@@ -55,16 +50,11 @@
             const bol = document.getElementById("bol").value;
             document.getElementById("bol").value = "";
 
-            if (bol.length !== 0 || bol !== "" || tasa !== "0" || bol !== "0" || tasa !== "") {
-                const resultado = parseFloat(bol) / parseFloat(tasa);
-
-                if (resultado < 0) {
-                    document.getElementById("resultboldol").innerHTML = 'Es negativo';
-                } else {
-                    document.getElementById("resultboldol").innerHTML = resultado.toFixed(2);
-                }
-            } else {
+            if (bol == 0 || tasa == 0 || isNaN(bol) || isNaN(tasa) || bol < 0 || tasa < 0) {
                 document.getElementById("resultboldol").innerHTML = 'Error';
+            } else {
+                const resultado = parseFloat(bol) / parseFloat(tasa);
+                document.getElementById("resultboldol").innerHTML = resultado.toFixed(2);
             }
         }
     </script>
