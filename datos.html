@@ -41,7 +41,7 @@
                 document.getElementById("resultdolbol").innerHTML = 'Error';
             } else {
                 const resultado = dol * tasa;
-                document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2)+" Bs";
+                document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2) + " Bs";
             }
         }
         function calculateResult() {
@@ -54,7 +54,7 @@
                 document.getElementById("resultboldol").innerHTML = 'Error';
             } else {
                 const resultado = parseFloat(bol) / parseFloat(tasa);
-                document.getElementById("resultboldol").innerHTML = resultado.toFixed(2)+" $";
+                document.getElementById("resultboldol").innerHTML = resultado.toFixed(2) + " $";
             }
         }
     </script>
@@ -221,37 +221,121 @@
         function datos2() {
             var url = "https://api.github.com/users/" + document.getElementById("user").value
             fetch(url)
-            .then((resp) => {
-                if(resp.status == 404)  {
-                    alert("El usuario no existe.")
-                    return false
-                }
-                return resp.json() 
-                
-            })
-            .then(function(data) {
-                if (data === false) {
-                    return false;
-                }
-                obj = data
-                login.value = obj.login
-                id.value = obj.id
-                avatar.src = obj.avatar_url
-                url_user.href = obj.html_url
-                if (obj.name == null) {
-                    nombre_user.value="Indefinido"
-                } else {
-                    nombre_user.value = obj.name
-                }
-                console.log(login)
-                console.log(id)
-                console.log(avatar)
-                console.log(url_user)
-                console.log(nombre_user)
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+                .then((resp) => {
+                    if (resp.status == 404) {
+                        alert("El usuario no existe.")
+                        return false
+                    }
+                    return resp.json()
+
+                })
+                .then(function (data) {
+                    if (data === false) {
+                        return false;
+                    }
+                    obj = data
+                    login.value = obj.login
+                    id.value = obj.id
+                    avatar.src = obj.avatar_url
+                    url_user.href = obj.html_url
+                    if (obj.name == null) {
+                        nombre_user.value = "Indefinido"
+                    } else {
+                        nombre_user.value = obj.name
+                    }
+                    console.log(login)
+                    console.log(id)
+                    console.log(avatar)
+                    console.log(url_user)
+                    console.log(nombre_user)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    </script>
+    <hr>
+    <label>Pulse el boton para generar una imagen aleatoria de un gato</label>
+    <input type="button" onclick="randomCat()" value="Generar">
+    <br>
+    <img src="" id="imgCat" width="150px" weight="150px">
+    <br>
+    <label>Pulse el boton para generar una imagen aleatoria de un perro</label>
+    <input type="button" onclick="randomDog()" value="Generar">
+    <br>
+    <img src="" id="imgDog" width="150px" weight="150px">
+    <script>
+        function randomCat() {
+            var imgCat = document.getElementById("imgCat")
+            fetch("https://api.thecatapi.com/v1/images/search")
+                .then((resp) => {
+                    return resp.json()
+                })
+                .then(function (data) {
+                    obj = data[0]
+                    imgCat.src = obj.url
+                })
+        }
+        function randomDog() {
+            var imgDog = document.getElementById("imgDog")
+            fetch("https://api.thedogapi.com/v1/images/search")
+                .then((resp) => {
+                    return resp.json()
+                })
+                .then(function (data) {
+                    obj = data[0]
+                    imgDog.src = obj.url
+                })
+        }
+    </script>
+    <hr>
+    <label>Elige el pais que quieres ver su bandera: </label>
+    <select id="paises">
+        <option value="es">España</option>
+        <option value="hr">Croacia</option>
+        <option value="us">Estados Unidos</option>
+        <option value="it">Italia</option>
+        <option value="br">Brasil</option>
+        <option value="ve">Venezuela</option>
+        <option value="ru">Rusia</option>
+        <option value="mt">Malta</option>
+        <option value="ma">Marruecos</option>
+        <option value="gr">Grecia</option>
+        <option value="de">Alemania</option>
+        <option value="pt">Portugal</option>
+        <option value="si">Eslovenia</option>
+    </select>
+    <br>
+    <img src="" id="bandera" width="150px" weight="150px">
+    <br>
+    <label>Nombre oficial (en el idioma local)</label>
+    <input type="text" id="official_name" style="width: 250px;">
+    <br>
+    <input type="button" onclick="pais()" value="Enviar">
+    <script>
+        var bandera = document.getElementById("bandera")
+        var official_name= document.getElementById("official_name")
+        function pais() {
+            var codigo = document.getElementById("paises").value
+            console.log(codigo)
+            var options = {
+                method: 'GET',
+                headers: {
+                    'X-BLOBR-KEY': 'W11uenfx74einbeCI3qbU0NKWTy4eGOY'
+                },
+            };
+            var url = 'https://apis.thatapicompany.com/9diyyzzwr4w8bf4r/countries/' + codigo
+            fetch(url, options)
+                .then((resp) => {
+                    return resp.json()
+                })
+                .then(function (data) {
+                    obj=data
+                    bandera.src=obj.flag_urls.svg
+                    official_name.value=obj.official_name
+                    console.log(obj.flag_urls.svg)
+                })
+                .catch(err => console.error(err));
         }
     </script>
 </body>
