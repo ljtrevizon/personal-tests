@@ -114,15 +114,6 @@
     <input type="button" onclick="calculateDiscount()" value="Descuento">
     <p id="p3"></p>
     <script>
-        // This function calculates the new salary based on the current salary and a given percentage increase.
-        //
-        // Parameters:
-        // - currentSalary: A number representing the current salary.
-        // - percentageIncrease: A number representing the percentage increase.
-        //
-        // Returns:
-        // - None
-
         function calculateNewSalary() {
             var currentSalary = parseFloat(document.getElementById("sueldnum").value);
             var percentageIncrease = parseFloat(document.getElementById("porcnum").value);
@@ -135,18 +126,12 @@
             }
         }
         function calculateDiscount() {
-            // Get the input values
             var salary = parseFloat(document.getElementById("sueldnum").value);
             var percentage = parseFloat(document.getElementById("porcnum").value);
-
-            // Check if the input values are valid
             if (salary == 0 || isNaN(salary) || percentage == 0 || isNaN(percentage)) {
                 document.getElementById("p3").innerHTML = "Error.";
             } else {
-                // Calculate the new salary with the discount
                 var newSalary = salary - (salary * (percentage / 100));
-
-                // Display the new salary
                 document.getElementById("p3").innerHTML = "El nuevo salario es: " + newSalary;
             }
         }
