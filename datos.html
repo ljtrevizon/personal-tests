@@ -31,61 +31,125 @@
     <br>
     <p id="resultboldol"></p>
     <script>
-        var dol
-        var bol
-        var resultado
-        var tas
-        var p
-        function dolbol() {
-            dol = parseFloat(document.getElementById("dol").value)
-            document.getElementById("dol").value = ""
-            tasa = parseFloat(document.getElementById("ts_cam").value)
-            document.getElementById("ts_cam").value = ""
-            if (dol.lenght !== 0 || dol !== "" || tasa !== "0" || dol !== "0" || tasa !== "") {
-                console.log(dol, tasa)
-                resultado = parseFloat(dol) * parseFloat(tasa)
-                console.log(resultado)
-                if (resultado < 0) {
-                    p = document.getElementById("resultdolbol").innerHTML = 'Es negativo'
-                } else {
-                    p = document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2)
-                }
-            } else {
-                p = document.getElementById("resultdolbol").innerHTML = 'Error'
-            }
+        // Calculates the result of multiplying the input values and displays it on the webpage.
+
+        // Parameters:
+        // - None
+
+function calculateDolbol() {
+    const dol = parseFloat(document.getElementById("dol").value);
+    document.getElementById("dol").value = "";
+    const tasa = parseFloat(document.getElementById("ts_cam").value);
+    document.getElementById("ts_cam").value = "";
+
+    if (dol !== 0 || tasa !== 0 || !isNaN(dol) || !isNaN(tasa)) {
+        const resultado = dol * tasa;
+        
+        if (resultado < 0) {
+            document.getElementById("resultdolbol").innerHTML = 'Es negativo';
+        } else {
+            document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2);
         }
-        function boldol() {
-            tasa = document.getElementById("ts_cam").value
-            document.getElementById("ts_cam").value = ""
-            bol = document.getElementById("bol").value
-            document.getElementById("bol").value = ""
-            console.log(bol, tasa)
-            if (bol.lenght !== 0 || bol !== "" || tasa !== "0" || bol !== "0" || tasa !== "") {
-                console.log(bol, tasa)
-                resultado = parseFloat(bol) / parseFloat(tasa)
-                console.log(resultado)
-                if (resultado < 0) {
-                    p = document.getElementById("resultboldol").innerHTML = 'Es negativo'
-                } else {
-                    p = document.getElementById("resultboldol").innerHTML = resultado.toFixed(2)
-                }
-            } else {
-                p = document.getElementById("resultboldol").innerHTML = 'Error'
-            }
+    } else {
+        document.getElementById("resultdolbol").innerHTML = 'Error';
+    }
+}
+function calculateResult() {
+    const tasa = document.getElementById("ts_cam").value;
+    document.getElementById("ts_cam").value = "";
+    const bol = document.getElementById("bol").value;
+    document.getElementById("bol").value = "";
+
+    if (bol.length !== 0 || bol !== "" || tasa !== "0" || bol !== "0" || tasa !== "") {
+        const resultado = parseFloat(bol) / parseFloat(tasa);
+
+        if (resultado < 0) {
+            document.getElementById("resultboldol").innerHTML = 'Es negativo';
+        } else {
+            document.getElementById("resultboldol").innerHTML = resultado.toFixed(2);
         }
+    } else {
+        document.getElementById("resultboldol").innerHTML = 'Error';
+    }
+}
     </script>
     <hr>
     <label>Ingrese la cantidad de notas:</label>
     <input type="number" id="promnum">
     <br>
-    <input type="button" onclick="promedio()">
-    <div id="divprom">
-    </div>
+    <input type="button" onclick="promedio()" value="Enviar">
+    <p id="p2">El promedio es: </p>
     <script>
         function promedio() {
-            //
-            
+            var i = 0
+            var promnum = parseFloat(document.getElementById("promnum").value)
+            var notas = []
+            var promedio
+            var p2
+            console.log(promnum)
+            if (promnum == 0 || promnum - Math.floor(promnum) !== 0 || isNaN(promnum)) {
+                p2 = document.getElementById("p2").innerHTML = "Error."
+            } else {
+                while (i < promnum) {
+                    nota = parseInt(prompt("Agregue la nota " + (i + 1)))
+                    notas.push(nota)
+                    console.log(nota)
+                    console.log(notas)
+                    i++
+                }
+                promedio = (notas.reduce((curr, prev) => curr + prev, 0)) / promnum
+                p2 = document.getElementById("p2").innerHTML = "El promedio es: " + promedio
+                console.log(promedio)
+            }
         }
+    </script>
+    <hr>
+    <label>Ingrese el sueldo base</label>
+    <input type="number" id="sueldnum">
+    <br>
+    <label>Ingrese el procentaje</label>
+    <input type="number" id="porcnum">
+    <br>
+    <input type="button" onclick="calculateNewSalary()" value="Aumento">
+    <input type="button" onclick="calculateDiscount()" value="Descuento">
+    <p id="p3"></p>
+    <script>
+// This function calculates the new salary based on the current salary and a given percentage increase.
+//
+// Parameters:
+// - currentSalary: A number representing the current salary.
+// - percentageIncrease: A number representing the percentage increase.
+//
+// Returns:
+// - None
+
+function calculateNewSalary() {
+    var currentSalary = parseFloat(document.getElementById("sueldnum").value);
+    var percentageIncrease = parseFloat(document.getElementById("porcnum").value);
+
+    if (currentSalary == 0 || isNaN(currentSalary) || percentageIncrease == 0 || isNaN(percentageIncrease)) {
+        document.getElementById("p3").innerHTML = "Error.";
+    } else {
+        var newSalary = currentSalary + (currentSalary * (percentageIncrease / 100));
+        document.getElementById("p3").innerHTML = "El nuevo sueldo es: " + newSalary;
+    }
+}
+function calculateDiscount() {
+    // Get the input values
+    var salary = parseFloat(document.getElementById("sueldnum").value);
+    var percentage = parseFloat(document.getElementById("porcnum").value);
+    
+    // Check if the input values are valid
+    if (salary == 0 || isNaN(salary) || percentage == 0 || isNaN(percentage)) {
+        document.getElementById("p3").innerHTML = "Error.";
+    } else {
+        // Calculate the new salary with the discount
+        var newSalary = salary - (salary * (percentage / 100));
+        
+        // Display the new salary
+        document.getElementById("p3").innerHTML = "El nuevo salario es: " + newSalary;
+    }
+}
     </script>
 </body>
 
