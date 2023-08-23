@@ -212,7 +212,7 @@
     <label>URL</label>
     <a href="" id="url_user">Link</a>
     <br>
-    <script>
+    <script src="innecesario/llave.js">
         var login = document.getElementById("login")
         var id = document.getElementById("id")
         var avatar = document.getElementById("avatar")
@@ -224,6 +224,11 @@
                 .then((resp) => {
                     if (resp.status == 404) {
                         alert("El usuario no existe.")
+                        login.value = ""
+                        id.value = ""
+                        avatar.src = ""
+                        url_user.href = ""
+                        nombre_user.value = ""
                         return false
                     }
                     return resp.json()
@@ -355,7 +360,7 @@
                 url: 'https://deezerdevs-deezer.p.rapidapi.com/album/'+album_id,
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '3a60105bb7msh8dc9fbe2b106cacp1b316fjsnbf21f23983aa',
+                    'X-RapidAPI-Key': llave,
                     'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
                 }
             };
