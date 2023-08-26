@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="extensiones y otros archivos/jquery-3.6.1.js"></script>
     <link rel="stylesheet" href="extensiones y otros archivos/css_datos_voce.css" type="text/css" charset="utf-8">
+    <link rel="shorcut icon" class="imgRedonda" href="extensiones y otros archivos/icono.png">
     <title>Pruebas</title>
 </head>
 
@@ -212,7 +213,7 @@
     <label>URL</label>
     <a href="" id="url_user">Link</a>
     <br>
-    <script src="extensiones y otros archivos/llave.js">
+    <script>
         var login = document.getElementById("login")
         var id = document.getElementById("id")
         var avatar = document.getElementById("avatar")
@@ -350,24 +351,73 @@
     <img src="" id="img_album">
     <br>
     <input type="button" onclick="album()" value="Enviar">
+    <script src="extensiones y otros archivos/llave.js">
+    </script>
+    <hr>
+    <label>Ingrese el año</label>
+    <input type="number" id="year">
+    <br>
+    <input type="button" onclick="year()" value="Enviar">
+    <br>
+    <p id="p6"></p>
     <script>
-        var img_album = document.getElementById("img_album")
-        function album() {
-            var album_id = document.getElementById("album_id").value
-            const settings = {
-                async: true,
-                crossDomain: true,
-                url: 'https://deezerdevs-deezer.p.rapidapi.com/album/'+album_id,
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': llave,
-                    'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
-                }
-            };
-            $.ajax(settings).done(function (response) {
-                img_album.src= response.cover_medium
-                console.log(response);
-            });
+        function year() {
+            var year = parseInt(document.getElementById("year").value)
+            console.log(year)
+            if (year % 4 == 0) {
+                document.getElementById("p6").innerHTML = "El año "+ year + " es bisiesto"
+            } else {
+                document.getElementById("p6").innerHTML = "El año " + year + " no es bisiesto"
+            }
+        }
+    </script>
+    <hr>
+    <label>Ingrese un numero</label>
+    <input type="number" id="nums">
+    <br>
+    <input type="button" onclick="nums()" value="Enviar">
+    <br>
+    <p id="p7"></p>
+    <script>
+        var suma_num = []
+        var resultado_num
+        function nums() {
+            suma_num = []
+            var nums = parseInt(document.getElementById("nums").value)
+            console.log(nums)
+            for (i = 1; i <= nums; i++) {
+                suma_num.push(i)
+            }
+            console.log(suma_num+" y su suma es "+suma_num.reduce((curr,prev)=> curr+prev,0))
+            resultado_num = suma_num.reduce((curr,prev)=> curr+prev,0)
+            document.getElementById("p7").innerHTML = "La suma de todos los numeros hasta "+nums+" es: " +resultado_num
+        }
+    </script>
+    <hr>
+    <label>Ingrese un numero</label>
+    <input type="number" id="nums2">
+    <br>
+    <input type="button" onclick="nums2()" value="Enviar">
+    <br>
+    <p id="p8"></p>
+    <script>
+        var suma_num2 = []
+        var resultado_num2
+        function nums2() {
+            suma_num2 = []
+            var nums = parseInt(document.getElementById("nums2").value)
+            console.log(nums)
+            for (i = 1; i <= nums; i++) {
+                suma_num2.push(i)
+            }
+            console.log(suma_num2+" y su suma es "+suma_num2.reduce((curr,prev)=> curr*prev,1))
+            resultado_num2 = suma_num2.reduce((curr,prev)=> curr*prev,1)
+            if (resultado_num2==Infinity) {
+                alert("Error")
+                document.getElementById("p8").innerHTML = ""
+                return false
+            }
+            document.getElementById("p8").innerHTML = "La multiplicacion de todos los numeros hasta "+nums+" es: " +resultado_num2
         }
     </script>
 </body>
