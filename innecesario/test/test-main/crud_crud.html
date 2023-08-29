@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="jquery-3.6.1.js"></script>
+    <link rel="stylesheet" href="fonts2.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="minimal_table.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="cronometro.css" type="text/css" charset="utf-8">
+    <title>CRUD</title>
+</head>
+<body style="font-family: arial;">
+    <input type="button" id="ala" value="Presiona." onclick="aparece()">
+    <form>
+        <br>
+        <label>DNI</label>
+        <input type="number" id="dni">
+        <br>
+        <label>First Name</label>
+        <input type="text" id="f-name">
+        <br>
+        <label>Last Name</label>
+        <input type="text" id="l-name">
+        <br>
+        <label for="sex">Gender</label>
+        <input type="radio" name="sex" value="male" >Male
+        <input type="radio" name="sex" value="female">Female
+        <br>
+        <label>Age</label>
+        <input type="number" id="age">
+        <br>
+        <label>Adress</label>
+        <br>
+        <ul>
+            <li><label>Street Address</label></li>
+            <input type="text" id="streetaddress">
+            <li><label>City</label></li>
+            <input type="text" id="city">
+            <li><label>State</label></li><input type="text" id="state">
+            <li><label>Postal Code</label></li><input type="number" id="postalcode">
+        </ul>
+        <label>Phone Numbers</label>
+        <ul>
+            <li><label>Type</label></li>
+            <input type="text" id="typephone">
+            <li><label>Number</label></li>
+            <input type="number" id="numberphone">
+        </ul>
+        <br>
+        <input type="button" value="Guardar." onclick="guardardatos()">
+        <input type="reset" value="Cancelar." onclick="ocultar()">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <td>DNI</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Gender</td>
+                <td>Age</td>
+                <td>Address</td>
+                <td>Number</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var tabladato = []
+        $("form").hide()
+        function aparece()  {
+            $("form").show()
+        }
+        var url = "https://crudcrud.com/api/0f6351882abd44868dbd34b1a1bca813/users"
+        var data = 
+        {
+            "dni":0,
+            "firstName": "",
+            "lastName": "",
+            "gender": "",
+            "age": 0,
+            "address": {
+                "streetAddress": "",
+                "city": "",
+            "state": "",       
+            "postalCode": ""
+        },
+            "phoneNumbers": [
+                { "type": "", "number": "" }
+            ]
+        }
+        var options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+        $("input[type=reset]").click(function() {
+            $("form").hide()
+        })
+        function llenarlista() {
+            for (let i = 0; i < tabladato.length; i++) {
+                
+                
+            }
+        }
+    </script>
+</body>
+</html>

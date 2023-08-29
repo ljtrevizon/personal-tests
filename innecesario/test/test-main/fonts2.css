@@ -1,0 +1,30 @@
+@font-face {
+    font-family: riverbank;
+    src: url("fuentes/riverbank/Riverbank.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: Blackop;
+    src: url('blackopsone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Alien;
+    src: url("fuentes/alien-moon/AlienMoon.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: kelmscot;
+    src: url("fuentes/NicksFonts/KELMSCOT.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: madisi;
+    src: url("fuentes/NicksFonts/MADISI__.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-3.6.1.js"></script>
+    <link rel="stylesheet" href="fonts2.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="minimal_table.css" type="text/css" charset="utf-8">
+</head>
+<body>
+    <form>
+        <label>Materia</label>
+        <input type="text" id="materia" >
+        <br>
+        <label>Nota 1</label>
+        <input type="number" id="nota1">
+        <br>
+        <label>Nota 2</label>
+        <input type="number" id="nota2">
+        <br>
+        <label>Nota 3</label>
+        <input type="number" id="nota3">
+        <br>
+        <input type="button" value="Registrar" onclick="registrar()">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <td>Materia</td>
+                <td>1º Nota</td>
+                <td>2º Nota</td>
+                <td>3º Nota</td>
+                <td>Promedio Total</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Promedios:</td>
+                <td id="promedionota1"></td>
+                <td id="promedionota2"></td>
+                <td id="promedionota3"></td>
+                <td id="promediototal"></td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        var datosnum = []
+        var numero = 0
+        function RecabarDatos(nombre, nota1, nota2, nota3) {
+            this.nombre = nombre
+            this.nota1 = parseInt(nota1)
+            this.nota2 = parseInt(nota2)
+            this.nota3 = parseInt(nota3)
+            this.promedio = function(){
+                        return ((this.nota1+this.nota2+this.nota3)/3)
+
+                    }
+        }
+        function registrar() {
+            var materias = $("#materia").val()
+            $("#materia").val("")
+            var notas1 = $("#nota1").val()
+            $("#nota1").val("")
+            var notas2 = $("#nota2").val()
+            $("#nota2").val("")
+            var notas3 = $("#nota3").val()
+            $("#nota3").val("")
+            var promedio = (notas1+notas2+notas3)/3
+            console.log(materias)
+            console.log(notas1)
+            console.log(notas2)
+            console.log(notas3)
+            if (materias.length == 0 || notas1.length == 0 || notas2.length == 0 || notas3.length == 0 || promedio.length == 0) {
+                alert("No hay datos.")
+                return false
+            } else {
+                datosnum.push(new RecabarDatos(materias, notas1, notas2, notas3))
+                var sacarpromedio = datosnum.map(item => item.promedio()).reduce((prev, curr) => prev + curr, 0)
+                var promediototal = (sacarpromedio / datosnum.length).toFixed(2)
+                var sacarpromedio1 = datosnum.map(item => item.nota1).reduce((prev, curr) => prev + curr, 0)
+                var promediototal1 = (sacarpromedio1 / datosnum.length).toFixed(2)
+                var sacarpromedio2 = datosnum.map(item => item.nota2).reduce((prev, curr) => prev + curr, 0)
+                var promediototal2 = (sacarpromedio2 / datosnum.length).toFixed(2)
+                var sacarpromedio3 = datosnum.map(item => item.nota3).reduce((prev, curr) => prev + curr, 0)
+                var promediototal3 = (sacarpromedio3 / datosnum.length).toFixed(2)
+                
+                console.log(datosnum)
+            }
+            $("tbody").append(
+                "<tr>",
+                "<td>"+datosnum[numero].nombre+"</td>",
+                "<td>"+datosnum[numero].nota1+"</td>",
+                "<td>"+datosnum[numero].nota2+"</td>",
+                "<td>"+datosnum[numero].nota3+"</td>",
+                "<td>"+datosnum[numero].promedio().toFixed(2)+"</td>",
+                "</tr>"
+            )
+            $("#promediototal").text(promediototal)
+            $("#promedionota1").text(promediototal1)
+            $("#promedionota2").text(promediototal2)
+            $("#promedionota3").text(promediototal3)
+            numero = numero+1
+        }
+    </script>
+</body>
+</html>

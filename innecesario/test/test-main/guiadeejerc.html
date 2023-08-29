@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen</title>
+    <script type="text/javascript" src="jquery-3.6.1.js"></script>
+    <link rel="stylesheet" href="fonts2.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="minimal_table.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="cronometro.css" type="text/css" charset="utf-8"></head>
+<body>
+    <script>
+        //Funciones conjuntas.
+        function isprimo (numero) {
+                if (numero.length !== 0) {
+                    if (numero >= 2) {
+                        if (numero<=1) return false;
+                        for (var i = 2; i <= numero-1; i++) 
+                        if (numero % i == 0) return false
+                        return true;
+                    } else {
+                        console.log("1")
+                    }
+                }
+        }
+        function cualquiervalor(numero) {
+            console.log(numero)
+        }
+        function multiply(a,b) {
+            return a*b
+        }
+        function sumar(a,b) {
+            return a+b
+        }
+        function enteroverificar(numero) {
+            if (typeof numero !== 'number' || !Number.isInteger(numero)) {
+                console.log(numero+" no es un entero")
+            } else {
+                console.log(numero+" sí es un entero.")
+            }
+        }
+        (function muuu(){
+            alert("muuu.")
+        })()
+        function paresarray(array) {
+            return array.filter(c=>c%2==0)
+        }
+        function empiezavocal(array) {
+            return array.filter(c=>c.match(/^[aeiou]/))
+        }
+        function swap (arroriginal,from,to) {
+            index = arroriginal[from]
+            arroriginal.splice(from,1)
+            arroriginal.splice(to,0,index)
+        }
+        function swap2 (arroriginal,from,to) {
+            var arrcopy = [...arroriginal]
+            arrcopy[from]=arroriginal[to]
+            arrcopy[to]=arroriginal[from]
+            console.log(arrcopy)
+        }
+        function aplanar (array) {
+            array = array.concat.apply([], array)
+            console.log(array)
+        }
+        function split(array) {
+            var array2 = []
+            var array3 = []
+            var array4 = []
+            for (let i = 0; i < array.length; i++) {
+                if (array.length%2===0) {
+                    if (i<(array.length/2)) {
+                        array2=array.slice(0,(array.length/2))
+                        array3=array.slice((array.length/2),array.length)
+                    } else {
+                    }
+                } else {
+                    if (i<(array.length/2)+0.5) {
+                        array2=array.slice(0,((array.length/2)+0.5))
+                        array3=array.slice((array.length/2)+0.5)
+                    }
+                }
+            }
+            array4.push(array2)
+            array4.push(array3)
+            console.log(array4)
+        }
+        function arraycopia (array) {
+            array2=[...array]
+            console.log(array+" es la original.")
+            console.log(array2+" es la copia.")
+        }
+        function arraypromedio (array) {
+            if (array.length==0){
+                return 0
+            } else {
+                return array.reduce((curr,prev)=>prev+curr,0)/array.length
+            }
+        }
+        function promediohasta(array,from,to) {
+            var promedio = []
+            var resultado
+            for (let i = 0; i < array.length; i++) {
+                if (i>= from && i <= to) {
+                    promedio.push(array[i])
+                }
+            }
+            resultado = promedio.reduce((curr,prev)=> prev+curr,0) / promedio.length
+            console.log(resultado)
+        }
+        function Personitas (nombre, edad) {
+            this.nombre=nombre,
+            this.edad=edad,
+            this.mayoria=function() {
+                if (this.edad.match(/[^a-z]/) && this.edad.match(/[^A-Z]/)) {
+                    if (parseInt(this.edad)>=18) {
+                        return "es mayor de edad."
+                    } else {
+                        return "es menor de edad."
+                    }
+                }
+                    
+            }
+        }
+        function promediopersonas (array) {
+            return array.map(c=>c.edad).reduce((curr,prev)=>prev+curr,0)/array.length
+        }
+        function Telefono (telefono) {
+            this.telefono=telefono
+            this.numero_de_telefonos=0
+            this.llamados=function() {
+                return this.numero_de_telefonos++;
+            }
+        }
+    </script>
+    <h1 style="font-family:arial; color: red;">1</h1>
+    <p style="font-family: blackop ;">Crear un programa donde el usuario ingrese en un prompt la temperatura en Celcius <br> y el programa muestre en una alerta la temperatura en Fahrenheit.</p>
+    <input type="button" id="botoncelsius" value="Presiona">
+    <script>
+        $("#botoncelsius").click(function(){
+            var celsius = prompt("Ingrese temperatura en celsius.")
+            console.log(celsius)
+            var fahrenheit = (celsius*(9/5))+32
+            console.log(fahrenheit)
+            alert("Son: "+fahrenheit+" fahrenheits")
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">2</h1>
+    <p style="font-family: blackop ;">Escribir un programa que muestre un prompt donde el usuario ingresa un número, <br>luego muestra otro prompt pidiendo otro número, finalmente el programa <br> muestra una alerta con el resultado de la suma.</p>
+    <input type="button" id="botonnumeros" value="Presiona">
+    <script>
+        $("#botonnumeros").click(function(){
+            var numero1 = prompt("Ingrese un número.")
+            var numero2 = prompt("Ingrese 2 número.")
+            var numeros = parseInt(numero1)+parseInt(numero2)
+            alert("Su suma es: "+numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">3</h1>
+    <p style="font-family: blackop ;">Pedir un número a un usuario a través de un prompt y luego dividirlo por 10, ejemplo: 5 / 10 igual 0.5</p> 
+    <input type="button" id="botonnumeros2" value="Presiona">
+    <script>
+        $("#botonnumeros2").click(function(){
+            var numerodividido = prompt("Ingrese un número.")
+            var numerodividir = numerodividido/10
+            alert(numerodividir)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">4</h1>
+    <p style="font-family: blackop ;">Si a = [1,2,3] crear un script que determine de muestre un alert del tipo de dato de a.</p> 
+    <input type="button" id="botondatos" value="Presiona">
+    <script>
+        $("#botondatos").click(function(){
+            var a = [1,2,3]
+            alert("El tipo de datos de a es: "+typeof a)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">5</h1>
+    <p style="font-family: blackop ;">Crear un programa que determine si un número introducido en un Prompt es par o no, <br>la respuesta será mostrada en una alerta.</p> 
+    <input type="button" id="botonparimpar" value="Presiona">
+    <script>
+        $("#botonparimpar").click(function(){
+            var numeroparimpar = prompt("Ingrese un número.")
+            if (numeroparimpar % 2 == 0) {
+                alert(numeroparimpar+" es par")
+            } else {
+                alert(numeroparimpar+ " es impar")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">6</h1>
+    <p style="font-family: blackop ;">Crear un programa que determine si un número <br>introducido en un Prompt es divisible por 5 o no, mostrar el resultado con console.log
+    </p> 
+    <input type="button" id="botondivisible5" value="Presiona">
+    <script>
+        $("#botondivisible5").click(function(){
+            var numerodivisible5 = prompt("Ingrese un número.")
+            if (numerodivisible5 % 5 == 0) {
+                console.log(numerodivisible5 + " es divisible")
+            } else {
+                console.log(numerodivisible5+" no es divisible")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">7</h1>
+    <p style="font-family: blackop ;">Crear un programa que determine si un número introducido en un Prompt es divisible por 11 y 5 o no, <br>mostrar el resultado con console.log</p> 
+    <input type="button" id="botondivisible511" value="Presiona">
+    <script>
+        $("#botondivisible511").click(function(){
+            var numerodivisible511 = prompt("Ingrese un número.")
+            if (numerodivisible511 % 5 == 0 && numerodivisible511 % 11 == 0) {
+                console.log(numerodivisible511 + " es divisible")
+            } else {
+                console.log(numerodivisible511+" no es divisible")
+            }
+        })
+    </script>
+     <hr>
+     <h1 style="font-family:arial; color: red;">8</h1>
+     <p style="font-family: blackop ;">Crear un programa que le pida al usuario dos números en un Prompt y luego muestre en un alerta el número mayor.</p> 
+     <input type="button" id="botonmayormenor" value="Presiona">
+     <script>
+         $("#botonmayormenor").click(function(){
+            var numeromayormenor1 = prompt("Ingrese un número.")
+            var numeromayormenor2 = prompt("Ingrese un 2 número.")
+            alert(Math.max(numeromayormenor1,numeromayormenor2)+" es el mayor")
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">9</h1>
+    <p style="font-family: blackop ;">Crear un programa que le pida al usuario 1 un números al usuario a través de un prompt y luego un 2 número para <br>luego mostrar en un alerta el número mayor, esta vez realizar el ejercicio ocupando un if ternario.</p> 
+    <input type="button" id="botonmayormenor2" value="Presiona">
+    <script>
+         $("#botonmayormenor2").click(function(){
+            var numeromayormenor3 = prompt("Ingrese un número.")
+            var numeromayormenor4 = prompt("Ingrese un 2 número.")
+            var resultado = parseInt(numeromayormenor3) > parseInt(numeromayormenor4)?(alert(numeromayormenor3+" es el mayor")):(alert(numeromayormenor4+" es el mayor."))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">10</h1>
+    <p style="font-family: blackop ;">Crear un programa que determine si un string introducido por un usuario empieza con un número o con una letra.</p> 
+    <input type="button" id="botoncadena" value="Presiona">
+    <script>
+         $("#botoncadena").click(function(){
+            var cadena = prompt("Ingrese cadena de texto.")
+            var regexlet = /^([[:alpha:]])/
+            var regexnum = /^([[:digit:]])/
+            console.log(cadena)
+            if (cadena.match(/^[a-z]/) || cadena.match(/^[A-Z]/)) {
+                alert(cadena + " empieza con texto")
+            } else if (cadena.match(/^\d/)) {
+                alert(cadena +" empieza con números")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">11</h1>
+    <p style="font-family: blackop ;">Crear un programa donde se introduzcan los tres ángulos internos de un triángulo y <br>se determine si el triángulo es válido o no.</p> 
+    <input type="button" id="botontriangulo" value="Presiona">
+    <script>
+         $("#botontriangulo").click(function(){
+            var angulo1 = prompt("Ingrese un ángulo interno del triángulo")
+            var angulo2 = prompt("Ingrese otro ángulo interno del triángulo")
+            var angulo3 = prompt("Ingrese otro ángulo interno del triángulo")
+            if (angulo1 >= 0 && angulo1 <= 360 && angulo2 >= 0 && angulo2 <= 360 && angulo3 >= 0 && angulo3 <= 360) {
+                var angulosinternos = parseInt(angulo1)+parseInt(angulo2)+parseInt(angulo3)
+                if (angulosinternos===180) {
+                    alert("El triángulo es válido.")
+                } else {
+                    alert("El triángulo es inválido.")
+                }
+            } else {
+                alert("Devuelvete y hazlo bien.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">12</h1>
+    <p style="font-family: blackop ;">Determinar si una palabra empieza con mayúscula o no.</p> 
+    <input type="button" id="botonmayuscula" value="Presiona">
+    <script>
+         $("#botonmayuscula").click(function(){
+            var cadena2 = prompt("Ingrese cadena.")
+            if (cadena2.match(/^[A-Z]/)) {
+                alert("Empieza con mayúscula.")
+            } else {
+                alert("No empieza con mayúscula.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">13</h1>
+    <p style="font-family: blackop ;">Determinar si un año dado es bisiesto.</p> 
+    <input type="button" id="botonanyo" value="Presiona">
+    <script>
+        $("#botonanyo").click(function(){
+            var anyobisiesto = prompt("Ingrese un año.")
+            if (anyobisiesto % 4==0 && anyobisiesto % 100 != 0 || anyobisiesto % 400 == 0) {
+                alert(anyobisiesto + " es un año bisiesto.")
+            } else {
+                alert(anyobisiesto + " no es un año bisiesto.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">14</h1>
+    <p style="font-family: blackop ;">Escribir un programa JavaScript en el que el programa escoge al azar un entero entre 1 y 10, el usuario , <br> a el usuario se le pedirá que introduzca un número en un popup para intentar adivinarlo. Si la entrada del<br> usuario coincide con el número de conjetura, el programa mostrará un mensaje de "buen trabajo" de lo<br> contrario mostrará un mensaje de "No corresponde".</p> 
+    <input type="button" id="botonazar" value="Presiona">
+    <script>
+        $("#botonazar").click(function(){
+            var aleatorio = Math.round(Math.random()*10);
+            console.log(aleatorio)
+            var adivinanza = parseInt(prompt("Ingrese un número del 1 al 10."))
+            console.log(adivinanza)
+            if ( aleatorio === adivinanza) {
+                alert("Buen trabajo.")
+            } else {
+                alert("No corresponde.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">15</h1>
+    <p style="font-family: blackop ;">El siguiente código tiene un error que se produce en algunos casos especiales, descubrirlo y arreglarlo: 
+        <br><span style="font-family: arial">if (edad < 13) {
+            console.log("Es niño");
+        <br>}if(edad < 18 ){
+             console.log("Es adolecente");
+        <br>} else{
+             console.log("Es adolecente");
+        <br>}</span></p> 
+    <input type="button" id="botonerror" value="Presiona">
+    <script>
+        $("#botonerror").click(function(){
+            var edad = prompt("Ingrese edad.")
+            if (edad < 13) { 
+                console.log("Es niño");
+            } 
+            if(edad >= 13 && edad <=19 ){ 
+                console.log("Es adolecente");
+            } else if (edad > 19 ){ 
+                console.log("Es adulto");
+            }
+            // El error es que si se ingresaba un número menor a 13, edad actuaba en los dos if (dado que son diferentes), por ende saltaba "es un niño" y "es un adolescente"
+            // La solución era modificar el 2 if poniendo "edad >= 13 && edad <= 19", mientras en el else (tenía que ser edad > 19), se cambia a "console.log ("es un adulto")"
+            // Otra posible solución sería conectar el 2 if con el 1, con un else if, pero con los cambios que se da en la segunda opción.
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">16</h1>
+    <p style="font-family: blackop ;">Negar las siguientes expresión de forma de mantener la tabla de verdad, crear el programa que muestre <br>el valor de la expresión a medida que se cambia los valores de a y b. 
+        <br><span style="font-family: arial"><ul>
+            <li>!a && !b</li>
+            <li>!a || !b</li>
+        </ul></span></p> 
+    <input type="button" id="botonverdad" value="Presiona">
+    <script>
+        $("#botonverdad").click(function(){
+            var a = true
+            var b = true
+            if (!(!a && !b)) {
+                alert("Soy superman.")
+                a = !a
+                b = !b
+            }
+            if (!(!a || !b)) {
+                alert("Soy batman.")  
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">17</h1>
+    <p style="font-family: blackop ;">Mostrar todos los números de 1 a n aumentando de 1 en 1 donde n lo ingresa el usuario en un prompt.</p> 
+    <input type="button" id="botonnumeros3" value="Presiona">
+    <script>
+        $("#botonnumeros3").click(function(){
+            var n = prompt("Ingrese un número.")
+            var i = 1
+            var numeros = []
+            while (i <= n){
+                numeros.push(i);
+                i++;
+            }
+            alert(numeros.map(item => item))
+            console.log(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">18</h1>
+    <p style="font-family: blackop ;">Mostrar todos los números de 1 a N aumentando de 2 en 2 donde n lo ingresa el usuario en un prompt.</p> 
+    <input type="button" id="botonnumeros4" value="Presiona">
+    <script>
+        $("#botonnumeros4").click(function(){
+            var n = prompt("Ingrese un número.")
+            var i = 1
+            var numeros = []
+            while (i <= n*2){
+                numeros.push(i);
+                i=i+2;
+            }
+            alert(numeros.map(item => item))
+            console.log(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">19</h1>
+    <p style="font-family: blackop ;">Mostrar todos los números de N a 1 disminuyendo de 1 en 1 donde n lo ingresa el usuario en un prompt.</p> 
+    <input type="button" id="botonnumeros5" value="Presiona">
+    <script>
+        $("#botonnumeros5").click(function(){
+            var n = parseInt(prompt("Ingrese un número."))
+            var i = 1
+            var numeros = []
+            while (n >= i){
+                numeros.push(n);
+                n=n-1;
+            }
+            alert(numeros.map(item => item))
+            console.log(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">20</h1>
+    <p style="font-family: blackop ;">Escribir utilizando console.log la tabla del 9 hasta 9x10.</p> 
+    <input type="button" id="botonnumeros6" value="Presiona">
+    <script>
+        $("#botonnumeros6").click(function(){
+            var n = 9
+            var i = 1
+            var numeros = []
+            while (i<=10){
+                console.log(i*n);
+                i++;
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">21</h1>
+    <p style="font-family: blackop ;">Pedir al usuario que ingrese un número en un prompt, hacer la suma de todos los dígitos, validar <br>que el número ingresado no contenga letras.</p> 
+    <input type="button" id="botonnumeros7" value="Presiona">
+    <script>
+        $("#botonnumeros7").click(function(){
+            var n = prompt("Ingrese un número")
+            var i = 0
+            var numeros = []
+            if (n.match(/[^A-Z]/) && n.match(/[^a-z]/) && n.length > 0) {
+                while (i<=0){
+                    numeros = [... `${n}`].map(c => parseInt(c)).reduce((prev, curr) => prev + curr, 0)
+                    i++;
+                }
+                alert(numeros)
+            } else {
+                alert("Tiene letras o no tiene nada.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">22</h1>
+    <p style="font-family: blackop ;">Realizar la suma de todos los números pares entre N y M donde N y M los ingresa un usuario.</p> 
+    <input type="button" id="botonnumeros8" value="Presiona">
+    <script>
+        $("#botonnumeros8").click(function(){
+            var n = prompt("Ingrese un número")
+            var m = prompt("Ingrese un número")
+            var i = n
+            var numeros = []
+            var pares
+            if ((n.match(/[^A-Z]/) && n.match(/[^a-z]/) && n.length > 0) && (m.match(/[^A-Z]/) && m.match(/[^a-z]/) && m.length > 0)) {
+                while (i>=n, i<=m){
+                    if (i % 2 == 0) {
+                        numeros.push(i)
+                        pares = numeros.map(c => c).reduce((prev, curr) => prev + curr, 0)
+                    }
+                    i++;
+                }
+                alert(pares)
+            } else {
+                alert("Tiene letras o no tiene nada.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">23</h1>
+    <p style="font-family: blackop ;">Realizar la sumatoria de los 1s N números, donde N es ingresado por el usuario.</p> 
+    <input type="button" id="botonnumeros9" value="Presiona">
+    <script>
+        $("#botonnumeros9").click(function(){
+            var b = prompt("Ingrese el número de lecturas que se realizará.")
+            var i = 1
+            var numeros = []
+            var sumar = []
+            while (i<=b){
+                n = prompt("Ingrese un número.")
+                if (n.match(/[^A-Z]/) && n.match(/[^a-z]/)) {
+                    numeros.push(n)
+                    sumar = numeros.map(c => parseInt(c)).reduce((prev, curr) => prev + curr, 0)
+                    console.log(sumar)
+                    console.log(numeros)
+                }
+                i++;
+            }
+            alert(sumar)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">24</h1>
+    <p style="font-family: blackop ;">Realizar el factorial de los 1s N números.</p> 
+    <input type="button" id="botonnumeros10" value="Presiona">
+    <script>
+        $("#botonnumeros10").click(function(){
+            var b = prompt("Ingrese el número de lecturas que se realizará.")
+            var i = 1
+            var numeros = []
+            while (i<=b){
+                n = prompt("Ingrese un número.")
+                var resultado = n
+                if (n.match(/[^A-Z]/) && n.match(/[^a-z]/)) {
+                    if (n === 1 || n === 0) {
+                        numeros.push(1)
+                    } else {
+                        while (n > 1) {
+                            n--;
+                            resultado = resultado*n
+                        }
+                        numeros.push(resultado)
+                    }
+                }
+                i++;
+            }
+            alert(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">25</h1>
+    <p style="font-family: blackop ;">Encontrar todos los divisores de un número.</p> 
+    <input type="button" id="botonnumeros11" value="Presiona">
+    <script>
+        $("#botonnumeros11").click(function(){
+            var b = prompt("Ingrese un número.")
+            var i = 1
+            var numeros = []
+            for (i; i <=b; i++) {
+                if (b.match(/[\d]/)) {
+                    if (b%i == 0) {
+                        numeros.push(i)
+                    };
+                }
+            }
+            alert(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">26</h1>
+    <p style="font-family: blackop ;">Determinar si un número ingresado por el usuario en un loop es primo o no, validar que el número ingresado sea mayor o igual a dos.</p> 
+    <input type="button" id="botonnumeros12" value="Presiona">
+    <script>
+        $("#botonnumeros12").click(function() {
+            var b = "1"
+            var primo
+            while (b.length !== 0) {
+                b = prompt("Ingrese un número.")
+                primo = isprimo(b)
+                console.log(primo)
+                if (primo == undefined || primo == null) {
+                    console.log("a")
+                } else {
+                    if (primo == true) {
+                        alert(b + " es primo")
+                    } else if (primo == false) {
+                        alert(b + " no es primo")
+                    }
+                }
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">27</h1>
+    <p style="font-family: blackop ;">Crear un programa que determine si un número es perfecto o no, (se dice que un número es perfecto si el número es igual a sus divisores).</p> 
+    <input type="button" id="botonnumeros13" value="Presiona">
+    <script>
+        $("#botonnumeros13").click(function(){
+            var b = prompt("Ingrese un número.")
+            n = parseInt(b)
+            var i = 1
+            var numeros = []
+            var perfecto
+            for (i; i <=b; i++) {
+                if (b.match(/[\d]/)) {
+                    if (b%i == 0) {
+                        numeros.push(i)
+                        console.log(numeros)
+                    };
+                }
+            }
+            numeros.pop()
+            console.log(numeros)
+            perfecto = numeros.map(c => parseInt(c)).reduce((prev, curr) => prev + curr, 0)
+            console.log(perfecto)
+            if (perfecto == n) {
+                alert("Es perfecto.")
+            } else {
+                console.log("a")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">28</h1>
+    <p style="font-family: blackop ;">Generar los 1s N números primos, donde n es ingresado por el usuario.</p> 
+    <input type="button" id="botonnumeros14" value="Presiona">
+    <script>
+        $("#botonnumeros14").click(function() {
+            var b = prompt("Ingrese el número de lecturas que se realizará.")
+            var i = 1
+            var primo
+            var numeros = []
+            while (i<=b){
+                n = prompt("Ingrese un número.")
+                primo = isprimo(n)
+                console.log(primo)
+                if (primo == undefined || primo == null) {
+                    console.log("a")
+                } else {
+                    if (primo == true) {
+                        numeros.push(n)
+                    } else if (primo == false) {
+                        console.log("a")
+                    }
+                }
+                i++;
+            }
+            alert(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">29</h1>
+    <p style="font-family: blackop ;">Generar los 1s N números perfectos.</p> 
+    <input type="button" id="botonnumeros15" value="Presiona">
+    <script>
+        $("#botonnumeros15").click(function(){
+            var b = prompt("Ingrese el número de lecturas que se realizará.")
+            var i = 1
+            var perfectos
+            var numeros = []
+            var numeros2 = []
+            while (i<=b){
+                if (b.length !== 0) {
+                    var n = prompt("Ingrese un número.")
+                    if (n.length !== 0) {
+                        for (var d = 1; d <=n; d++) {
+                            if (n.match(/[\d]/)) {
+                                if (n%d == 0) {
+                                    numeros2.push(d)
+                                    console.log(numeros2)
+                                };
+                            }
+                        }
+                        numeros2.pop()
+                        console.log(numeros2)
+                        perfecto = numeros2.map(c => parseInt(c)).reduce((prev, curr) => prev + curr, 0)
+                        console.log(perfecto)
+                        numeros2 = []
+                        console.log(numeros2)
+                        if (perfecto == n) {
+                            numeros.push(n)
+                        } else {
+                            console.log("a")
+                        }
+                        i++;
+                        console.log(numeros)
+                    } else {
+                        i=b+1
+                    }
+                } else {
+                    i = b+1
+                }
+            }
+            alert(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">30</h1>
+    <p style="font-family: blackop ;">Dibujar los siguientes patrones ocupando document.write, para rellenar los espacios <br>vacíos se debe imprimir un espacio vacío.
+        <br>Cuadrado lleno:<br><br>
+        <span style="font-family: Arial, Helvetica, sans-serif">*****<br>
+        *****<br>
+        *****<br>
+        *****<br>
+        *****</span>
+    </p> 
+    <input type="button" id="patron1" value="Presiona">
+    <script>
+        $("#patron1").click(function(){
+            var resultado
+            for (let i = 1; i <= 5; ++i) {
+                resultado="Cuadrado lleno: <br>"
+                for (let j = 1; j <= i; ++j) {
+                    resultado += "*****<br>"
+                }
+            }      
+            document.write(resultado)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">31</h1>
+    <p style="font-family: blackop ;">Cuadrado hueco:<br><br>
+        <span style="font-family: arial">*****<br>
+            *<span style="color:white">***</span>*<br>
+            *<span style="color:white">***</span>*<br>
+            *<span style="color:white">***</span>*<br>
+            *****
+        </span>
+    </p> 
+    <input type="button" id="patron2" value="Presiona">
+    <script>
+        $("#patron2").click(function(){
+            var resultado
+            for (let i = 1; i <= 5; ++i) {
+                resultado="Cuadrado hueco: <br>"
+                for (let j = 1; j <= 1; ++j) {
+                    resultado += "*****<br>"
+                    for (let g = 1; g <=3; ++g) {
+                        resultado +="*<span style=color:white>***</span>*<br>"
+                    }
+                    for (let l = 1; l <=1; ++l) {
+                            resultado +="*****"
+                            
+                    }
+                }
+                
+            }      
+            document.write(resultado)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">32</h1>
+    <p style="font-family: blackop ;">Tablero de Ajedrez::<br><br>
+        <span style="font-family: arial">
+            *<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<br>
+            <span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>
+            *<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>
+            <span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>
+            *<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<br>
+            <span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>
+            *<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<br>
+            <span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>
+
+        </span>
+    </p> 
+    <input type="button" id="patron3" value="Presiona">
+    <script>
+        $("#patron3").click(function(){
+            var resultado
+                for (let i = 1; i <= 4; ++i) {
+                    resultado="Ajedrez: <br>"
+                    for (let j = 1; j <= i/2; ++j) {
+                        resultado += "*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<br>"
+                        for (let l = 1; l <=i/4; l++) {
+                            resultado += "<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>";  
+                        }
+                    }
+                    for (let j = 1; j <= i/2; ++j) {
+                        resultado += "*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<br>"
+                        for (let l = 1; l <=i/4; l++) {
+                            resultado += "<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span>*<span style=color:white>*</span><br>";  
+                        }
+                    }
+                }      
+            document.write(resultado)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">33</h1>
+    <p style="font-family: blackop ;">Piramide izquierda<br><br>
+        <span style="font-family: arial">
+            *     <br>
+            **    <br>
+            ***   <br>
+            ****  <br>
+            ***** 
+        </span>
+    </p> 
+    <input type="button" id="patron4" value="Presiona">
+    <script>
+        $("#patron4").click(function(){
+            var resultado = ""
+            for (let i = 1; i <= 5; ++i) {
+                for (let j = 0; j <i; ++j) {
+                    resultado+="*"
+                }
+                resultado+="<br>"
+            }      
+            document.write(resultado) 
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">34</h1>
+    <p style="font-family: blackop ;">Piramide centrada<br><br>
+        <span style="font-family: arial">
+            *     <br>
+            ***    <br>
+            *****   <br>
+            *******  <br>
+            *********
+        </span>
+    </p> 
+    <input type="button" id="patron5" value="Presiona">
+    <script>
+        $("#patron5").click(function(){
+            var resultado = ""
+            for (let i = 1; i <= (5); ++i) {
+                for (let l = 1; l<i; ++l){
+                        resultado+="*"
+                    }
+                for (let j = 0; j <i; ++j) {
+                    
+                    resultado+="*"
+                }
+                resultado+="<br>"
+            }      
+            document.write(resultado) 
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">36</h1>
+    <p style="font-family: blackop ;">Piramide invertida<br><br>
+        <span style="font-family: arial">
+            *********<br>
+            *******  <br>
+            *****   <br>
+            ***  <br>
+            *
+        </span>
+    </p> 
+    <input type="button" id="patron6" value="Presiona">
+    <script>
+        $("#patron6").click(function(){
+            var n = 0
+            var resultado = ""
+            for (let i = 9; i>=(1);i-=2) {
+                for (let l = 0; l<i;l++){
+                    resultado+="*"
+                }
+                resultado+="<br/>"
+                n++
+            }      
+            document.write(resultado)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">37</h1>
+    <p style="font-family: blackop ;">Diamante<br><br>
+        <span style="font-family: arial">
+            *     <br>
+            ***    <br>
+            *****   <br>
+            *******  <br>
+            *********<br>
+            *******  <br>
+            *****   <br>
+            ***  <br>
+            *   <br>
+        </span>
+    </p> 
+    <input type="button" id="patron7" value="Presiona">
+    <script>
+        $("#patron7").click(function(){
+            var n = 0
+            var resultado = ""
+            for (let i = 1; i <= (4); ++i) {
+                for (let l = 1; l<i; ++l){
+                        resultado+="*"
+                    }
+                for (let j = 0; j <i; ++j) {
+                    
+                    resultado+="*"
+                }
+                resultado+="<br>"
+            }
+            for (let i = 9; i>=(1);i-=2) {
+                for (let l = 0; l<i;l++){
+                    resultado+="*"
+                }
+                resultado+="<br/>"
+                n++
+            }
+            document.write(resultado)      
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">38</h1>
+    <p style="font-family: blackop ;">Crear una función que reciba un valor cualquiera y lo muestre ocupando console.log(), llamar a la función pasando el valor 5.</p> 
+    <input type="button" id="funciones1" value="Presiona">
+    <script>
+        $("#funciones1").click(function(){
+            cualquiervalor(5)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">39</h1>
+    <p style="font-family: blackop ;">La siguiente función devuelve undefined en lugar de la multiplicación, se pide arreglarla.<br>
+        <span style="font-family: arial">
+            function multiply(a, b){<br>
+                a * b<br>
+              }<br>
+        </span>
+    </p> 
+    <input type="button" id="funciones2" value="Presiona">
+    <script>
+        $("#funciones2").click(function(){
+            console.log(multiply(5,5))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">40</h1>
+    <p style="font-family: blackop ;">Crear una función que reciba dos valores y devuelva la suma de ellos.</p> 
+    <input type="button" id="funciones3" value="Presiona">
+    <script>
+        $("#funciones3").click(function(){
+            console.log(sumar(5,1))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">41</h1>
+    <p style="font-family: blackop ;">Crear una función que reciba un número entero y muestre un error si el tipo de dato pasado es de otro tipo.</p> 
+    <input type="button" id="funciones4" value="Presiona">
+    <script>
+        $("#funciones4").click(function(){
+            enteroverificar(5)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">42</h1>
+    <p style="font-family: blackop ;">Crear una función autoejecutable que muestre "muuu" en pantalla.</p>
+    <hr>
+    <h1 style="font-family:arial; color: red;">43</h1>
+    <p style="font-family: blackop ;">Dado el array = [1,2,3,4,5,6].
+        <ul>
+            <li>Iterar por todos los elementos dentro de un array utilizando while y mostrarlos en pantalla.</li>
+            <li>Iterar por todos los elementos dentro de un array utilizando for y mostrarlos en pantalla.</li>
+            <li>Iterar por todos los elementos dentro de un array utilizando .forEach y mostrarlos en pantalla.</li>
+            <li>Mostrar todos los elementos dentro de un array sumándole uno a cada uno.</li>
+            <li>Generar una copia de un array pero con todos los elementos incrementado en 1.</li>
+            <li>Calcular el promedio.</li>
+        </ul>
+    </p> 
+    <input type="button" id="arr1" value="Presiona">
+    <input type="button" id="arr2" value="Presiona">
+    <input type="button" id="arr3" value="Presiona">
+    <input type="button" id="arr4" value="Presiona">
+    <input type="button" id="arr5" value="Presiona">
+    <input type="button" id="arr6" value="Presiona">
+    <script>
+        $("#arr1").click(function(){
+            var arr = [1,2,3,4,5,6]
+            var i = 0
+            while (i<arr.length) {
+                alert(arr[i])
+                i++
+            }
+        })
+        $("#arr2").click(function(){
+            var arr = [1,2,3,4,5,6]
+            for (let i = 0; i < arr.length; i++) {
+                alert(arr[i])
+            }
+        })
+        $("#arr3").click(function(){
+            var arr = [1,2,3,4,5,6]
+            arr.forEach(element => {
+                alert(arr[element-1])
+            });
+        })
+        $("#arr4").click(function(){
+            
+            var arr = [1,2,3,4,5,6]
+            for (let i = 0; i < arr.length; i++) {
+                alert(arr[i]+1)
+            }
+        })
+        $("#arr5").click(function(){
+            var arr2 = []
+            var arr = [1,2,3,4,5,6]
+            for (let i = 0; i < arr.length; i++) {
+                arr2.push(arr[i]+1);
+                console.log(arr2)
+            }
+        })
+        $("#arr6").click(function(){
+            var arr = [1,2,3,4,5,6]
+            var arrr
+            var arr2
+            arrr = arr.map(c => c).reduce((prev, curr) => prev + curr, 0)
+            arr2 = arrr / arr.length
+            console.log(arr2)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">44</h1>
+    <p style="font-family: blackop ;">Crear un array vacío, luego generar 20 números al azar y guardarlos en un array.</p> 
+    <input type="button" id="arr7" value="Presiona">
+    <script>
+        $("#arr7").click(function(){
+            var arr = []
+            var i = 0
+            while (i<20) {
+                aleatorio = Math.round(Math.random()*10);
+                arr.push(aleatorio)
+                i++
+            }
+            console.log(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">45</h1>
+    <p style="font-family: blackop ;">Crear un array vacío, luego generar N números al azar y guardarlos en un array, N es introducido por el usuario a través de un prompt.</p> 
+    <input type="button" id="arr8" value="Presiona">
+    <script>
+        $("#arr8").click(function(){
+            var arr = []
+            var i = 0
+            var n = prompt("Ingrese cantidad de números.")
+            while (i<n) {
+                aleatorio = Math.round(Math.random()*10);
+                arr.push(aleatorio)
+                i++
+            }
+            console.log(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">46</h1>
+    <p style="font-family: blackop ;">Dado un array que contiene ["azul", "amarillo", "rojo", "verde", "café", "rosa"] determinar si un color introducido por el usuario a través de un prompt se encuentra dentro del array o no.</p> 
+    <input type="button" id="arr9" value="Presiona">
+    <script>
+        $("#arr9").click(function(){
+            var arr = ["azul", "amarillo", "rojo", "verde", "café", "rosa"]
+            var n = prompt("Ingrese un color.")
+            if (arr.find(c=>c === n )) {
+                alert("El color está aquí.")
+            } else {
+                alert("El color no está aquí.")
+            }
+            console.log(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">47</h1>
+    <p style="font-family: blackop ;">El usuario ingrese un string con varias palabras separadas por coma en un popup y se deben convertir en un array, (el usuario ingresa: "1,2,3,4,5" y se convierte en [1,2,3,4,5])</p> 
+    <input type="button" id="arrstring1" value="Presiona">
+    <script>
+        $("#arrstring1").click(function(){
+            var arr = prompt("Ingrese varias palabras y/o números, separados por letras.")
+            var arr2
+            arr2 = arr.split(",")
+            console.log(arr2)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">48</h1>
+    <p style="font-family: blackop ;">Convertir un array ingresado dentro del código en un string (existe un método en javascript para hacerlo)</p> 
+    <input type="button" id="arrstring2" value="Presiona">
+    <script>
+        $("#arrstring2").click(function(){
+            var arr = [1,2,3,4,5,6,7,8,9,10]
+            var arr2
+            arr2 = arr.toString()
+            console.log(arr2)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">49</h1>
+    <p style="font-family: blackop ;">Existen dos arrays, cada uno con 5 palabras, generar un nuevo array con la intersección de ambos elementos. (Ejemplo: [1,2,3] unión [1,2,4] = [1,2]).</p> 
+    <input type="button" id="arrstring3" value="Presiona">
+    <script>
+        $("#arrstring3").click(function(){
+            var arr = [1,2,3,4,5,8,9,10]
+            var arr2 = [1,2,3,4,5,6,7,8]
+            var arr3 = []
+            arr3 = arr.filter(a => arr2.includes(a))
+            console.log(arr3)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">50</h1>
+    <p style="font-family: blackop ;">Existen dos arrays, cada uno con 5 palabras, generar un nuevo array con la unión de ambos elementos, (Ejemplo: [1,2,3] unión [1,2,4] = [1,1,2,2,3,4]</p> 
+    <input type="button" id="arrstring4" value="Presiona">
+    <script>
+        $("#arrstring4").click(function(){
+            var arr = [1,2,3]
+            var arr2 = [1,2,4]
+            var arr3 = []
+            arr3 = arr.concat(arr2).sort((a,b)=> a > b ? 1:-1)
+            console.log(arr3)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">51</h1>
+    <p style="font-family: blackop ;">El usuario ingresa dos conjuntos de números separados por coma, el programa debe determinar si ambos conjuntos tienen la misma cantidad de números.</p> 
+    <input type="button" id="arrstring5" value="Presiona">
+    <script>
+        $("#arrstring5").click(function(){
+            var n = prompt("Ingrese un conjunto de números separados por comas.")
+            var b = prompt("Ingrese otro conjunto de números separados por comas.")
+            var arr = n.split(",")
+            var arr2 = b.split(",") 
+            console.log(arr,arr2)
+            if (arr.length === arr2.length) {
+                alert("Tienen la misma longitud.")
+            } else {
+                alert("No tienen la misma longitud.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">52</h1>
+    <p style="font-family: blackop ;">El usuario ingresa dos conjuntos de números separados por coma, el programa debe determinar si ambos conjuntos tienen la misma cantidad de números.</p> 
+    <input type="button" id="arrstring6" value="Presiona">
+    <script>
+        $("#arrstring6").click(function(){
+            var n = prompt("Ingrese un conjunto de números separados por comas.")
+            var b = prompt("Ingrese un conjunto de números separado por comas.")
+            var arr=n.split(",")
+            var arr2=b.split(",")
+            var arr3=[]
+            if (arr.length === arr2.length) {
+                for (let i = 0; i < arr.length; i++) {
+                    arr3.push(parseInt(arr[i])+parseInt(arr2[i]))               
+                }
+                console.log(arr3)
+            } else {
+                alert("La longitud no es la misma.")
+            }
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">53</h1>
+    <p style="font-family: blackop ;">Crear una función que reciba un arreglo con números y devuelva un nuevo arreglo con solo los números pares, hint: utilizar reduce()</p> 
+    <input type="button" id="arrfilt1" value="Presiona">
+    <script>
+        $("#arrfilt1").click(function(){
+            var arr = [1,2,3,4]
+            alert(paresarray(arr))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">54</h1>
+    <p style="font-family: blackop ;">Crear una función que reciba un arreglo con palabras, crear un nuevo arreglo que contenga solo las palabras que empiezan con una vocal.</p> 
+    <input type="button" id="arrfilt2" value="Presiona">
+    <script>
+        $("#arrfilt2").click(function(){
+            var arr = ["isla", "oso", "jaguar", "rey"]
+            alert(empiezavocal(arr))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">55</h1>
+    <p style="font-family: blackop ;">Crear un método que permite intercambiar las posiciones de dos elementos de un arreglo en base a sus índices.</p> 
+    <input type="button" id="arrord1" value="Presiona">
+    <script>
+        $("#arrord1").click(function(){
+            var arr = [4,2,3]
+            swap(arr,0,1)
+            alert(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">56</h1>
+    <p style="font-family: blackop ;">Realizar el mismo ejercicio anterior pero que en esta ocasión devuelva un arreglo nuevo con los datos cambiados.</p> 
+    <input type="button" id="arrord2" value="Presiona">
+    <script>
+        $("#arrord2").click(function(){
+            var arr = [4,2,3]
+            swap2(arr,0,1)
+            alert(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">57</h1>
+    <p style="font-family: blackop ;">Crear una función que permite aplanar un arreglo dado.</p> 
+    <input type="button" id="arrarr1" value="Presiona">
+    <script>
+        $("#arrarr1").click(function(){
+            var arr = [[1,2,3],[4,5,6],[7,8,9]]
+            aplanar(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">58</h1>
+    <p style="font-family: blackop ;">Crear una función que permite aplanar un arreglo dado.</p> 
+    <input type="button" id="arrarr1" value="Presiona">
+    <script>
+        $("#arrarr1").click(function(){
+            var arr = [[1,2,3],[4,5,6],[7,8,9]]
+            aplanar(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">59</h1>
+    <p style="font-family: blackop ;">Crear una función que divida un arreglo en dos partes con la misma cantidad de elementos <br>(o una diferencia de máximo un elemento) y devuelva un arreglo que contenga al grupo1 y al grupo2</p> 
+    <input type="button" id="arrarr2" value="Presiona">
+    <script>
+        $("#arrarr2").click(function(){
+            var arr = [1,2,3,4,5,6,7,8,9]
+            split(arr)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">60</h1>
+    <p style="font-family: blackop ;">Recorrer un arreglo de arreglos para mostrarlo como una matriz.</p> 
+    <input type="button" id="matriz" value="Presiona">
+    <script>
+        $("#matriz").click(function(){
+            var array = [[1,2,3],[4,5,6],[7,8,9]]
+            for (let i = 0; i < array.length; i++) {
+                $("#tabla1").append("<tr>")
+                for (let j = 0;j < array[i].length; j++)
+                    $("#tabla1").append(
+                    "<td>"+array[i][j]+"</td>"
+                )
+                $("#table1").append("</tr>")
+            }
+        })
+        
+    </script>
+    <table id="tabla1">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">61</h1>
+    <p style="font-family: blackop ;">Sumar [[1,1],[2,2]] con [[3,1],[3,2]].</p> 
+    <input type="button" id="matriz2" value="Presiona">
+    <script>
+        $("#matriz2").click(function(){
+            var arr = [[1,1],[2,2]]
+            var arr2 = [[3,1],[3,2]]
+            var arr3 = [[],[]]
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    arr3[i].push(arr[i][j]+arr2[i][j])
+                }
+            }
+            for (let i = 0; i < arr3.length; i++) {
+                $("#tabla2").append("<tr>")
+                for (let j = 0;j < arr3[i].length; j++)
+                    $("#tabla2").append(
+                    "<td>"+arr3[i][j]+"</td>"
+                )
+                $("#tabla2").append("</tr>")
+            }
+            console.log(arr3)
+        })
+    </script>
+    <table id="tabla2">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">62</h1>
+    <p style="font-family: blackop ;">Multiplicar una matriz por un escalar, si la matriz inicial es [[1,2,3],[4,5,6]], al multiplicarla por dos deberíamos obtener [[2,4,6],[8,10,12]].</p> 
+    <input type="button" id="matriz3" value="Presiona">
+    <script>
+        $("#matriz3").click(function(){
+            var arr = [[1,2,3],[4,5,6]]
+            var arr2 = [[],[]]
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    arr2[i].push(arr[i][j]*2)
+                }
+            }
+            console.log(arr2)
+            for (let i = 0; i < arr2.length; i++) {
+                $("#tabla3").append("<tr>")
+                for (let j = 0;j < arr2[i].length; j++)
+                    $("#tabla3").append(
+                    "<td>"+arr2[i][j]+"</td>"
+                )
+                $("#tabla3").append("</tr>")
+            }
+        })
+    </script>
+    <table id="tabla3">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">62</h1>
+    <p style="font-family: blackop ;">Encontrar el número mayor en una matriz.</p> 
+    <input type="button" id="matriz5" value="Presiona">
+    <script>
+        $("#matriz5").click(function(){
+            var arr = [[1,2,3],[4,5,6],[10,1,0.5]]
+            var mayor = 0
+            var menor = 900000000
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    if (arr[i][j] > mayor) {
+                        mayor = arr[i][j]
+                    }
+                    if (arr[i][j] < menor) {
+                        menor = arr[i][j]
+                    } 
+                }
+                
+            }
+            console.log(mayor)
+            console.log(menor)
+            for (let i = 0; i < arr.length; i++) {
+                $("#tabla4").append("<tr>")
+                for (let j = 0;j < arr[i].length; j++)
+                    $("#tabla4").append(
+                    "<td>"+arr[i][j]+"</td>"
+                )
+                $("#tabla4").append("</tr>")
+            }
+        })
+    </script>
+    <table id="tabla4">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">63</h1>
+    <p style="font-family: blackop ;">Determinar si un determinado número se encuentra dentro de una matriz o no.</p> 
+    <input type="button" id="matriz6" value="Presiona">
+    <script>
+        $("#matriz6").click(function(){
+            var arr = [[1,2,3],[4,5,6],[10,1,0.5]]
+            var indexof=2
+            var i=0
+            var verificar
+            var encontrado = false;
+            while (i < arr.length && encontrado==false) {
+                if (arr[i].indexOf(indexof) !== -1) {
+                    verificar = arr[i].indexOf(indexof)
+                    console.log(verificar)
+                    encontrado=true
+                } else {
+                    verificar=-1
+                }
+                i++
+            }
+            if (verificar !== -1) {
+                alert("El elemento está.")
+            } else {
+                console.log("a")
+            }
+            
+            for (let i = 0; i < arr.length; i++) {
+                $("#tabla5").append("<tr>")
+                for (let j = 0;j < arr[i].length; j++)
+                    $("#tabla5").append(
+                    "<td>"+arr[i][j]+"</td>"
+                )
+                $("#tabla5").append("</tr>")
+            }
+        })
+    </script>
+    <table id="tabla5">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">64</h1>
+    <p style="font-family: blackop ;">Devolver la suma de todos los elementos en la diagonal de la matriz.</p> 
+    <input type="button" id="matriz7" value="Presiona">
+    <script>
+        $("#matriz7").click(function(){
+            var arr = [[1,2,3],[4,5,6],[10,1,0.5]]
+            var diagonal = []
+            var i=0
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    if (i==j) {
+                            diagonal.push(arr[i][j])
+                    }
+                }
+            }
+            console.log(diagonal)
+            diagonal = diagonal.reduce((curr,prev)=> prev+curr,0)
+            console.log(diagonal)
+            for (let i = 0; i < arr.length; i++) {
+                $("#tabla6").append("<tr>")
+                for (let j = 0;j < arr[i].length; j++) {
+                    $("#tabla6").append(
+                        "<td>"+arr[i][j]+"</td>"
+                    )
+                    $("#tabla6").append("</tr>")
+                }
+            }
+        })
+    </script>
+    <table id="tabla6">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">64</h1>
+    <p style="font-family: blackop ;">Mostrar la transpuesta de una matriz.</p> 
+    <input type="button" id="matriz8" value="Presiona">
+    <script>
+        $("#matriz8").click(function(){
+            var mat = [[1,2,3],[4,5,6],[2,2,2]]
+            var diagonal = []
+            var i=0
+            for (var i = 0; i < mat.length; i++) { 
+                for (var j = 0; j < i; j++) { 
+                    const tmp = mat[i][j]; 
+                    mat[i][j] = mat[j][i]; 
+                    mat[j][i] = tmp; 
+                } 
+            }
+            for (let i = 0; i < mat.length; i++) {
+                $("#tabla7").append("<tr>")
+                for (let j = 0;j < mat[i].length; j++) {
+                    $("#tabla7").append(
+                        "<td>"+mat[i][j]+"</td>"
+                    )
+                    $("#tabla7").append("</tr>")
+                }
+            }
+        })
+    </script>
+    <table id="tabla7">
+    </table>
+    <hr>
+    <h1 style="font-family:arial; color: red;">65</h1>
+    <p style="font-family: blackop ;">Crear una función que reciba un arreglo como parámetro y devuelva una copia del arreglo.</p> 
+    <input type="button" id="arrfun1" value="Presiona">
+    <script>
+        $("#arrfun1").click(function(){
+            arraycopia([1,2,3])
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">66</h1>
+    <p style="font-family: blackop ;">Crear una función que devuelva el promedio de un arreglo, en caso de que el arreglo esté vacío debe devolver cero.</p> 
+    <input type="button" id="arrfun2" value="Presiona">
+    <script>
+        $("#arrfun2").click(function(){
+            console.log(arraypromedio([1,2,3]))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">67</h1>
+    <p style="font-family: blackop ;">Crear una función que calcule el promedio dentro de un arreglo pero dentro de un rango, esta función recibe el arreglo, un punto de partida y uno de termino y devuelve el promedio de los valores dentro del rango especificado.</p> 
+    <input type="button" id="arrfun3" value="Presiona">
+    <script>
+        $("#arrfun3").click(function(){
+            promediohasta([1,2,3,4],1,3)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">68</h1>
+    <p style="font-family: blackop ;">Personas.<br>
+        <ul style="font-family:arial">
+            <li>Crear un objeto literal persona con nombre y edad y una método que determine si es mayor de edad o no.</li>
+            <li>Crear una función constructora que permita crear objetos del tipo personas pasándole solo un nombre y edad, agregar el método.</li>
+            <li>Crear un array que contenga varios objetos persona.</li>
+            <li>Crear una función que reciba el array y devuelva la edad promedio del grupo de personas.</li>
+        </ul>
+    </p> 
+    <input type="button" id="arrfun4" value="Presiona">
+    <input type="button" id="arrfun5" value="Presiona">
+    <input type="button" id="arrfun6" value="Presiona">
+    <script>
+        $("#arrfun4").click(function(){
+            var persona = {
+                nombre:"",
+                edad:"",
+                mayoria:function() {
+                    if (this.edad.match(/[^a-z]/) && this.edad.match(/[^A-Z]/)) {
+                        if (parseInt(this.edad)>=18) {
+                            return "es mayor de edad."
+                        } else {
+                            return "es menor de edad."
+                        }
+                    }
+                    
+                }
+            }
+            persona.nombre=prompt("Ingrese un nombre.")
+            persona.edad=prompt("Ingrese una edad.")
+            alert("Su nombre es "+persona.nombre+", tiene "+persona.edad+" años y "+persona.mayoria())
+        })
+        $("#arrfun5").click(function(){
+            var i=0
+            var c = []
+            while(i<=5) {
+                var nombre = prompt("Ingrese un nombre.")
+                console.log(nombre)
+                var edad = prompt("Ingrese su edad.")
+                console.log(edad)
+                if (edad.match(/\d+/)){
+                    c.push(new Personitas(nombre,edad))
+                } else {
+                    console.log("a")
+                }
+                console.log(c, i)
+                console.log(c[i].mayoria())
+                i++
+            }
+        })
+        $("#arrfun6").click(function(){
+            var i=0
+            var c = []
+            while(i<=3) {
+                var nombre = prompt("Ingrese un nombre.")
+                console.log(nombre)
+                var edad = prompt("Ingrese su edad.")
+                console.log(edad)
+                if (edad.match(/\d+/)){
+                    c.push(new Personitas(nombre,edad))
+                }
+                i++
+            }
+            console.log(promediopersonas(c))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">68</h1>
+    <p style="font-family: blackop ;">Crear una función constructora que devuelva objetos del tipo teléfono, como argumento debe recibir un número de teléfono, el objeto creado tiene el número de llamadas que debe ser inicializado en cero y un método llamar que debe aumentar el número de llamados en uno.</p> 
+    <input type="button" id="arrfun8" value="Presiona">
+    <script>
+        $("#arrfun8").click(function(){
+            var i = 0
+            var numeros = []
+            while (i<=2) {
+                var tel = prompt("Ingrese un número de teléfono siguiendo estas indicaciones: [0-9]{3}-[0-9]{2}-[0-9]{3}")
+                if (tel.match(/[0-9]{3}-[0-9]{2}-[0-9]{3}$/)) {
+                    numeros.push(new Telefono (tel))
+                    numeros[i].llamados()
+                }
+                i++
+            }
+            console.log(numeros)
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">69</h1>
+    <p style="font-family: blackop ;">Utilizando getElementById y innerHTML transformar el emoticon en un smiley</p>
+    <p id="demo"> :( </p> 
+    <input type="button" id="arrfun9" value="Presiona">
+    <script>
+        $("#arrfun9").click(function(){
+            var smiley= document.getElementById("demo")
+            smiley.innerHTML=":)"
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">69</h1>
+    <p style="font-family: blackop ;">Utilizando la instrucción setInterval mostrar la hora exacta y actualizarla cada segundo.</p>
+    <p id="demo2"></p> 
+    <input type="button" id="arrfun10" value="Presiona">
+    <script>
+        function horas() {
+            var horario = document.getElementById("cronometro")
+            var horasistema = new Date()
+            if (horasistema.getSeconds() < 10) {
+                horario.innerHTML = horasistema.getHours()+":"+horasistema.getMinutes()+":"+"0"+horasistema.getSeconds()
+            } else if (horasistema.getMinutes() < 10) {
+                horario.innerHTML = horasistema.getHours()+":"+"0"+horasistema.getMinutes()+":"+horasistema.getSeconds()
+            } else if (horasistema.getHours() < 10) {
+                horario.innerHTML = "0"+horasistema.getHours()+":"+horasistema.getMinutes()+":"+horasistema.getSeconds()
+            } else if (horasistema.getSeconds() < 10 && horasistema.getMinutes() < 10) {
+                horario.innerHTML = horasistema.getHours()+":"+"0"+horasistema.getMinutes()+":"+"0"+horasistema.getSeconds()
+            } else if (horasistema.getSeconds() < 10 && horasistema.getHours() < 10) {
+                horario.innerHTML = "0"+horasistema.getHours()+":"+horasistema.getMinutes()+":"+"0"+horasistema.getSeconds()
+            } else if (horasistema.getMinutes() < 10 && horasistema.getHours() < 10) {
+                horario.innerHTML = "0"+horasistema.getHours()+":"+"0"+horasistema.getMinutes()+":"+horasistema.getSeconds()
+            } else if (horasistema.getHours() < 10 && horasistema.getSeconds() < 10 && horasistema.getMinutes() < 10) {
+                horario.innerHTML = "0"+horasistema.getHours()+":"+"0"+horasistema.getMinutes()+":"+"0"+horasistema.getSeconds()
+            } else {
+                horario.innerHTML = horasistema.getHours()+":"+horasistema.getMinutes()+":"+horasistema.getSeconds()
+            }
+        }
+        var cron = setInterval(horas, 1000)
+    </script>
+    <div id="cronometro"></div>
+    <hr>
+    <h1 style="font-family:arial; color: red;">69</h1>
+    <p style="font-family: blackop ;"> Dado el siguiente formulario.</p>
+    <div style="font-family: arial;">
+        <form name="personal_info">
+            <h1>Entrevista Personal</h1>
+            <label name="first_name_label">First name:</label>
+            <br>
+            <input type="text" name="tunombre" value="Luis">
+            <br>
+            Last name:
+            <br>
+            <input type="text" name="lastname">
+            <br>
+            Gender:
+            <br>
+            <input type="radio" name="sex" value="male" >Male
+            <br>
+            <input type="radio" name="sex" value="female" checked>Female
+            <br>
+            Favorite day of the week:
+            <br>
+                <select name="fav_day">
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option selected value="Monday">Monday</option>
+                </select>
+            <br>
+        </form>
+        <br><br>
+                
+        <form name="job_info">
+            <h1>Entrevista de trabajo</h1>
+            What's your major:
+            <br>
+            <input type="text" name="major">
+            <br>
+            What's your job title:
+            <br>
+            <input type="text" name="job_title">
+            <br>
+            
+            Do you like challenges:
+            <br>
+            <input type="radio" name="challenge" value="yes" checked>Yes
+            <br>
+            <input type="radio" name="challenge" value="no">No
+        </form>
+    </div>
+    <hr>
+    <h1 style="font-family:arial; color: red;">70</h1>
+    <p style="font-family: blackop ;">Mostrar con console.log el valor de un option cada vez que un usuario selecciones un option nuevo de un elemento select.</p>
+    <form>
+        <select id="prueba">
+            <option selected>Seleccione</option>
+            <option id="a">Hola</option>
+            <option id="b">Adiós</option>
+            <option id="c">Khe</option>
+        </select>
+    </form>
+    <input type="button" id="jquery1" value="Presiona">
+    <script>
+        $("#prueba").click(function(){
+            var a = document.getElementById("a")
+            var b = document.getElementById("b")
+            var c = document.getElementById("c")
+            if (a.selected) {
+                console.log($("#a").val())
+            } else if (b.selected) {
+                console.log($("#b").val())
+            } else if (c.selected) {
+                console.log($("#c").val())
+            }
+        })
+    </script>
+    <h1 style="font-family:arial; color: red;">71</h1>
+    <p style="font-family: blackop ;">Hacer que un link no salga de la página al hacer click, pero mostrar el valor de la página referida con console.log</p>
+    <a target="_blank" href="https://es.wikipedia.org/wiki/Estado_Delta_Amacuro">¿Conoces este lugar?</a>
+    <script>
+        $("a").click(function(event){
+            event.preventDefault()
+            console.log($("a").prop("href"))
+        })
+    </script>
+    <hr>
+    <h1 style="font-family:arial; color: red;">72</h1>
+    <p style="font-family: blackop ;">Hacer que un formulario no se envíe al hacer click en "enviar", en lugar de eso mostrar un texto en la página que el formulario fue enviado.</p>
+    <form style="font-family:arial">
+        <label>Materia</label>
+        <input type="text" id="materia" >
+        <br>
+        <label>Nota 1</label>
+        <input type="number" id="nota1">
+        <br>
+        <label>Nota 2</label>
+        <input type="number" id="nota2">
+        <br>
+        <label>Nota 3</label>
+        <input type="number" id="nota3">
+        <br>
+        <input type="submit">
+        <p id="texto10k"></p>
+    </form>
+    
+    <script>
+        $("input[type=submit]").click(function(event){
+            event.preventDefault()
+            $("#texto10k").text("El submit ha sido correctamente enviado.")
+        })
+    </script>
+    
+</body>
+</html

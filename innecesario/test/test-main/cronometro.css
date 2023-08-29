@@ -1,0 +1,12 @@
+#cronometro {
+    position:fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    border: 3px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: greenyellow;
+    box-shadow: 5px 5px 5px gray;
+    font-family: monospace;
+}
