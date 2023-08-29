@@ -65,10 +65,11 @@
     <input type="button" onclick="promedio()" value="Enviar">
     <p id="p2">El promedio es: </p>
     <script>
+        var notas = []
         function promedio() {
             var i = 0
             var promnum = parseFloat(document.getElementById("promnum").value)
-            var notas = []
+            notas = []
             var promedio
             var p2
             console.log(promnum)
@@ -83,7 +84,7 @@
                     i++
                 }
                 promedio = (notas.reduce((curr, prev) => curr + prev, 0)) / promnum
-                p2 = document.getElementById("p2").innerHTML = "El promedio es: " + promedio
+                p2 = document.getElementById("p2").innerHTML = "El promedio es: " + promedio.toFixed(2)
                 console.log(promedio)
             }
         }

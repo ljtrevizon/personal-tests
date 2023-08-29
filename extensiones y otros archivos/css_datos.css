@@ -9,7 +9,8 @@ table {
 h1 {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: #1FDF64;
+  color: #5BFF94;
+  background-color: #06062D;
   font-size: 1.5rem;
 }
 
@@ -39,10 +40,8 @@ caption {
   padding: 10px;
 }
 
-label,
-p,
-input {
-  font-family: Arial;
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .imgRedonda {
