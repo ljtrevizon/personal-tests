@@ -429,6 +429,81 @@
             document.getElementById("p8").innerHTML = "La multiplicacion de todos los numeros hasta "+nums+" es: " +resultado_num2
         }
     </script>
+    <hr>
+    <h1>Equipos</h1>
+    <label>Elige el equipo que quieres tener su informacion </label>
+    <select id="equipos">
+        <option value="barc">Barcelona FC</option>
+        <option value="madr">Real Madrid</option>
+        <option value="riv-pl">Club Atletico River Plate</option>
+        <option value="boc-jr">Club Atletico Boca Junior</option>
+        <option value="man-city">Manchester City</option>
+        <option value="atl-madr">Atletico de Madrid</option>
+        <option value="psg">Paris Saint-German</option>
+        <option value="man-utd">Manchester United</option>
+        <option value="liver">Liverpool FC</option>
+        <option value="dortm">Borussia Dortmund</option>
+        <option value="bay-mun">Bayern Munich</option>
+    </select>
+    <br>
+    <label>Nombre de la Liga</label>
+    <input type="text" id="nombre_liga" style="width: 250px;">
+    <br>
+    <label>Nro de Champions/Libertadore</label>
+    <input type="number" id="nro_champ-lib" style="width: 250px;">
+    <br>
+    <input type="button" onclick="equipos()" value="Enviar">
+    <script>
+        function equipos() {
+            document.getElementById("nombre_liga")
+            document.getElementById("nro_champ-lib")
+            var equipo = document.getElementById("equipos").value
+            if (equipo == "barc") {
+                document.getElementById("nombre_liga").value="LaLiga"
+                document.getElementById("nro_champ-lib").value=5
+            } 
+            if (equipo == "madr") {
+                document.getElementById("nombre_liga").value="LaLiga"
+                document.getElementById("nro_champ-lib").value=14
+            }
+            if (equipo == "riv-pl") {
+                document.getElementById("nombre_liga").value="Liga de Futbol Profesional (Argentina)"
+                document.getElementById("nro_champ-lib").value=4
+            }
+            if (equipo == "boc-jr") {
+                document.getElementById("nombre_liga").value="Liga de Futbol Profesional (Argentina)"
+                document.getElementById("nro_champ-lib").value=6
+            }
+            if (equipo == "man-city") {
+                document.getElementById("nombre_liga").value="Premier League"
+                document.getElementById("nro_champ-lib").value=1
+            }
+            if (equipo == "atl-madr") {
+                document.getElementById("nombre_liga").value="LaLiga"
+                document.getElementById("nro_champ-lib").value=0
+            }
+            if (equipo == "psg") {
+                document.getElementById("nombre_liga").value="Ligue One"
+                document.getElementById("nro_champ-lib").value=0
+            }
+            if (equipo == "man-utd") {
+                document.getElementById("nombre_liga").value="Premier League"
+                document.getElementById("nro_champ-lib").value=3
+            }
+            if (equipo == "liver") {
+                document.getElementById("nombre_liga").value="Premier League"
+                document.getElementById("nro_champ-lib").value=6
+            }
+            if (equipo == "dortm") {
+                document.getElementById("nombre_liga").value="Bundesliga"
+                document.getElementById("nro_champ-lib").value=0
+            }
+            if (equipo == "bay-mun") {
+                document.getElementById("nombre_liga").value="Bundesliga"
+                document.getElementById("nro_champ-lib").value=5
+            }
+        }
+    </script>
 </body>
 
 </html>
