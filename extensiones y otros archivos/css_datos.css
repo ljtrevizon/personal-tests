@@ -6,6 +6,13 @@ table {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1FDF64;
+  font-size: 1.5rem;
+}
+
 td,
 th {
   border: 1px solid rgb(190, 190, 190);

@@ -5,29 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="extensiones y otros archivos/jquery-3.6.1.js"></script>
-    <link rel="stylesheet" href="extensiones y otros archivos/css_datos_voce.css" type="text/css" charset="utf-8">
-    <link rel="shorcut icon" class="imgRedonda" href="extensiones y otros archivos/icono.png">
+    <link rel="stylesheet" href="extensiones y otros archivos/css_datos.css" type="text/css" charset="utf-8">
+    <link rel="shorcut icon" href="extensiones y otros archivos/icono.png">
     <title>Pruebas</title>
 </head>
 
 <body>
-    <label style="color: green;">Dolares</label>
+    <h1>Tasa de Cambio</h1>
+    <label>Dolares</label>
     <input id="dol" type="number">
     <br>
-    <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span
-            style="color: red ;">res</span></label>
+    <label>Bolivares</label>
     <input id="bol" type="number">
     <br>
     <label>Tasa de Cambio</label>
     <input id="ts_cam" type="number">
     <br>
-    <label><span style="color: green">Dolares</span> a <span style="color: yellow ;">Bol</span><span
-            style="color: blue ;">iva</span><span style="color: red ;">res</span></label>
+    <label>Dolares a Bolivares</label>
     <input type="button" value="Enviar" onclick="calculateDolbol()">
     <br>
     <p id="resultdolbol"></p>
-    <label><span style="color: yellow ;">Bol</span><span style="color: blue ;">iva</span><span
-            style="color: red ;">res</span> a <span style="color: green">Dolares</span></label>
+    <label>Bolivares a Dolares</label>
     <input type="button" value="Enviar" onclick="calculateResult()">
     <br>
     <p id="resultboldol"></p>
@@ -60,6 +58,7 @@
         }
     </script>
     <hr>
+    <h1>Promedio</h1>
     <label>Ingrese la cantidad de notas:</label>
     <input type="number" id="promnum">
     <br>
@@ -123,6 +122,7 @@
         }
     </script>
     <hr>
+    <h1>Colores</h1>
     <label>Elige el color al cual quieres cambiar las letras</label>
     <input type="color" id="color">
     <br>
@@ -142,6 +142,7 @@
         }
     </script>
     <hr>
+    <h1>Nombres</h1>
     <label>Tu nombre:</label>
     <input type="text" id="nombre">
     <br>
@@ -193,6 +194,7 @@
         }
     </script>
     <hr>
+    <h1>Github</h1>
     <label>Ingrese usuario de Github:</label>
     <input type="text" id="user">
     <br>
@@ -261,6 +263,7 @@
         }
     </script>
     <hr>
+    <h1>Gatos y Perros</h1>
     <label>Pulse el boton para generar una imagen aleatoria de un gato</label>
     <input type="button" onclick="randomCat()" value="Generar">
     <br>
@@ -295,6 +298,7 @@
         }
     </script>
     <hr>
+    <h1>Paises</h1>
     <label>Elige el pais que quieres ver su bandera: </label>
     <select id="paises">
         <option value="es">España</option>
@@ -345,6 +349,7 @@
         }
     </script>
     <hr>
+    <h1>Deezer</h1>
     <label>Ingrese el id del album en Deezer (los numeros en la url)</label>
     <input type="text" id="album_id">
     <br>
@@ -354,6 +359,7 @@
     <script src="extensiones y otros archivos/llave.js">
     </script>
     <hr>
+    <h1>Año</h1>
     <label>Ingrese el año</label>
     <input type="number" id="year">
     <br>
@@ -372,6 +378,7 @@
         }
     </script>
     <hr>
+    <h1>Suma de numeros</h1>
     <label>Ingrese un numero</label>
     <input type="number" id="nums">
     <br>
@@ -394,6 +401,7 @@
         }
     </script>
     <hr>
+    <h1>Multiplicacion de numeros</h1>
     <label>Ingrese un numero</label>
     <input type="number" id="nums2">
     <br>
@@ -410,7 +418,7 @@
             for (i = 1; i <= nums; i++) {
                 suma_num2.push(i)
             }
-            console.log(suma_num2+" y su suma es "+suma_num2.reduce((curr,prev)=> curr*prev,1))
+            console.log(suma_num2+" y su multiplicacion es "+suma_num2.reduce((curr,prev)=> curr*prev,1))
             resultado_num2 = suma_num2.reduce((curr,prev)=> curr*prev,1)
             if (resultado_num2==Infinity) {
                 alert("Error")
