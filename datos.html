@@ -90,6 +90,7 @@
         }
     </script>
     <hr>
+    <h1>Aumento o Descuento</h1>
     <label>Ingrese el sueldo base</label>
     <input type="number" id="sueldnum">
     <br>
@@ -372,7 +373,7 @@
             var year = parseInt(document.getElementById("year").value)
             console.log(year)
             if (year % 4 == 0) {
-                document.getElementById("p6").innerHTML = "El año "+ year + " es bisiesto"
+                document.getElementById("p6").innerHTML = "El año " + year + " es bisiesto"
             } else {
                 document.getElementById("p6").innerHTML = "El año " + year + " no es bisiesto"
             }
@@ -396,9 +397,9 @@
             for (i = 1; i <= nums; i++) {
                 suma_num.push(i)
             }
-            console.log(suma_num+" y su suma es "+suma_num.reduce((curr,prev)=> curr+prev,0))
-            resultado_num = suma_num.reduce((curr,prev)=> curr+prev,0)
-            document.getElementById("p7").innerHTML = "La suma de todos los numeros hasta "+nums+" es: " +resultado_num
+            console.log(suma_num + " y su suma es " + suma_num.reduce((curr, prev) => curr + prev, 0))
+            resultado_num = suma_num.reduce((curr, prev) => curr + prev, 0)
+            document.getElementById("p7").innerHTML = "La suma de todos los numeros hasta " + nums + " es: " + resultado_num
         }
     </script>
     <hr>
@@ -419,14 +420,14 @@
             for (i = 1; i <= nums; i++) {
                 suma_num2.push(i)
             }
-            console.log(suma_num2+" y su multiplicacion es "+suma_num2.reduce((curr,prev)=> curr*prev,1))
-            resultado_num2 = suma_num2.reduce((curr,prev)=> curr*prev,1)
-            if (resultado_num2==Infinity) {
+            console.log(suma_num2 + " y su multiplicacion es " + suma_num2.reduce((curr, prev) => curr * prev, 1))
+            resultado_num2 = suma_num2.reduce((curr, prev) => curr * prev, 1)
+            if (resultado_num2 == Infinity) {
                 alert("Error")
                 document.getElementById("p8").innerHTML = ""
                 return false
             }
-            document.getElementById("p8").innerHTML = "La multiplicacion de todos los numeros hasta "+nums+" es: " +resultado_num2
+            document.getElementById("p8").innerHTML = "La multiplicacion de todos los numeros hasta " + nums + " es: " + resultado_num2
         }
     </script>
     <hr>
@@ -459,48 +460,116 @@
             document.getElementById("nro_champ-lib")
             var equipo = document.getElementById("equipos").value
             if (equipo == "barc") {
-                document.getElementById("nombre_liga").value="LaLiga"
-                document.getElementById("nro_champ-lib").value=5
-            } 
+                document.getElementById("nombre_liga").value = "LaLiga"
+                document.getElementById("nro_champ-lib").value = 5
+            }
             if (equipo == "madr") {
-                document.getElementById("nombre_liga").value="LaLiga"
-                document.getElementById("nro_champ-lib").value=14
+                document.getElementById("nombre_liga").value = "LaLiga"
+                document.getElementById("nro_champ-lib").value = 14
             }
             if (equipo == "riv-pl") {
-                document.getElementById("nombre_liga").value="Liga de Futbol Profesional (Argentina)"
-                document.getElementById("nro_champ-lib").value=4
+                document.getElementById("nombre_liga").value = "Liga de Futbol Profesional (Argentina)"
+                document.getElementById("nro_champ-lib").value = 4
             }
             if (equipo == "boc-jr") {
-                document.getElementById("nombre_liga").value="Liga de Futbol Profesional (Argentina)"
-                document.getElementById("nro_champ-lib").value=6
+                document.getElementById("nombre_liga").value = "Liga de Futbol Profesional (Argentina)"
+                document.getElementById("nro_champ-lib").value = 6
             }
             if (equipo == "man-city") {
-                document.getElementById("nombre_liga").value="Premier League"
-                document.getElementById("nro_champ-lib").value=1
+                document.getElementById("nombre_liga").value = "Premier League"
+                document.getElementById("nro_champ-lib").value = 1
             }
             if (equipo == "atl-madr") {
-                document.getElementById("nombre_liga").value="LaLiga"
-                document.getElementById("nro_champ-lib").value=0
+                document.getElementById("nombre_liga").value = "LaLiga"
+                document.getElementById("nro_champ-lib").value = 0
             }
             if (equipo == "psg") {
-                document.getElementById("nombre_liga").value="Ligue One"
-                document.getElementById("nro_champ-lib").value=0
+                document.getElementById("nombre_liga").value = "Ligue One"
+                document.getElementById("nro_champ-lib").value = 0
             }
             if (equipo == "man-utd") {
-                document.getElementById("nombre_liga").value="Premier League"
-                document.getElementById("nro_champ-lib").value=3
+                document.getElementById("nombre_liga").value = "Premier League"
+                document.getElementById("nro_champ-lib").value = 3
             }
             if (equipo == "liver") {
-                document.getElementById("nombre_liga").value="Premier League"
-                document.getElementById("nro_champ-lib").value=6
+                document.getElementById("nombre_liga").value = "Premier League"
+                document.getElementById("nro_champ-lib").value = 6
             }
             if (equipo == "dortm") {
-                document.getElementById("nombre_liga").value="Bundesliga"
-                document.getElementById("nro_champ-lib").value=0
+                document.getElementById("nombre_liga").value = "Bundesliga"
+                document.getElementById("nro_champ-lib").value = 0
             }
             if (equipo == "bay-mun") {
-                document.getElementById("nombre_liga").value="Bundesliga"
-                document.getElementById("nro_champ-lib").value=5
+                document.getElementById("nombre_liga").value = "Bundesliga"
+                document.getElementById("nro_champ-lib").value = 5
+            }
+        }
+    </script>
+    <h1>Numeros pares e impares</h1>
+    <label>Ingrese un numero</label>
+    <input type="number" id="nums3">
+    <br>
+    <input type="button" onclick="num3()" value="Enviar">
+    <br>
+    <p id="p9_1"></p>
+    <p id="p9_2"></p>
+    <script>
+        var pares = []
+        var impares = []
+        function num3() {
+            pares = []
+            impares = []
+            var i = 0
+            var num3 = document.getElementById("nums3").value
+            if (num3 <= 0) {
+                alert("Error")
+            } else {
+                while (i <= num3) {
+                    if (i % 2 == 0 && i !== 0) {
+                        pares.push(" " + i)
+
+                    } else if (i !== 0) {
+                        impares.push(" " + i)
+
+                    }
+                    i++
+                }
+                console.log(pares.length)
+                console.log(impares.length)
+                if (pares.length >= 150 && impares.length >= 150) {
+                    document.write("<link rel='stylesheet' href='extensiones y otros archivos/css_datos.css' type='text/css' charset='utf-8'><h1>Numeros pares e impares</h1>")
+                    document.write("Los numeros pares son:" + pares + "." + "<br><br>")
+                    document.write("Los numeros impares son:" + impares + "." + "<hr>")
+                } else {
+                    document.getElementById("p9_1").innerHTML = "Los numeros pares son:" + pares + "."
+                    document.getElementById("p9_2").innerHTML = "Los numeros impares son:" + impares + "."
+                }
+            }
+        }
+    </script>
+    <h1>Divisores</h1>
+    <label>Ingrese un numero</label>
+    <input type="number" id="nums4">
+    <br>
+    <input type="button" onclick="num4()" value="Enviar">
+    <br>
+    <p id="p10"></p>
+    <script>
+        var divisores = []
+        function num4() {
+            divisores = []
+            var i = 0
+            var num4 = document.getElementById("nums4").value
+            if (num4 <= 0) {
+                alert("Error")
+            } else {
+                while (i <= num4) {
+                    if (num4 % i == 0 && i !== 0) {
+                        divisores.push(" " + i)
+                    }
+                    i++
+                }
+                document.getElementById("p10").innerHTML = "Los numeros divisores son:" + divisores + "."
             }
         }
     </script>
