@@ -7,6 +7,7 @@
     <script type="text/javascript" src="./extensiones/jquery-3.6.1.js"></script>
     <link rel="stylesheet" href="./extensiones/style.css" type="text/css" charset="utf-8">
     <link rel="shorcut icon" href="./extensiones/icono.png">
+    <script src="./extensiones/functions.js" type="text/javascript"></script>
     <title>Pruebas</title>
 </head>
 
@@ -537,7 +538,7 @@
                 console.log(pares.length)
                 console.log(impares.length)
                 if (pares.length >= 150 && impares.length >= 150) {
-                    document.write("<link rel='stylesheet' href='extensiones/css_datos.css' type='text/css' charset='utf-8'><h1>Numeros pares e impares</h1>")
+                    document.write("<link rel='stylesheet' href='extensiones/style.css' type='text/css' charset='utf-8'><h1>Numeros pares e impares</h1>")
                     document.write("Los numeros pares son:" + pares + "." + "<br><br>")
                     document.write("Los numeros impares son:" + impares + "." + "<hr>")
                 } else {
@@ -574,6 +575,27 @@
         }
     </script>
     <hr>
+    <h1>Generador de Contraseñas</h1>
+    <label>Ingrese la longitud de la contraseña</label>
+    <input type="number" id="nums5">
+    <br>
+    <input type="button" onclick="num5()" value="Enviar">
+    <br>
+    <p id="p11_1">La contraseña es: </p>
+    <p id="p11_2"></p>
+    <script>
+        function num5() {
+            var num5 = parseInt(document.getElementById("nums5").value)
+            if (num5 > 50 || num5 <= 0) {
+                alert("Tiene que ser un numero entre 1 y 50")
+            } else {
+                var password = password_generate(num5)
+                console.log(password.length)
+                document.getElementById("p11_2").innerHTML = password
+            }
+
+        }
+    </script>
 </body>
 
 </html>
