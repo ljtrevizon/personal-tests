@@ -1,5 +1,6 @@
 import math
 import random
+
 i = 0
 numeros = []
 n=random.randint(1,20)
