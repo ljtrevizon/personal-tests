@@ -358,9 +358,7 @@
     <br>
     <img src="" id="img_album">
     <br>
-    <input type="button" onclick="album()" value="Enviar">
-    <script src="extensiones/llave.js">
-    </script>
+    <input type="button" onclick="album('album_id','img_album')" value="Enviar">
     <hr>
     <h1>Año</h1>
     <label>Ingrese el año</label>
@@ -579,22 +577,11 @@
     <label>Ingrese la longitud de la contraseña</label>
     <input type="number" id="nums5">
     <br>
-    <input type="button" onclick="num5()" value="Enviar">
+    <input type="button" onclick="password_generate('nums5','p11_2')" value="Enviar">
     <br>
     <p id="p11_1">La contraseña es: </p>
     <p id="p11_2"></p>
     <script>
-        function num5() {
-            var num5 = parseInt(document.getElementById("nums5").value)
-            if (num5 > 50 || num5 <= 0) {
-                alert("Tiene que ser un numero entre 1 y 50")
-            } else {
-                var password = password_generate(num5)
-                console.log(password.length)
-                document.getElementById("p11_2").innerHTML = password
-            }
-
-        }
     </script>
 </body>
 
