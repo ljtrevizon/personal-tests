@@ -268,38 +268,16 @@
     <hr>
     <h1>Gatos y Perros</h1>
     <label>Pulse el boton para generar una imagen aleatoria de un gato</label>
-    <input type="button" onclick="randomCat()" value="Generar">
     <br>
     <img class="GatitoYPerro" src="" id="imgCat" width="150px" weight="150px">
     <br>
+    <input type="button" onclick="randomCat('imgCat')" value="Generar">
+    <br>
     <label>Pulse el boton para generar una imagen aleatoria de un perro</label>
-    <input type="button" onclick="randomDog()" value="Generar">
     <br>
     <img class="GatitoYPerro" src="" id="imgDog" width="150px" weight="150px">
-    <script>
-        function randomCat() {
-            var imgCat = document.getElementById("imgCat")
-            fetch("https://api.thecatapi.com/v1/images/search")
-                .then((resp) => {
-                    return resp.json()
-                })
-                .then(function (data) {
-                    obj = data[0]
-                    imgCat.src = obj.url
-                })
-        }
-        function randomDog() {
-            var imgDog = document.getElementById("imgDog")
-            fetch("https://api.thedogapi.com/v1/images/search")
-                .then((resp) => {
-                    return resp.json()
-                })
-                .then(function (data) {
-                    obj = data[0]
-                    imgDog.src = obj.url
-                })
-        }
-    </script>
+    <br>
+    <input type="button" onclick="randomDog('imgDog')" value="Generar">
     <hr>
     <h1>Paises</h1>
     <label>Elige el pais que quieres ver su bandera: </label>
@@ -324,33 +302,7 @@
     <label>Nombre oficial (en el idioma local)</label>
     <input type="text" id="official_name" style="width: 250px;">
     <br>
-    <input type="button" onclick="pais()" value="Enviar">
-    <script>
-        var bandera = document.getElementById("bandera")
-        var official_name = document.getElementById("official_name")
-        function pais() {
-            var codigo = document.getElementById("paises").value
-            console.log(codigo)
-            var options = {
-                method: 'GET',
-                headers: {
-                    'X-BLOBR-KEY': 'W11uenfx74einbeCI3qbU0NKWTy4eGOY'
-                },
-            };
-            var url = 'https://apis.thatapicompany.com/9diyyzzwr4w8bf4r/countries/' + codigo
-            fetch(url, options)
-                .then((resp) => {
-                    return resp.json()
-                })
-                .then(function (data) {
-                    obj = data
-                    bandera.src = obj.flag_urls.svg
-                    official_name.value = obj.official_name
-                    console.log(obj.flag_urls.svg)
-                })
-                .catch(err => console.error(err));
-        }
-    </script>
+    <input type="button" onclick="pais('bandera','official_name','paises')" value="Enviar">
     <hr>
     <h1>Deezer</h1>
     <label>Ingrese el id del album en Deezer (los numeros en la url)</label>
@@ -581,8 +533,6 @@
     <br>
     <p id="p11_1">La contraseña es: </p>
     <p id="p11_2"></p>
-    <script>
-    </script>
 </body>
 
 </html>
