@@ -292,6 +292,13 @@ function calculateDiscount(sueldo_id, porcent_id, p_id) {
 
 //Colores
 
+/**
+ * Changes the color of an element based on the value of a color input.
+ *
+ * @param {string} color_id - The ID of the color input element.
+ * @param {string} p_id - The ID of the element whose color will be changed.
+ * @return {undefined} The function does not return a value.
+ */
 function changeColor(color_id, p_id) {
     var color = document.getElementById(color_id).value;
     $('#' + p_id).css("color", color);
@@ -494,6 +501,14 @@ function nums2(nums_id, p_id) {
 
 var pares = []
 var impares = []
+/**
+ * Generates a function comment for the given function body.
+ *
+ * @param {string} numero_id - the ID of the input element for the number
+ * @param {string} p_1_id - the ID of the element to display the even numbers
+ * @param {string} p_2_id - the ID of the element to display the odd numbers
+ * @return {undefined} - no return value
+ */
 function num3(numero_id, p_1_id, p_2_id) {
     pares = []
     impares = []
@@ -545,6 +560,15 @@ function num4(numero_id, p_id) {
     return console.log(divisores)
 }
 //Tasas de cambio
+
+/**
+ * Calculates the product of two numbers and displays the result on the webpage.
+ *
+ * @param {string} dolar_id - The id of the input field containing the dollar value.
+ * @param {string} tasa_id - The id of the input field containing the exchange rate value.
+ * @param {string} resultado_id - The id of the HTML element where the result will be displayed.
+ * @return {undefined} The function does not return a value.
+ */
 function calculateDolbol(dolar_id, tasa_id, resultado_id) {
     var dol = parseFloat(document.getElementById(dolar_id).value);
     document.getElementById(dolar_id).value = "";
