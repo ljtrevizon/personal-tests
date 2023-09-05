@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <div>
+
+    </div>
     <h1>Tasa de Cambio</h1>
     <label>Dolares</label>
     <input id="dol" type="number">
@@ -23,73 +26,20 @@
     <input id="ts_cam" type="number">
     <br>
     <label>Dolares a Bolivares</label>
-    <input type="button" value="Enviar" onclick="calculateDolbol()">
+    <input type="button" value="Enviar" onclick="calculateDolbol('dol','ts_cam','resultdolbol')">
     <br>
     <p id="resultdolbol"></p>
     <label>Bolivares a Dolares</label>
-    <input type="button" value="Enviar" onclick="calculateResult()">
+    <input type="button" value="Enviar" onclick="calculateResult('ts_cam','bol','resultboldol')">
     <br>
     <p id="resultboldol"></p>
-    <script>
-        function calculateDolbol() {
-            const dol = parseFloat(document.getElementById("dol").value);
-            document.getElementById("dol").value = "";
-            const tasa = parseFloat(document.getElementById("ts_cam").value);
-            document.getElementById("ts_cam").value = "";
-
-            if (dol == 0 || tasa == 0 || isNaN(dol) || isNaN(tasa) || dol < 0 || tasa < 0) {
-                document.getElementById("resultdolbol").innerHTML = 'Error';
-            } else {
-                const resultado = dol * tasa;
-                document.getElementById("resultdolbol").innerHTML = resultado.toFixed(2) + " Bs";
-            }
-        }
-        function calculateResult() {
-            const tasa = document.getElementById("ts_cam").value;
-            document.getElementById("ts_cam").value = "";
-            const bol = document.getElementById("bol").value;
-            document.getElementById("bol").value = "";
-
-            if (bol == 0 || tasa == 0 || isNaN(bol) || isNaN(tasa) || bol < 0 || tasa < 0) {
-                document.getElementById("resultboldol").innerHTML = 'Error';
-            } else {
-                const resultado = parseFloat(bol) / parseFloat(tasa);
-                document.getElementById("resultboldol").innerHTML = resultado.toFixed(2) + " $";
-            }
-        }
-    </script>
     <hr>
     <h1>Promedio</h1>
     <label>Ingrese la cantidad de notas:</label>
     <input type="number" id="promnum">
     <br>
-    <input type="button" onclick="promedio()" value="Enviar">
+    <input type="button" onclick="promedio('promnum')" value="Enviar">
     <p id="p2">El promedio es: </p>
-    <script>
-        var notas = []
-        function promedio() {
-            var i = 0
-            var promnum = parseFloat(document.getElementById("promnum").value)
-            notas = []
-            var promedio
-            var p2
-            console.log(promnum)
-            if (promnum == 0 || promnum - Math.floor(promnum) !== 0 || isNaN(promnum)) {
-                p2 = document.getElementById("p2").innerHTML = "Error."
-            } else {
-                while (i < promnum) {
-                    nota = parseInt(prompt("Agregue la nota " + (i + 1)))
-                    notas.push(nota)
-                    console.log(nota)
-                    console.log(notas)
-                    i++
-                }
-                promedio = (notas.reduce((curr, prev) => curr + prev, 0)) / promnum
-                p2 = document.getElementById("p2").innerHTML = "El promedio es: " + promedio.toFixed(2)
-                console.log(promedio)
-            }
-        }
-    </script>
     <hr>
     <h1>Aumento o Descuento</h1>
     <label>Ingrese el sueldo base</label>
@@ -98,52 +48,16 @@
     <label>Ingrese el procentaje</label>
     <input type="number" id="porcnum">
     <br>
-    <input type="button" onclick="calculateNewSalary()" value="Aumento">
-    <input type="button" onclick="calculateDiscount()" value="Descuento">
+    <input type="button" onclick="calculateNewSalary('sueldnum','porcnum','p3')" value="Aumento">
+    <input type="button" onclick="calculateDiscount('sueldnum','porcnum','p3')" value="Descuento">
     <p id="p3"></p>
-    <script>
-        function calculateNewSalary() {
-            var currentSalary = parseFloat(document.getElementById("sueldnum").value);
-            var percentageIncrease = parseFloat(document.getElementById("porcnum").value);
-
-            if (currentSalary == 0 || isNaN(currentSalary) || percentageIncrease == 0 || isNaN(percentageIncrease)) {
-                document.getElementById("p3").innerHTML = "Error.";
-            } else {
-                var newSalary = currentSalary + (currentSalary * (percentageIncrease / 100));
-                document.getElementById("p3").innerHTML = "El nuevo sueldo es: " + newSalary;
-            }
-        }
-        function calculateDiscount() {
-            var salary = parseFloat(document.getElementById("sueldnum").value);
-            var percentage = parseFloat(document.getElementById("porcnum").value);
-            if (salary == 0 || isNaN(salary) || percentage == 0 || isNaN(percentage)) {
-                document.getElementById("p3").innerHTML = "Error.";
-            } else {
-                var newSalary = salary - (salary * (percentage / 100));
-                document.getElementById("p3").innerHTML = "El nuevo salario es: " + newSalary;
-            }
-        }
-    </script>
     <hr>
     <h1>Colores</h1>
     <label>Elige el color al cual quieres cambiar las letras</label>
     <input type="color" id="color">
     <br>
-    <input type="button" onclick="changeColor()" value="Cambiar">
+    <input type="button" onclick="changeColor('color','p4')" value="Cambiar">
     <p id="p4">El codigo HEX es:</p>
-    <script>
-        function changeColor() {
-            var color = document.getElementById("color").value;
-            $("#p4").css("color", color);
-            console.log(color);
-            if (color == "#ffffff") {
-                $("#p4").css("background-color", "black");
-            } else {
-                $("#p4").css("background-color", "white");
-            }
-            document.getElementById("p4").innerHTML = "El codigo HEX es: " + color;
-        }
-    </script>
     <hr>
     <h1>Nombres</h1>
     <label>Tu nombre:</label>
@@ -164,44 +78,13 @@
     <label>Telefono</label>
     <input type="number" id="telefono">
     <br>
-    <input type="button" onclick="datos()" value="Enviar">
-    <script>
-        function Nombre(nombre, edad, grado, cedula, sexo, telefono) {
-            this.nombre = nombre,
-                this.edad = edad,
-                this.grado = grado,
-                this.cedula = cedula,
-                this.sexo = sexo
-            this.telefono = telefono
-        }
-        var nombres = []
-        function datos() {
-            var nombre = document.getElementById("nombre").value;
-            document.getElementById("nombre").value = "";
-            var edad = parseInt(document.getElementById("edad").value);
-            document.getElementById("edad").value = "";
-            var grado = document.getElementById("grado").value;
-            document.getElementById("grado").value = "";
-            var cedula = document.getElementById("cedula").value;
-            document.getElementById("cedula").value = "";
-            var sexo = document.getElementById("sexo").value;
-            document.getElementById("sexo").value = "";
-            var telefono = document.getElementById("telefono").value;
-            document.getElementById("telefono").value = "";
-            if (nombre == "" || edad == 0 || isNaN(edad) || grado == "" || sexo == "" || cedula == "" || telefono == "") {
-                alert("Error")
-            } else {
-                nombres.push(new Nombre(nombre, edad, grado, cedula, sexo, telefono));
-                console.log(nombres)
-            }
-        }
-    </script>
+    <input type="button" onclick="datos('nombre','edad','grado','cedula','sexo','telefono')" value="Enviar">
     <hr>
     <h1>Github</h1>
     <label>Ingrese usuario de Github:</label>
     <input type="text" id="user">
     <br>
-    <input type="button" onclick="datos2()" value="Enviar">
+    <input type="button" onclick="datos2('user','nombre_user','login','id','avatar','url_user')" value="Enviar">
     <br>
     <label>Nombre</label>
     <input type="text" id="nombre_user">
@@ -218,53 +101,6 @@
     <label>URL</label>
     <a href="" id="url_user">Link</a>
     <br>
-    <script>
-        var login = document.getElementById("login")
-        var id = document.getElementById("id")
-        var avatar = document.getElementById("avatar")
-        var url_user = document.getElementById("url_user")
-        var nombre_user = document.getElementById("nombre_user")
-        function datos2() {
-            var url = "https://api.github.com/users/" + document.getElementById("user").value
-            fetch(url)
-                .then((resp) => {
-                    if (resp.status == 404) {
-                        alert("El usuario no existe.")
-                        login.value = ""
-                        id.value = ""
-                        avatar.src = ""
-                        url_user.href = ""
-                        nombre_user.value = ""
-                        return false
-                    }
-                    return resp.json()
-
-                })
-                .then(function (data) {
-                    if (data === false) {
-                        return false;
-                    }
-                    obj = data
-                    login.value = obj.login
-                    id.value = obj.id
-                    avatar.src = obj.avatar_url
-                    url_user.href = obj.html_url
-                    if (obj.name == null) {
-                        nombre_user.value = "Indefinido"
-                    } else {
-                        nombre_user.value = obj.name
-                    }
-                    console.log(login)
-                    console.log(id)
-                    console.log(avatar)
-                    console.log(url_user)
-                    console.log(nombre_user)
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-    </script>
     <hr>
     <h1>Gatos y Perros</h1>
     <label>Pulse el boton para generar una imagen aleatoria de un gato</label>
@@ -316,71 +152,25 @@
     <label>Ingrese el año</label>
     <input type="number" id="year">
     <br>
-    <input type="button" onclick="year()" value="Enviar">
+    <input type="button" onclick="year('year','p6')" value="Enviar">
     <br>
     <p id="p6"></p>
-    <script>
-        function year() {
-            var year = parseInt(document.getElementById("year").value)
-            console.log(year)
-            if (year % 4 == 0) {
-                document.getElementById("p6").innerHTML = "El año " + year + " es bisiesto"
-            } else {
-                document.getElementById("p6").innerHTML = "El año " + year + " no es bisiesto"
-            }
-        }
-    </script>
     <hr>
     <h1>Suma de numeros</h1>
     <label>Ingrese un numero</label>
     <input type="number" id="nums">
     <br>
-    <input type="button" onclick="nums()" value="Enviar">
+    <input type="button" onclick="nums('nums','p7')" value="Enviar">
     <br>
     <p id="p7"></p>
-    <script>
-        var suma_num = []
-        var resultado_num
-        function nums() {
-            suma_num = []
-            var nums = parseInt(document.getElementById("nums").value)
-            console.log(nums)
-            for (i = 1; i <= nums; i++) {
-                suma_num.push(i)
-            }
-            console.log(suma_num + " y su suma es " + suma_num.reduce((curr, prev) => curr + prev, 0))
-            resultado_num = suma_num.reduce((curr, prev) => curr + prev, 0)
-            document.getElementById("p7").innerHTML = "La suma de todos los numeros hasta " + nums + " es: " + resultado_num
-        }
-    </script>
     <hr>
     <h1>Multiplicacion de numeros</h1>
     <label>Ingrese un numero</label>
     <input type="number" id="nums2">
     <br>
-    <input type="button" onclick="nums2()" value="Enviar">
+    <input type="button" onclick="nums2('nums2','p8')" value="Enviar">
     <br>
     <p id="p8"></p>
-    <script>
-        var suma_num2 = []
-        var resultado_num2
-        function nums2() {
-            suma_num2 = []
-            var nums = parseInt(document.getElementById("nums2").value)
-            console.log(nums)
-            for (i = 1; i <= nums; i++) {
-                suma_num2.push(i)
-            }
-            console.log(suma_num2 + " y su multiplicacion es " + suma_num2.reduce((curr, prev) => curr * prev, 1))
-            resultado_num2 = suma_num2.reduce((curr, prev) => curr * prev, 1)
-            if (resultado_num2 == Infinity) {
-                alert("Error")
-                document.getElementById("p8").innerHTML = ""
-                return false
-            }
-            document.getElementById("p8").innerHTML = "La multiplicacion de todos los numeros hasta " + nums + " es: " + resultado_num2
-        }
-    </script>
     <hr>
     <h1>Equipos</h1>
     <label>Elige el equipo que quieres tener su informacion </label>
@@ -404,126 +194,24 @@
     <label>Nro de Champions/Libertadore</label>
     <input type="number" id="nro_champ-lib" style="width: 250px;">
     <br>
-    <input type="button" onclick="equipos()" value="Enviar">
-    <script>
-        function equipos() {
-            document.getElementById("nombre_liga")
-            document.getElementById("nro_champ-lib")
-            var equipo = document.getElementById("equipos").value
-            if (equipo == "barc") {
-                document.getElementById("nombre_liga").value = "LaLiga"
-                document.getElementById("nro_champ-lib").value = 5
-            }
-            if (equipo == "madr") {
-                document.getElementById("nombre_liga").value = "LaLiga"
-                document.getElementById("nro_champ-lib").value = 14
-            }
-            if (equipo == "riv-pl") {
-                document.getElementById("nombre_liga").value = "Liga de Futbol Profesional (Argentina)"
-                document.getElementById("nro_champ-lib").value = 4
-            }
-            if (equipo == "boc-jr") {
-                document.getElementById("nombre_liga").value = "Liga de Futbol Profesional (Argentina)"
-                document.getElementById("nro_champ-lib").value = 6
-            }
-            if (equipo == "man-city") {
-                document.getElementById("nombre_liga").value = "Premier League"
-                document.getElementById("nro_champ-lib").value = 1
-            }
-            if (equipo == "atl-madr") {
-                document.getElementById("nombre_liga").value = "LaLiga"
-                document.getElementById("nro_champ-lib").value = 0
-            }
-            if (equipo == "psg") {
-                document.getElementById("nombre_liga").value = "Ligue One"
-                document.getElementById("nro_champ-lib").value = 0
-            }
-            if (equipo == "man-utd") {
-                document.getElementById("nombre_liga").value = "Premier League"
-                document.getElementById("nro_champ-lib").value = 3
-            }
-            if (equipo == "liver") {
-                document.getElementById("nombre_liga").value = "Premier League"
-                document.getElementById("nro_champ-lib").value = 6
-            }
-            if (equipo == "dortm") {
-                document.getElementById("nombre_liga").value = "Bundesliga"
-                document.getElementById("nro_champ-lib").value = 0
-            }
-            if (equipo == "bay-mun") {
-                document.getElementById("nombre_liga").value = "Bundesliga"
-                document.getElementById("nro_champ-lib").value = 5
-            }
-        }
-    </script>
+    <input type="button" onclick="equipos('equipos')" value="Enviar">
+    <br>
     <h1>Numeros pares e impares</h1>
     <label>Ingrese un numero</label>
     <input type="number" id="nums3">
     <br>
-    <input type="button" onclick="num3()" value="Enviar">
+    <input type="button" onclick="num3('nums3','p9_1','p9_2')" value="Enviar">
     <br>
     <p id="p9_1"></p>
     <p id="p9_2"></p>
-    <script>
-        var pares = []
-        var impares = []
-        function num3() {
-            pares = []
-            impares = []
-            var i = 0
-            var num3 = document.getElementById("nums3").value
-            if (num3 <= 0) {
-                alert("Error")
-            } else {
-                while (i <= num3) {
-                    if (i % 2 == 0 && i !== 0) {
-                        pares.push(" " + i)
-
-                    } else if (i !== 0) {
-                        impares.push(" " + i)
-
-                    }
-                    i++
-                }
-                console.log(pares.length)
-                console.log(impares.length)
-                if (pares.length >= 150 && impares.length >= 150) {
-                    document.write("<link rel='stylesheet' href='extensiones/style.css' type='text/css' charset='utf-8'><h1>Numeros pares e impares</h1>")
-                    document.write("Los numeros pares son:" + pares + "." + "<br><br>")
-                    document.write("Los numeros impares son:" + impares + "." + "<hr>")
-                } else {
-                    document.getElementById("p9_1").innerHTML = "Los numeros pares son:" + pares + "."
-                    document.getElementById("p9_2").innerHTML = "Los numeros impares son:" + impares + "."
-                }
-            }
-        }
-    </script>
+    <hr>
     <h1>Divisores</h1>
     <label>Ingrese un numero</label>
     <input type="number" id="nums4">
     <br>
-    <input type="button" onclick="num4()" value="Enviar">
+    <input type="button" onclick="num4('nums4','p10')" value="Enviar">
     <br>
     <p id="p10"></p>
-    <script>
-        var divisores = []
-        function num4() {
-            divisores = []
-            var i = 0
-            var num4 = document.getElementById("nums4").value
-            if (num4 <= 0) {
-                alert("Error")
-            } else {
-                while (i <= num4) {
-                    if (num4 % i == 0 && i !== 0) {
-                        divisores.push(" " + i)
-                    }
-                    i++
-                }
-                document.getElementById("p10").innerHTML = "Los numeros divisores son:" + divisores + "."
-            }
-        }
-    </script>
     <hr>
     <h1>Generador de Contraseñas</h1>
     <label>Ingrese la longitud de la contraseña</label>
@@ -533,6 +221,18 @@
     <br>
     <p id="p11_1">La contraseña es: </p>
     <p id="p11_2"></p>
+    <hr>
+    <h1>Temperatura</h1>
+    <label>Celsius</label>
+    <input type="number" id="celsius">
+    <br>
+    <label>Fahrenheit</label>
+    <input type="number" id="fahrenheit">
+    <br>
+    <label>Kelvin</label>
+    <input type="number" id="kelvin">
+    <br>
+    <input type="button" onclick="temp('celsius','fahrenheit','kelvin')" value="Enviar">
 </body>
 
 </html>

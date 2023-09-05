@@ -9,6 +9,7 @@ i=1
 
 longitud=50
 for _ in range (30):
+    print("----------------")
     muestra=random.sample(base, longitud)
     password="".join(muestra)
     print(i,". ",password)
