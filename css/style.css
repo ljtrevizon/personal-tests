@@ -11,7 +11,8 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   color: #5BFF94;
   background-color: #06062D;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  margin: 0px;
 }
 
 td,
@@ -43,6 +44,7 @@ caption {
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 p {
   margin: 8px
 }
@@ -50,9 +52,45 @@ p {
 .imgRedonda {
   width: 50px;
   height: 50px;
-  border-radius:27px;
-  border:1px solid black;
+  border-radius: 27px;
+  border: 1px solid black;
 }
+
 .GatitoYPerro {
   border: 3px solid black
+}
+@font-face {
+  font-family: 'Utara';
+  src: url('./fuentes/utara/fonts/variable/Utara-VF.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'News Cycle';
+  src: url('./fuentes/newscycle/NewsCycle-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+header {
+  text-align: center;
+  color: #fbbc04;
+  font-size: 30px;
+  font-family: 'Utara';
+}
+
+.headerElement {
+  margin: 10px;
+  display: inline-block;
+}
+
+.h1_size {
+  font-size: 30px;
+  height: 40px;
+  font-family: 'News Cycle';
+}
+
+.normal_size {
+  font-size: 15px;
 }

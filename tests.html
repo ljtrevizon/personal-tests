@@ -4,235 +4,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="./extensiones/jquery-3.6.1.js"></script>
-    <link rel="stylesheet" href="./extensiones/style.css" type="text/css" charset="utf-8">
-    <link rel="shorcut icon" href="./extensiones/icono.png">
-    <script src="./extensiones/functions.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./javascript y documentacion/jquery-3.6.1.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="./javascript y documentacion/functions.js" type="text/javascript"></script>
     <title>Pruebas</title>
 </head>
 
 <body>
-    <div>
-
-    </div>
-    <h1>Tasa de Cambio</h1>
-    <label>Dolares</label>
-    <input id="dol" type="number">
-    <br>
-    <label>Bolivares</label>
-    <input id="bol" type="number">
-    <br>
-    <label>Tasa de Cambio</label>
-    <input id="ts_cam" type="number">
-    <br>
-    <label>Dolares a Bolivares</label>
-    <input type="button" value="Enviar" onclick="calculateDolbol('dol','ts_cam','resultdolbol')">
-    <br>
-    <p id="resultdolbol"></p>
-    <label>Bolivares a Dolares</label>
-    <input type="button" value="Enviar" onclick="calculateResult('ts_cam','bol','resultboldol')">
-    <br>
-    <p id="resultboldol"></p>
-    <hr>
-    <h1>Promedio</h1>
-    <label>Ingrese la cantidad de notas:</label>
-    <input type="number" id="promnum">
-    <br>
-    <input type="button" onclick="promedio('promnum')" value="Enviar">
-    <p id="p2">El promedio es: </p>
-    <hr>
-    <h1>Aumento o Descuento</h1>
-    <label>Ingrese el sueldo base</label>
-    <input type="number" id="sueldnum">
-    <br>
-    <label>Ingrese el procentaje</label>
-    <input type="number" id="porcnum">
-    <br>
-    <input type="button" onclick="calculateNewSalary('sueldnum','porcnum','p3')" value="Aumento">
-    <input type="button" onclick="calculateDiscount('sueldnum','porcnum','p3')" value="Descuento">
-    <p id="p3"></p>
-    <hr>
-    <h1>Colores</h1>
-    <label>Elige el color al cual quieres cambiar las letras</label>
-    <input type="color" id="color">
-    <br>
-    <input type="button" onclick="changeColor('color','p4')" value="Cambiar">
-    <p id="p4">El codigo HEX es:</p>
-    <hr>
-    <h1>Nombres</h1>
-    <label>Tu nombre:</label>
-    <input type="text" id="nombre">
-    <br>
-    <label>Tu edad:</label>
-    <input type="number" id="edad">
-    <br>
-    <label>Nivel academico:</label>
-    <input type="text" id="grado">
-    <br>
-    <label>Cedula</label>
-    <input type="number" id="cedula">
-    <br>
-    <label>Sexo</label>
-    <input type="text" id="sexo">
-    <br>
-    <label>Telefono</label>
-    <input type="number" id="telefono">
-    <br>
-    <input type="button" onclick="datos('nombre','edad','grado','cedula','sexo','telefono')" value="Enviar">
-    <hr>
-    <h1>Github</h1>
-    <label>Ingrese usuario de Github:</label>
-    <input type="text" id="user">
-    <br>
-    <input type="button" onclick="datos2('user','nombre_user','login','id','avatar','url_user')" value="Enviar">
-    <br>
-    <label>Nombre</label>
-    <input type="text" id="nombre_user">
-    <br>
-    <label>Login</label>
-    <input type="text" id="login">
-    <br>
-    <label>ID</label>
-    <input type="text" id="id">
-    <br>
-    <label>Avatar</label>
-    <img class="imgRedonda" src="" id="avatar">
-    <br>
-    <label>URL</label>
-    <a href="" id="url_user">Link</a>
-    <br>
-    <hr>
-    <h1>Gatos y Perros</h1>
-    <label>Pulse el boton para generar una imagen aleatoria de un gato</label>
-    <br>
-    <img class="GatitoYPerro" src="" id="imgCat" width="150px" weight="150px">
-    <br>
-    <input type="button" onclick="randomCat('imgCat')" value="Generar">
-    <br>
-    <label>Pulse el boton para generar una imagen aleatoria de un perro</label>
-    <br>
-    <img class="GatitoYPerro" src="" id="imgDog" width="150px" weight="150px">
-    <br>
-    <input type="button" onclick="randomDog('imgDog')" value="Generar">
-    <hr>
-    <h1>Paises</h1>
-    <label>Elige el pais que quieres ver su bandera: </label>
-    <select id="paises">
-        <option value="es">España</option>
-        <option value="hr">Croacia</option>
-        <option value="us">Estados Unidos</option>
-        <option value="it">Italia</option>
-        <option value="br">Brasil</option>
-        <option value="ve">Venezuela</option>
-        <option value="ru">Rusia</option>
-        <option value="mt">Malta</option>
-        <option value="ma">Marruecos</option>
-        <option value="gr">Grecia</option>
-        <option value="de">Alemania</option>
-        <option value="pt">Portugal</option>
-        <option value="si">Eslovenia</option>
-    </select>
-    <br>
-    <img src="" id="bandera" width="150px" weight="150px">
-    <br>
-    <label>Nombre oficial (en el idioma local)</label>
-    <input type="text" id="official_name" style="width: 250px;">
-    <br>
-    <input type="button" onclick="pais('bandera','official_name','paises')" value="Enviar">
-    <hr>
-    <h1>Deezer</h1>
-    <label>Ingrese el id del album en Deezer (los numeros en la url)</label>
-    <input type="text" id="album_id">
-    <br>
-    <img src="" id="img_album">
-    <br>
-    <input type="button" onclick="album('album_id','img_album')" value="Enviar">
-    <hr>
-    <h1>Año</h1>
-    <label>Ingrese el año</label>
-    <input type="number" id="year">
-    <br>
-    <input type="button" onclick="year('year','p6')" value="Enviar">
-    <br>
-    <p id="p6"></p>
-    <hr>
-    <h1>Suma de numeros</h1>
-    <label>Ingrese un numero</label>
-    <input type="number" id="nums">
-    <br>
-    <input type="button" onclick="nums('nums','p7')" value="Enviar">
-    <br>
-    <p id="p7"></p>
-    <hr>
-    <h1>Multiplicacion de numeros</h1>
-    <label>Ingrese un numero</label>
-    <input type="number" id="nums2">
-    <br>
-    <input type="button" onclick="nums2('nums2','p8')" value="Enviar">
-    <br>
-    <p id="p8"></p>
-    <hr>
-    <h1>Equipos</h1>
-    <label>Elige el equipo que quieres tener su informacion </label>
-    <select id="equipos">
-        <option value="barc">Barcelona FC</option>
-        <option value="madr">Real Madrid</option>
-        <option value="riv-pl">Club Atletico River Plate</option>
-        <option value="boc-jr">Club Atletico Boca Junior</option>
-        <option value="man-city">Manchester City</option>
-        <option value="atl-madr">Atletico de Madrid</option>
-        <option value="psg">Paris Saint-German</option>
-        <option value="man-utd">Manchester United</option>
-        <option value="liver">Liverpool FC</option>
-        <option value="dortm">Borussia Dortmund</option>
-        <option value="bay-mun">Bayern Munich</option>
-    </select>
-    <br>
-    <label>Nombre de la Liga</label>
-    <input type="text" id="nombre_liga" style="width: 250px;">
-    <br>
-    <label>Nro de Champions/Libertadore</label>
-    <input type="number" id="nro_champ-lib" style="width: 250px;">
-    <br>
-    <input type="button" onclick="equipos('equipos')" value="Enviar">
-    <br>
-    <h1>Numeros pares e impares</h1>
-    <label>Ingrese un numero</label>
-    <input type="number" id="nums3">
-    <br>
-    <input type="button" onclick="num3('nums3','p9_1','p9_2')" value="Enviar">
-    <br>
-    <p id="p9_1"></p>
-    <p id="p9_2"></p>
-    <hr>
-    <h1>Divisores</h1>
-    <label>Ingrese un numero</label>
-    <input type="number" id="nums4">
-    <br>
-    <input type="button" onclick="num4('nums4','p10')" value="Enviar">
-    <br>
-    <p id="p10"></p>
-    <hr>
-    <h1>Generador de Contraseñas</h1>
-    <label>Ingrese la longitud de la contraseña</label>
-    <input type="number" id="nums5">
-    <br>
-    <input type="button" onclick="password_generate('nums5','p11_2')" value="Enviar">
-    <br>
-    <p id="p11_1">La contraseña es: </p>
-    <p id="p11_2"></p>
-    <hr>
-    <h1>Temperatura</h1>
-    <label>Celsius</label>
-    <input type="number" id="celsius">
-    <br>
-    <label>Fahrenheit</label>
-    <input type="number" id="fahrenheit">
-    <br>
-    <label>Kelvin</label>
-    <input type="number" id="kelvin">
-    <br>
-    <input type="button" onclick="temp('celsius','fahrenheit','kelvin')" value="Enviar">
+    <header>
+        <div class="w3-display-topleft headerElement">
+            <p>Bienvenido</p>
+        </div>
+        <div class="headerElement">
+            <p>Welcome</p>
+        </div>
+        <div class="w3-display-topright	headerElement">
+            <p>Benvingut</p>
+        </div>
+    </header>
+    <main>
+        <h1 class="h1_size">Tasa de Cambio</h1>
+        <label class="normal_size">Dolares</label>
+        <input class="normal_size" id="dol" type="number">
+        <br>
+        <label class="normal_size">Bolivares</label>
+        <input class="normal_size" id="bol" type="number">
+        <br>
+        <label class="normal_size">Tasa de Cambio</label>
+        <input class="normal_size" id="ts_cam" type="number">
+        <br>
+        <label class="normal_size">Dolares a Bolivares</label>
+        <input class="normal_size" type="button" value="Enviar"
+            onclick="calculateDolbol('dol','ts_cam','resultdolbol')">
+        <br>
+        <p class="normal_size" id="resultdolbol"></p>
+        <label class="normal_size">Bolivares a Dolares</label>
+        <input class="normal_size" type="button" value="Enviar"
+            onclick="calculateResult('ts_cam','bol','resultboldol')">
+        <br>
+        <p class="normal_size" id="resultboldol"></p>
+        <hr>
+        <h1 class="h1_size">Promedio</h1>
+        <label class="normal_size">Ingrese la cantidad de notas:</label>
+        <input class="normal_size" type="number" id="promnum">
+        <br>
+        <input class="normal_size" type="button" onclick="promedio('promnum')" value="Enviar">
+        <p class="normal_size" id="p2">El promedio es: </p>
+        <hr>
+        <h1 class="h1_size">Aumento o Descuento</h1>
+        <label class="normal_size">Ingrese el sueldo base</label>
+        <input class="normal_size" type="number" id="sueldnum">
+        <br>
+        <label class="normal_size">Ingrese el procentaje</label>
+        <input class="normal_size" type="number" id="porcnum">
+        <br>
+        <input class="normal_size" type="button" onclick="calculateNewSalary('sueldnum','porcnum','p3')"
+            value="Aumento">
+        <input class="normal_size" type="button" onclick="calculateDiscount('sueldnum','porcnum','p3')"
+            value="Descuento">
+        <p class="normal_size" id="p3"></p>
+        <hr>
+        <h1 class="h1_size">Colores</h1>
+        <label class="normal_size">Elige el color al cual quieres cambiar las letras</label>
+        <input class="normal_size" type="color" id="color">
+        <br>
+        <input class="normal_size" type="button" onclick="changeColor('color','p4')" value="Cambiar">
+        <p class="normal_size" id="p4">El codigo HEX es:</p>
+        <hr>
+        <h1 class="h1_size">Nombres</h1>
+        <label class="normal_size">Tu nombre:</label>
+        <input class="normal_size" type="text" id="nombre">
+        <br>
+        <label class="normal_size">Tu edad:</label>
+        <input class="normal_size" type="number" id="edad">
+        <br>
+        <label class="normal_size">Nivel academico:</label>
+        <input class="normal_size" type="text" id="grado">
+        <br>
+        <label class="normal_size">Cedula</label>
+        <input class="normal_size" type="number" id="cedula">
+        <br>
+        <label class="normal_size">Sexo</label>
+        <input class="normal_size" type="text" id="sexo">
+        <br>
+        <label class="normal_size">Telefono</label>
+        <input class="normal_size" type="number" id="telefono">
+        <br>
+        <input class="normal_size" type="button" onclick="datos('nombre','edad','grado','cedula','sexo','telefono')"
+            value="Enviar">
+        <hr>
+        <h1 class="h1_size">Github</h1>
+        <label class="normal_size">Ingrese usuario de Github:</label>
+        <input class="normal_size" type="text" id="user">
+        <br>
+        <input class="normal_size" type="button" onclick="datos2('user','nombre_user','login','id','avatar','url_user')"
+            value="Enviar">
+        <br>
+        <label class="normal_size">Nombre</label>
+        <input class="normal_size" type="text" id="nombre_user">
+        <br>
+        <label class="normal_size">Login</label>
+        <input class="normal_size" type="text" id="login">
+        <br>
+        <label class="normal_size">ID</label>
+        <input class="normal_size" type="text" id="id">
+        <br>
+        <label class="normal_size">Avatar</label>
+        <img class="imgRedonda" src="" id="avatar">
+        <br>
+        <label class="normal_size">URL</label>
+        <a href="" id="url_user">Link</a>
+        <br>
+        <hr>
+        <h1 class="h1_size">Gatos y Perros</h1>
+        <label class="normal_size">Pulse el boton para generar una imagen aleatoria de un gato</label>
+        <br>
+        <img class="GatitoYPerro" src="" id="imgCat" width="150px" weight="150px">
+        <br>
+        <input class="normal_size" type="button" onclick="randomCat('imgCat')" value="Generar">
+        <br>
+        <label class="normal_size">Pulse el boton para generar una imagen aleatoria de un perro</label>
+        <br>
+        <img class="GatitoYPerro" src="" id="imgDog" width="150px" weight="150px">
+        <br>
+        <input class="normal_size" type="button" onclick="randomDog('imgDog')" value="Generar">
+        <hr>
+        <h1 class="h1_size">Paises</h1>
+        <label class="normal_size">Elige el pais que quieres ver su bandera: </label>
+        <select id="paises">
+            <option value="es">España</option>
+            <option value="hr">Croacia</option>
+            <option value="us">Estados Unidos</option>
+            <option value="it">Italia</option>
+            <option value="br">Brasil</option>
+            <option value="ve">Venezuela</option>
+            <option value="ru">Rusia</option>
+            <option value="mt">Malta</option>
+            <option value="ma">Marruecos</option>
+            <option value="gr">Grecia</option>
+            <option value="de">Alemania</option>
+            <option value="pt">Portugal</option>
+            <option value="si">Eslovenia</option>
+        </select>
+        <br>
+        <img src="" id="bandera" width="150px" weight="150px">
+        <br>
+        <label class="normal_size">Nombre oficial (en el idioma local)</label>
+        <input class="normal_size" type="text" id="official_name" style="width: 250px;">
+        <br>
+        <input class="normal_size" type="button" onclick="pais('bandera','official_name','paises')" value="Enviar">
+        <hr>
+        <h1 class="h1_size">Deezer</h1>
+        <label class="normal_size">Ingrese el id del album en Deezer (los numeros en la url)</label>
+        <input class="normal_size" type="text" id="album_id">
+        <br>
+        <img src="" id="img_album">
+        <br>
+        <input class="normal_size" type="button" onclick="album('album_id','img_album')" value="Enviar">
+        <hr>
+        <h1 class="h1_size">Año</h1>
+        <label class="normal_size">Ingrese el año</label>
+        <input class="normal_size" type="number" id="year">
+        <br>
+        <input class="normal_size" type="button" onclick="year('year','p6')" value="Enviar">
+        <br>
+        <p class="normal_size" id="p6"></p>
+        <hr>
+        <h1 class="h1_size">Suma de numeros</h1>
+        <label class="normal_size">Ingrese un numero</label>
+        <input class="normal_size" type="number" id="nums">
+        <br>
+        <input class="normal_size" type="button" onclick="nums('nums','p7')" value="Enviar">
+        <br>
+        <p class="normal_size" id="p7"></p>
+        <hr>
+        <h1 class="h1_size">Multiplicacion de numeros</h1>
+        <label class="normal_size">Ingrese un numero</label>
+        <input class="normal_size" type="number" id="nums2">
+        <br>
+        <input class="normal_size" type="button" onclick="nums2('nums2','p8')" value="Enviar">
+        <br>
+        <p class="normal_size" id="p8"></p>
+        <hr>
+        <h1 class="h1_size">Equipos</h1>
+        <label class="normal_size">Elige el equipo que quieres tener su informacion </label>
+        <select id="equipos">
+            <option value="barc">Barcelona FC</option>
+            <option value="madr">Real Madrid</option>
+            <option value="riv-pl">Club Atletico River Plate</option>
+            <option value="boc-jr">Club Atletico Boca Junior</option>
+            <option value="man-city">Manchester City</option>
+            <option value="atl-madr">Atletico de Madrid</option>
+            <option value="psg">Paris Saint-German</option>
+            <option value="man-utd">Manchester United</option>
+            <option value="liver">Liverpool FC</option>
+            <option value="dortm">Borussia Dortmund</option>
+            <option value="bay-mun">Bayern Munich</option>
+        </select>
+        <br>
+        <label class="normal_size">Nombre de la Liga</label>
+        <input class="normal_size" type="text" id="nombre_liga" style="width: 250px;">
+        <br>
+        <label class="normal_size">Nro de Champions/Libertadore</label>
+        <input class="normal_size" type="number" id="nro_champ-lib" style="width: 250px;">
+        <br>
+        <input class="normal_size" type="button" onclick="equipos('equipos','nombre_liga','nro_champ-lib')"
+            value="Enviar">
+        <br>
+        <h1 class="h1_size">Numeros pares e impares</h1>
+        <label class="normal_size">Ingrese un numero</label>
+        <input class="normal_size" type="number" id="nums3">
+        <br>
+        <input class="normal_size" type="button" onclick="nums3('nums3','p9_1','p9_2')" value="Enviar">
+        <br>
+        <p class="normal_size" id="p9_1"></p>
+        <p class="normal_size" id="p9_2"></p>
+        <hr>
+        <h1 class="h1_size">Divisores</h1>
+        <label class="normal_size">Ingrese un numero</label>
+        <input class="normal_size" type="number" id="nums4">
+        <br>
+        <input class="normal_size" type="button" onclick="num4('nums4','p10')" value="Enviar">
+        <br>
+        <p class="normal_size" id="p10"></p>
+        <hr>
+        <h1 class="h1_size">Generador de Contraseñas</h1>
+        <label class="normal_size">Ingrese la longitud de la contraseña</label>
+        <input class="normal_size" type="number" id="nums5">
+        <br>
+        <input class="normal_size" type="button" onclick="password_generate('nums5','p11_2')" value="Enviar">
+        <br>
+        <p class="normal_size" id="p11_1">La contraseña es: </p>
+        <p class="normal_size" id="p11_2"></p>
+        <hr>
+        <h1 class="h1_size">Temperatura</h1>
+        <label class="normal_size">Celsius</label>
+        <input class="normal_size" type="number" id="celsius">
+        <br>
+        <label class="normal_size">Fahrenheit</label>
+        <input class="normal_size" type="number" id="fahrenheit">
+        <br>
+        <label class="normal_size">Kelvin</label>
+        <input class="normal_size" type="number" id="kelvin">
+        <br>
+        <input class="normal_size" type="button" onclick="temp('celsius','fahrenheit','kelvin')" value="Enviar">
+    </main>
 </body>
 
 </html>

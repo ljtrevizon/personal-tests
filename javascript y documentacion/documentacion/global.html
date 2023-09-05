@@ -320,7 +320,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line328">line 328</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line331">line 331</a>
     </li></ul></dd>
     
 
@@ -703,7 +703,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line281">line 281</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line284">line 284</a>
     </li></ul></dd>
     
 
@@ -908,7 +908,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line572">line 572</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line575">line 575</a>
     </li></ul></dd>
     
 
@@ -1113,7 +1113,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line261">line 261</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line264">line 264</a>
     </li></ul></dd>
     
 
@@ -1295,7 +1295,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line302">line 302</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line305">line 305</a>
     </li></ul></dd>
     
 
@@ -1569,7 +1569,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line349">line 349</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line352">line 352</a>
     </li></ul></dd>
     
 
@@ -1843,7 +1843,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line383">line 383</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line386">line 386</a>
     </li></ul></dd>
     
 
@@ -1897,7 +1897,7 @@
     
 
     
-    <h4 class="name" id="equipos"><span class="type-signature"></span>equipos<span class="signature">(equipo_id)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="equipos"><span class="type-signature"></span>equipos<span class="signature">(equipo_id, nombre_liga_id, nro_champ_lib_id)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -1905,7 +1905,7 @@
 
 
 <div class="description">
-    Updates the "nombre_liga" and "nro_champ-lib" fields based on the selected team.
+    Generates the values for the "nombre_liga" and "nro_champ_lib" input fields based on the selected "equipo" value.
 </div>
 
 
@@ -1957,7 +1957,53 @@
 
             
 
-            <td class="description last">The ID of the team element.</td>
+            <td class="description last">The id of the "equipo" input field.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nombre_liga_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the "nombre_liga" input field.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nro_champ_lib_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the "nro_champ_lib" input field.</td>
         </tr>
 
     
@@ -1998,7 +2044,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line170">line 170</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line173">line 173</a>
     </li></ul></dd>
     
 
@@ -2027,7 +2073,7 @@
 
         
 <div class="param-desc">
-    This function does not return anything.
+    No return value.
 </div>
 
 
@@ -2039,211 +2085,6 @@
     <dd>
         
 <span class="param-type">void</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="num3"><span class="type-signature"></span>num3<span class="signature">(numero_id, p_1_id, p_2_id)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Generates a function comment for the given function body.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>numero_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the ID of the input element for the number</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>p_1_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the ID of the element to display the even numbers</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>p_2_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the ID of the element to display the odd numbers</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line512">line 512</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    - no return value
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">undefined</span>
 
 
     </dd>
@@ -2385,7 +2226,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line461">line 461</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line464">line 464</a>
     </li></ul></dd>
     
 
@@ -2567,7 +2408,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line484">line 484</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line487">line 487</a>
     </li></ul></dd>
     
 
@@ -2608,6 +2449,211 @@
     <dd>
         
 <span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="nums3"><span class="type-signature"></span>nums3<span class="signature">(numero_id, p_1_id, p_2_id)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Generates a function comment for the given function body.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>numero_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the ID of the input element for the number</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>p_1_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the ID of the element to display the even numbers</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>p_2_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the ID of the element to display the odd numbers</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line515">line 515</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - no return value
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">undefined</span>
 
 
     </dd>
@@ -3272,7 +3318,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line228">line 228</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line231">line 231</a>
     </li></ul></dd>
     
 
@@ -3977,7 +4023,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line439">line 439</a>
+        <a href="functions.js.html">functions.js</a>, <a href="functions.js.html#line442">line 442</a>
     </li></ul></dd>
     
 
@@ -4045,13 +4091,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Nombre">Nombre</a></li><li><a href="global.html#album">album</a></li><li><a href="global.html#calculateDiscount">calculateDiscount</a></li><li><a href="global.html#calculateDolbol">calculateDolbol</a></li><li><a href="global.html#calculateNewSalary">calculateNewSalary</a></li><li><a href="global.html#changeColor">changeColor</a></li><li><a href="global.html#datos">datos</a></li><li><a href="global.html#datos2">datos2</a></li><li><a href="global.html#equipos">equipos</a></li><li><a href="global.html#num3">num3</a></li><li><a href="global.html#nums">nums</a></li><li><a href="global.html#nums2">nums2</a></li><li><a href="global.html#pais">pais</a></li><li><a href="global.html#pass">pass</a></li><li><a href="global.html#password_generate">password_generate</a></li><li><a href="global.html#promedio">promedio</a></li><li><a href="global.html#randomCat">randomCat</a></li><li><a href="global.html#randomDog">randomDog</a></li><li><a href="global.html#temp">temp</a></li><li><a href="global.html#year">year</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Nombre">Nombre</a></li><li><a href="global.html#album">album</a></li><li><a href="global.html#calculateDiscount">calculateDiscount</a></li><li><a href="global.html#calculateDolbol">calculateDolbol</a></li><li><a href="global.html#calculateNewSalary">calculateNewSalary</a></li><li><a href="global.html#changeColor">changeColor</a></li><li><a href="global.html#datos">datos</a></li><li><a href="global.html#datos2">datos2</a></li><li><a href="global.html#equipos">equipos</a></li><li><a href="global.html#nums">nums</a></li><li><a href="global.html#nums2">nums2</a></li><li><a href="global.html#nums3">nums3</a></li><li><a href="global.html#pais">pais</a></li><li><a href="global.html#pass">pass</a></li><li><a href="global.html#password_generate">password_generate</a></li><li><a href="global.html#promedio">promedio</a></li><li><a href="global.html#randomCat">randomCat</a></li><li><a href="global.html#randomDog">randomDog</a></li><li><a href="global.html#temp">temp</a></li><li><a href="global.html#year">year</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Sep 05 2023 16:13:26 GMT-0400 (hora de Venezuela)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Sep 05 2023 16:21:24 GMT-0400 (hora de Venezuela)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,4 +1,32 @@
-//Random dog and random cat
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: functions.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: functions.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//Random dog and random cat
 /**
  * Fetches a random cat image from an API and displays it in the specified image element.
  *
@@ -124,14 +152,14 @@ function password_generate(id_longitud, id_variable) {
     var longitud = parseInt(document.getElementById(id_longitud).value)
     minus = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,"
     mayus = minus.toUpperCase()
-    simbolos = "!,#,$,%,&,',(,),*,+,-,.,/,:,;,<,=,>,?,@,[,],^,_,`,{,|,},~,"
+    simbolos = "!,#,$,%,&amp;,',(,),*,+,-,.,/,:,;,&lt;,=,>,?,@,[,],^,_,`,{,|,},~,"
     numeros = "0,1,2,3,4,5,6,7,8,9"
     base = minus + mayus + simbolos + numeros
     arr = base.split(",")
     console.log(arr)
     i = 1
     arr2 = []
-    while (i <= longitud) {
+    while (i &lt;= longitud) {
         arr2.push(pass(arr))
         i++
     }
@@ -161,59 +189,62 @@ function temp(c, f, k) {
 
 // Equipos
 
+
 /**
- * Updates the "nombre_liga" and "nro_champ-lib" fields based on the selected team.
+ * Generates the values for the "nombre_liga" and "nro_champ_lib" input fields based on the selected "equipo" value.
  *
- * @param {string} equipo_id - The ID of the team element.
- * @return {void} This function does not return anything.
+ * @param {string} equipo_id - The id of the "equipo" input field.
+ * @param {string} nombre_liga_id - The id of the "nombre_liga" input field.
+ * @param {string} nro_champ_lib_id - The id of the "nro_champ_lib" input field.
+ * @return {void} No return value.
  */
-function equipos(equipo_id) {
-    document.getElementById("nombre_liga")
-    document.getElementById("nro_champ-lib")
+function equipos(equipo_id,nombre_liga_id,nro_champ_lib_id) {
+    var nombre_liga=document.getElementById(nombre_liga_id)
+    var nro_champ_lib = document.getElementById(nro_champ_lib_id)
     var equipo = document.getElementById(equipo_id).value
     if (equipo == "barc") {
-        document.getElementById("nombre_liga").value = "LaLiga"
-        document.getElementById("nro_champ-lib").value = 5
+        nombre_liga.value = "LaLiga"
+        nro_champ_lib.value = 5
     }
     if (equipo == "madr") {
-        document.getElementById("nombre_liga").value = "LaLiga"
-        document.getElementById("nro_champ-lib").value = 14
+        nombre_liga.value = "LaLiga"
+        nro_champ_lib.value = 14
     }
     if (equipo == "riv-pl") {
-        document.getElementById("nombre_liga").value = "Liga de Futbol Profesional (Argentina)"
-        document.getElementById("nro_champ-lib").value = 4
+        nombre_liga.value = "Liga de Futbol Profesional (Argentina)"
+        nro_champ_lib.value = 4
     }
     if (equipo == "boc-jr") {
-        document.getElementById("nombre_liga").value = "Liga de Futbol Profesional (Argentina)"
-        document.getElementById("nro_champ-lib").value = 6
+        nombre_liga.value = "Liga de Futbol Profesional (Argentina)"
+        nro_champ_lib.value = 6
     }
     if (equipo == "man-city") {
-        document.getElementById("nombre_liga").value = "Premier League"
-        document.getElementById("nro_champ-lib").value = 1
+        nombre_liga.value = "Premier League"
+        nro_champ_lib.value = 1
     }
     if (equipo == "atl-madr") {
-        document.getElementById("nombre_liga").value = "LaLiga"
-        document.getElementById("nro_champ-lib").value = 0
+        nombre_liga.value = "LaLiga"
+        nro_champ_lib.value = 0
     }
     if (equipo == "psg") {
-        document.getElementById("nombre_liga").value = "Ligue One"
-        document.getElementById("nro_champ-lib").value = 0
+        nombre_liga.value = "Ligue One"
+        nro_champ_lib.value = 0
     }
     if (equipo == "man-utd") {
-        document.getElementById("nombre_liga").value = "Premier League"
-        document.getElementById("nro_champ-lib").value = 3
+        nombre_liga.value = "Premier League"
+        nro_champ_lib.value = 3
     }
     if (equipo == "liver") {
-        document.getElementById("nombre_liga").value = "Premier League"
-        document.getElementById("nro_champ-lib").value = 6
+        nombre_liga.value = "Premier League"
+        nro_champ_lib.value = 6
     }
     if (equipo == "dortm") {
-        document.getElementById("nombre_liga").value = "Bundesliga"
-        document.getElementById("nro_champ-lib").value = 0
+        nombre_liga.value = "Bundesliga"
+        nro_champ_lib.value = 0
     }
     if (equipo == "bay-mun") {
-        document.getElementById("nombre_liga").value = "Bundesliga"
-        document.getElementById("nro_champ-lib").value = 5
+        nombre_liga.value = "Bundesliga"
+        nro_champ_lib.value = 5
     }
 }
 
@@ -235,7 +266,7 @@ function promedio(promnum_id) {
     if (promnum == 0 || promnum - Math.floor(promnum) !== 0 || isNaN(promnum)) {
         p2 = document.getElementById("p2").innerHTML = "Error."
     } else {
-        while (i < promnum) {
+        while (i &lt; promnum) {
             nota = parseInt(prompt("Agregue la nota " + (i + 1)))
             notas.push(nota)
             console.log(nota)
@@ -462,7 +493,7 @@ function nums(nums_id, p_id) {
     suma_num = []
     var nums = parseInt(document.getElementById(nums_id).value)
     console.log(nums)
-    for (i = 1; i <= nums; i++) {
+    for (i = 1; i &lt;= nums; i++) {
         suma_num.push(i)
     }
     resultado_num = suma_num.reduce((curr, prev) => curr + prev, 0)
@@ -484,7 +515,7 @@ var resultado_num2
 function nums2(nums_id, p_id) {
     suma_num2 = []
     var nums = parseInt(document.getElementById(nums_id).value)
-    for (i = 1; i <= nums; i++) {
+    for (i = 1; i &lt;= nums; i++) {
         suma_num2.push(i)
     }
 
@@ -509,16 +540,16 @@ var impares = []
  * @param {string} p_2_id - the ID of the element to display the odd numbers
  * @return {undefined} - no return value
  */
-function num3(numero_id, p_1_id, p_2_id) {
+function nums3(numero_id, p_1_id, p_2_id) {
     pares = []
     impares = []
     var i = 0
     var num3 = document.getElementById(numero_id).value
-    if (num3 <= 0) {
+    if (num3 &lt;= 0) {
         alert("Error")
     } else {
-        while (i <= num3) {
-            if (i % 2 == 0 && i !== 0) {
+        while (i &lt;= num3) {
+            if (i % 2 == 0 &amp;&amp; i !== 0) {
                 pares.push(" " + i)
 
             } else if (i !== 0) {
@@ -527,10 +558,10 @@ function num3(numero_id, p_1_id, p_2_id) {
             }
             i++
         }
-        if (pares.length >= 150 && impares.length >= 150) {
-            document.write("<link rel='stylesheet' href='extensiones/style.css' type='text/css' charset='utf-8'><h1>Numeros pares e impares</h1>")
-            document.write("Los numeros pares son:" + pares + "." + "<br><br>")
-            document.write("Los numeros impares son:" + impares + "." + "<hr>")
+        if (pares.length >= 150 &amp;&amp; impares.length >= 150) {
+            document.write("&lt;link rel='stylesheet' href='extensiones/style.css' type='text/css' charset='utf-8'>&lt;h1>Numeros pares e impares&lt;/h1>")
+            document.write("Los numeros pares son:" + pares + "." + "&lt;br>&lt;br>")
+            document.write("Los numeros impares son:" + impares + "." + "&lt;hr>")
         } else {
             document.getElementById(p_1_id).innerHTML = "Los numeros pares son:" + pares + "."
             document.getElementById(p_2_id).innerHTML = "Los numeros impares son:" + impares + "."
@@ -546,11 +577,11 @@ function num4(numero_id, p_id) {
     divisores = []
     var i = 0
     var num4 = document.getElementById(numero_id).value
-    if (num4 <= 0) {
+    if (num4 &lt;= 0) {
         alert("Error")
     } else {
-        while (i <= num4) {
-            if (num4 % i == 0 && i !== 0) {
+        while (i &lt;= num4) {
+            if (num4 % i == 0 &amp;&amp; i !== 0) {
                 divisores.push(" " + i)
             }
             i++
@@ -575,7 +606,7 @@ function calculateDolbol(dolar_id, tasa_id, resultado_id) {
     var tasa = parseFloat(document.getElementById(tasa_id).value);
     document.getElementById(tasa_id).value = "";
     var resultado = dol * tasa
-    if (dol == 0 || tasa == 0 || isNaN(dol) || isNaN(tasa) || dol < 0 || tasa < 0) {
+    if (dol == 0 || tasa == 0 || isNaN(dol) || isNaN(tasa) || dol &lt; 0 || tasa &lt; 0) {
         document.getElementById(resultado_id).innerHTML = 'Error';
     } else {
         document.getElementById(resultado_id).innerHTML = resultado.toFixed(2) + " Bs";
@@ -589,10 +620,32 @@ function calculateResult(tasa_id, bolivares_id, resultado_id) {
     document.getElementById(bolivares_id).value = "";
     var resultado = bol / tasa
 
-    if (bol == 0 || tasa == 0 || isNaN(bol) || isNaN(tasa) || bol < 0 || tasa < 0) {
+    if (bol == 0 || tasa == 0 || isNaN(bol) || isNaN(tasa) || bol &lt; 0 || tasa &lt; 0) {
         document.getElementById(resultado_id).innerHTML = 'Error';
     } else {
         document.getElementById(resultado_id).innerHTML = resultado.toFixed(2) + " $";
     }
     return console.log(resultado)
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Nombre">Nombre</a></li><li><a href="global.html#album">album</a></li><li><a href="global.html#calculateDiscount">calculateDiscount</a></li><li><a href="global.html#calculateDolbol">calculateDolbol</a></li><li><a href="global.html#calculateNewSalary">calculateNewSalary</a></li><li><a href="global.html#changeColor">changeColor</a></li><li><a href="global.html#datos">datos</a></li><li><a href="global.html#datos2">datos2</a></li><li><a href="global.html#equipos">equipos</a></li><li><a href="global.html#nums">nums</a></li><li><a href="global.html#nums2">nums2</a></li><li><a href="global.html#nums3">nums3</a></li><li><a href="global.html#pais">pais</a></li><li><a href="global.html#pass">pass</a></li><li><a href="global.html#password_generate">password_generate</a></li><li><a href="global.html#promedio">promedio</a></li><li><a href="global.html#randomCat">randomCat</a></li><li><a href="global.html#randomDog">randomDog</a></li><li><a href="global.html#temp">temp</a></li><li><a href="global.html#year">year</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Sep 05 2023 16:21:24 GMT-0400 (hora de Venezuela)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
