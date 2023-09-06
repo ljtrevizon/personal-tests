@@ -1,96 +1,150 @@
 table {
-  border-collapse: collapse;
-  border: 2px solid rgb(200, 200, 200);
-  letter-spacing: 1px;
-  font-size: 0.8rem;
-  font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #5BFF94;
-  background-color: #06062D;
-  font-size: 1rem;
-  margin: 0px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #5BFF94;
+    background-color: #06062D;
+    margin: 0px;
 }
 
 td,
 th {
-  border: 1px solid rgb(190, 190, 190);
-  padding: 10px 20px;
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px 20px;
 }
 
 th {
-  background-color: rgb(235, 235, 235);
+    background-color: rgb(235, 235, 235);
 }
 
 td {
-  text-align: center;
+    text-align: center;
 }
 
 tr:nth-child(even) td {
-  background-color: rgb(250, 250, 250);
+    background-color: rgb(250, 250, 250);
 }
 
 tr:nth-child(odd) td {
-  background-color: rgb(245, 245, 245);
+    background-color: rgb(245, 245, 245);
 }
 
 caption {
-  padding: 10px;
+    padding: 10px;
 }
 
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 p {
-  margin: 8px
+    margin: 8px
 }
 
 .imgRedonda {
-  width: 50px;
-  height: 50px;
-  border-radius: 27px;
-  border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    border-radius: 27px;
+    border: 1px solid black;
 }
 
 .GatitoYPerro {
-  border: 3px solid black
-}
-@font-face {
-  font-family: 'Utara';
-  src: url('./fuentes/utara/fonts/variable/Utara-VF.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
+    border: 3px solid black
 }
 
 @font-face {
-  font-family: 'News Cycle';
-  src: url('./fuentes/newscycle/NewsCycle-Regular.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
+    font-family: 'Utara';
+    src: url('./fuentes/utara/fonts/variable/Utara-VF.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'News Cycle';
+    src: url('./fuentes/newscycle/NewsCycle-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
 
 header {
-  text-align: center;
-  color: #fbbc04;
-  font-size: 30px;
-  font-family: 'Utara';
+    text-align: center;
+    color: #fbbc04;
+    font-size: 30px;
+    font-family: 'Utara';
+    height: 50px;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    background: white;
+    z-index: 100;
+    width: 100%;
+    left:0px
+}
+
+#container {
+    display: flex;
+}
+
+main {
+    margin-top: 20px;
+    background-color: white;
+    width: 84vw;
+    display: inline-block;
+    padding: 50px 15px 20px;
+    position: absolute;
+    right: 0;
+}
+
+#colIzq {
+    width: 14vw;
+    display: inline-block;
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+    left: 0;
 }
 
 .headerElement {
-  margin: 10px;
-  display: inline-block;
+    margin: 10px;
+    display: inline-block;
 }
 
-.h1_size {
-  font-size: 30px;
-  height: 40px;
-  font-family: 'News Cycle';
+hr {
+    margin: 10px;
+    border: 0px;
+    border-color: white
 }
 
-.normal_size {
-  font-size: 15px;
+.divLeft {
+    float: left;
+    width: 25%;
+    margin: 0px;
+}
+
+.divCenter {
+    float: center;
+    width: 50%;
+    margin: 0px;
+}
+
+.divRight {
+    float: right;
+    width: 25%;
+    margin: 0px;
+}
+
+.liIndex {
+    height: 25px;
+    font-size: 15px;
+}
+a {
+    text-decoration: none;
+    color: none;
 }
