@@ -39,7 +39,7 @@
                     <li class="liIndex"><a href="#gatos_perros">Gatos y Perros</a></li>
                     <li class="liIndex"><a href="#paises">Paises</a></li>
                     <li class="liIndex"><a href="#deezer">Deezer</a></li>
-                    <li class="liIndex"><a href="#year">Año</a></li>
+                    <li class="liIndex"><a href="#years">Año</a></li>
                     <li class="liIndex"><a href="#suma_num">Suma de Numeros</a></li>
                     <li class="liIndex"><a href="#multip_num">Multiplicacion de Numeros</a></li>
                     <br>
@@ -164,7 +164,7 @@
             <h1 id="paises">Paises</h1>
             <hr>
             <label>Elige el pais que quieres ver su bandera: </label>
-            <select id="paises">
+            <select id="countries">
                 <option value="es">España</option>
                 <option value="hr">Croacia</option>
                 <option value="us">Estados Unidos</option>
@@ -185,7 +185,7 @@
             <label>Nombre oficial (en el idioma local)</label>
             <input type="text" id="official_name" style="width: 250px;">
             <br>
-            <input type="button" onclick="pais('bandera','official_name','paises')" value="Enviar">
+            <input type="button" onclick="pais('bandera','official_name','countries')" value="Enviar">
             <hr>
             <h1 id="deezer">Deezer</h1>
             <hr>
@@ -219,7 +219,7 @@
             <br>
             <input type="button" onclick="track('track_id','audio_preview','track','artist')" value="Enviar">
             <hr>
-            <h1 id="year">Año</h1>
+            <h1 id="years">Año</h1>
             <hr>
             <label>Ingrese el año</label>
             <input type="number" id="year">
@@ -248,8 +248,8 @@
             <hr>
             <h1 id="equipos">Equipos</h1>
             <hr>
-            <!-- <label>Elige el equipo que quieres tener su informacion </label>
-            <select id="equipos">
+            <label>Elige el equipo que quieres tener su informacion </label>
+            <select id="teams">
                 <option value="barc">Barcelona FC</option>
                 <option value="madr">Real Madrid</option>
                 <option value="riv-pl">Club Atletico River Plate</option>
@@ -261,7 +261,7 @@
                 <option value="liver">Liverpool FC</option>
                 <option value="dortm">Borussia Dortmund</option>
                 <option value="bay-mun">Bayern Munich</option>
-            </select> -->
+            </select>
             <br>
             <label>Nombre de la Liga</label>
             <input type="text" id="nombre_liga" style="width: 250px;">
@@ -269,7 +269,7 @@
             <label>Nro de Champions/Libertadore</label>
             <input type="number" id="nro_champ_lib" style="width: 250px;">
             <br>
-            <input type="button" onclick="equipos('equipos','nombre_liga','nro_champ_lib')" value="Enviar">
+            <input type="button" onclick="equipos('teams','nombre_liga','nro_champ_lib')" value="Enviar">
             <br>
             <h1 id="par_impar">Numeros pares e impares</h1>
             <hr>

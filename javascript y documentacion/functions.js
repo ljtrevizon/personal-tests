@@ -65,7 +65,7 @@ function pais(bandera_id, official_name_id, codigo_id) {
         })
         .then(function (data) {
             obj = data
-            bandera.src = obj.flag_urls.svg
+            bandera.src = obj.flag_urls.png
             official_name.value = obj.official_name
             console.log(obj.flag_urls.png)
         })
