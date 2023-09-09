@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Utara';
+    src: url('./fuentes/utara/fonts/variable/Utara-VF.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'News Cycle';
+    src: url('./fuentes/newscycle/NewsCycle-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fuentes/roboto/RobotoFlex-VariableFont_GRAD\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

@@ -65,7 +65,7 @@ function pais(bandera_id, official_name_id, codigo_id) {
         })
         .then(function (data) {
             obj = data
-            bandera.src = obj.flag_urls.png
+            bandera.src = obj.flag_urls.svg
             official_name.value = obj.official_name
             console.log(obj.flag_urls.png)
         })
@@ -74,17 +74,23 @@ function pais(bandera_id, official_name_id, codigo_id) {
 
 //Deezer
 
+
 /**
- * Retrieves album information from Deezer API and updates the album image.
+ * Retrieves album information from the Deezer API and updates the corresponding elements on the page.
  *
- * @param {string} id_album - The ID of the album element.
- * @param {string} img_album - The ID of the album image element.
+ * @param {string} id_album - The ID of the input element that contains the album ID.
+ * @param {string} img_album - The ID of the image element that will display the album cover.
+ * @param {string} artist_id - The ID of the input element that will display the artist name.
+ * @param {string} album_name_id - The ID of the input element that will display the album name.
  * @return {undefined} This function does not return a value.
  */
-function album(id_album, img_album) {
+
+function album(id_album, img_album, artist_id, album_name_id) {
     var llave = "3a60105bb7msh8dc9fbe2b106cacp1b316fjsnbf21f23983aa"
     var album_id = document.getElementById(id_album).value
     var album_img = document.getElementById(img_album)
+    var artist = document.getElementById(artist_id)
+    var album_name = document.getElementById(album_name_id)
     var settings = {
         async: true,
         crossDomain: true,
@@ -97,6 +103,43 @@ function album(id_album, img_album) {
     };
     $.ajax(settings).done(function (response) {
         album_img.src = response.cover_medium
+        artist.value = response.artist.name
+        album_name.value = response.title
+        console.log(response);
+    });
+}
+
+/**
+ * Retrieves track information from Deezer API and updates the UI elements.
+ *
+ * @param {string} id_track - The id of the track input element.
+ * @param {string} id_audio - The id of the audio element.
+ * @param {string} id_title - The id of the title input element.
+ * @param {string} id_artist - The id of the artist input element.
+ * @returns {void} This function does not return a value.
+ */
+
+function track(id_track, id_audio, id_title, id_artist) {
+    var track = document.getElementById(id_track).value
+    var audio = document.getElementById(id_audio)
+    var title = document.getElementById(id_title)
+    var artist = document.getElementById(id_artist)
+    var llave = "3a60105bb7msh8dc9fbe2b106cacp1b316fjsnbf21f23983aa"
+    const settings = {
+        async: true,
+        crossDomain: true,
+        url: 'https://deezerdevs-deezer.p.rapidapi.com/track/' + track,
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': llave,
+            'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        audio.src = response.preview
+        title.value = response.title
+        artist.value = response.artist.name
         console.log(response);
     });
 }
@@ -170,8 +213,8 @@ function temp(c, f, k) {
  * @param {string} nro_champ_lib_id - The id of the "nro_champ_lib" input field.
  * @return {void} No return value.
  */
-function equipos(equipo_id,nombre_liga_id,nro_champ_lib_id) {
-    var nombre_liga=document.getElementById(nombre_liga_id)
+function equipos(equipo_id, nombre_liga_id, nro_champ_lib_id) {
+    var nombre_liga = document.getElementById(nombre_liga_id)
     var nro_champ_lib = document.getElementById(nro_champ_lib_id)
     var equipo = document.getElementById(equipo_id).value
     if (equipo == "barc") {
@@ -218,6 +261,7 @@ function equipos(equipo_id,nombre_liga_id,nro_champ_lib_id) {
         nombre_liga.value = "Bundesliga"
         nro_champ_lib.value = 5
     }
+    return console.log(equipo)
 }
 
 //Promedio

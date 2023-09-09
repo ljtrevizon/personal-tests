@@ -8,7 +8,7 @@ table {
 
 h1 {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto';
     color: #5BFF94;
     background-color: #06062D;
     margin: 0px;
@@ -40,8 +40,15 @@ caption {
     padding: 10px;
 }
 
-body {
+body*:not(h1,h2,h3) {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+h2 {
+    font-family: Roboto;
+    color: #32a571;
+    margin: 0px;
 }
 
 p {
@@ -59,18 +66,13 @@ p {
     border: 3px solid black
 }
 
-@font-face {
-    font-family: 'Utara';
-    src: url('./fuentes/utara/fonts/variable/Utara-VF.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
 
-@font-face {
-    font-family: 'News Cycle';
-    src: url('./fuentes/newscycle/NewsCycle-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
+ul {
+    padding-top: 4px;
+    border: 4px solid black;
+    padding-bottom: 4px;
+    margin-top: 0px;
+    padding-left: 20px;
 }
 
 header {
@@ -85,11 +87,15 @@ header {
     background: white;
     z-index: 100;
     width: 100%;
-    left:0px
+    left: 0px
 }
 
 #container {
     display: flex;
+}
+
+body {
+    font-family: Arial;
 }
 
 main {
@@ -144,6 +150,7 @@ hr {
     height: 25px;
     font-size: 15px;
 }
+
 a {
     text-decoration: none;
     color: none;
