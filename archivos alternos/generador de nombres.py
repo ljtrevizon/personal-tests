@@ -8,8 +8,6 @@ apellidos=[]
 for _ in range (10):
     apellido = str(input("Escribe un apellido: "))
     apellidos.append(apellido)
-print(nombres)
-print(apellidos)
 lista = []
 i=0
 vueltas = int(input("Elige cuantos numeros quieres: "))
