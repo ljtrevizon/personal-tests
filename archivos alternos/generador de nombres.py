@@ -1,9 +1,11 @@
 import random
 
 nombres=[]
+print("Elige 10 nombres")
 for _ in range (10):
     nombre=str(input("Escribe un nombre: "))
     nombres.append(nombre)
+print("Elige 10 apellidos")
 apellidos=[]
 for _ in range (10):
     apellido = str(input("Escribe un apellido: "))

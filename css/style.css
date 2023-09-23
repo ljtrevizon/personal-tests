@@ -40,14 +40,44 @@ caption {
     padding: 10px;
 }
 
-body*:not(h1,h2,h3) {
+body*:not(h1, h2, h3) {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+form {
+    width: 400px;
+    margin-left: 10px;
+    margin-right: 0px;
+    margin-top: 10px;
+    padding: 20px;
+    border: solid #e92064 5px;
+    border-radius: 10px;
+    padding-right: 0px
+}
+
+form hr {
+    margin: 5px
+}
+
+form input {
+    border: solid #8b133c 2px;
+    border-radius: 5px
+}
+
+.btonEnviar {
+    margin:0px;
+    height: 3rem;
+    padding: 10px;
+    font-size: 16px;
+    color: #ff524c;
+    font-weight: 700;
+    background-color: #d5d5d8;
+    text-align: center;
+}
 
 h2 {
     font-family: Roboto;
-    color: #32a571;
+    color: #fbbc04;
     margin: 0px;
 }
 

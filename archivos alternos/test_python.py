@@ -28,7 +28,6 @@ while (numero1!=numero3 or numero2!=numero3):
     numero1=random.randint(1,10000000)
     numero2=random.randint(1,10000000)
     numero3=random.randint(1,10000000)
-    print(i)
     i+=1
 print(numero1," y ",numero2)
 print("-----------")
