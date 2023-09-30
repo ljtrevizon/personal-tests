@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: functions-api.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: functions-api.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//Fetch
+var token = ""
+
+/**
+ * Sends user login data to the server for authentication.
+ *
+ * @param {Object} form - The form object containing the login data.
+ * @param {string} username_id - The ID of the username input field.
+ * @param {string} password_id - The ID of the password input field.
+ */
+function envioUserLogin(form, username_id, password_id) {
+    if (form.username.value == "" || form.password.value == "") {
+        alert("Error")
+    } else {
+        var body = {
+            username: form.username.value,
+            password: form.password.value
+        }
+        const grant_type="grant-type=&amp;username="+body.username+"&amp;password="+body.password+"&amp;scope=&amp;client_id=&amp;client_secret="
+        fetch("http://localhost:8000/api/login", {
+            method: "POST",
+            body: new URLSearchParams(grant_type),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then((resp)=>resp.json())
+            .then(function (resp) {
+                token = resp.access_token
+            })
+        document.getElementById(password_id).value = ""
+        document.getElementById(username_id).value = ""
+    }
+}
+
+/**
+ * Sends user data to the server for creation.
+ *
+ * @param {Object} form - The form object containing the user data.
+ * @param {string} user_password_id - The id of the user password input field.
+ * @param {string} username_id - The id of the username input field.
+ * @param {string} name_id - The id of the name input field.
+ */
+
+function envioPostUser(form, user_password_id, username_id, name_id) {
+    if (form.name.value == "" || form.username.value == "" || form.user_password.value == "") {
+        alert("Error")
+    } else {
+        var body = {
+            name: form.name.value,
+            username: form.username.value,
+            user_password: form.user_password.value
+        }
+        fetch("http://localhost:8000/api/user", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (data) {
+                if (data.ok) {
+                    alert("Usuario creado")
+                }
+            })
+        document.getElementById(user_password_id).value = ""
+        document.getElementById(username_id).value = ""
+        document.getElementById(name_id).value = ""
+    }
+}
+
+//Editar Usuario
+/**
+ * Updates a user's information and sends it to the server.
+ *
+ * @param {Object} form - the form containing the user's information
+ * @param {string} user_password_id - the id of the user's password field
+ * @param {string} username_id - the id of the username field
+ * @param {string} name_id - the id of the name field
+ * @param {string} id_id - the id of the id field
+ * @return {undefined} this function does not return a value
+ */
+
+function envioPutUser(form, user_password_id, username_id, name_id, id_id) {
+    if (form.name.value == "" || form.username.value == "" || form.user_password.value == "") {
+        alert("Error")
+    } else {
+        var body = {
+            id:parseInt(form.id.value),
+            name: form.name.value,
+            username: form.username.value,
+            user_password: form.user_password.value
+        }
+        fetch("http://localhost:8000/api/user/"+body.id, {
+            method: "PUT",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization":"Bearer "+token
+            }
+        })
+            .then(function (data) {
+                if (data.ok) {
+                    alert("Usuario actualizado")
+                }
+            })
+        document.getElementById(id_id).value = ""
+        document.getElementById(user_password_id).value = ""
+        document.getElementById(username_id).value = ""
+        document.getElementById(name_id).value = ""
+    }
+}
+
+//Get user
+
+/**
+ * Fetches all user data from the API server.
+ *
+ * @param {undefined} - This does not request a value
+ * @return {undefined} This function does not return a value
+ */
+function envioUserGetAll(){
+    fetch("http://127.0.0.1:8000/api/user",{
+        headers: {
+            "Authorization":"Bearer "+token
+        }
+    })
+    .then((resp)=>resp.json())
+    .then(function(resp){
+        console.log(resp)
+    })
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#envioPostUser">envioPostUser</a></li><li><a href="global.html#envioPutUser">envioPutUser</a></li><li><a href="global.html#envioUserGetAll">envioUserGetAll</a></li><li><a href="global.html#envioUserLogin">envioUserLogin</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Sep 29 2023 12:30:22 GMT-0400 (hora de Venezuela)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
