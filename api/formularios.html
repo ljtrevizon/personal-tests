@@ -110,8 +110,7 @@
                     <td>Nombre</td>
                     <td>Usuario</td>
                 </thead>
-                <tbody>
-
+                <tbody id="tableUser">
                 </tbody>
             </table>
             <hr>
@@ -146,6 +145,95 @@
                 <input class="btonEnviar" type="button" onclick="envioDeleteUserAll()" value="Enviar">
             </form>
             <hr>
+            <h1 id="team">Equipos</h1>
+            <hr>
+            <h2>Crear Equipo</h2>
+            <hr>
+            <form method="post">
+                <label for="name">Nombre</label>
+                <input name="name" type="text" id="name_team">
+                <hr>
+                <label for="league">Liga</label>
+                <input name="league" type="text" id="league">
+                <hr>
+                <label for="stadium">Estadio</label>
+                <input name="stadium" type="text" id="stadium">
+                <hr>
+                <input class="btonEnviar" type="button"
+                    onclick="envioPostTeam(this.form,'league','stadium','name_team')" value="Enviar">
+            </form>
+            <hr>
+            <h2>Editar Equipo</h2>
+            <hr>
+            <form method="put">
+                <label for="id2">ID del Equipo</label>
+                <input name="id2" type="number" id="id2">
+                <hr>
+                <label for="name">Nombre</label>
+                <input name="name" type="text" id="name">
+                <hr>
+                <label for="league">Liga</label>
+                <input name="league" type="text" id="league">
+                <hr>
+                <label for="stadium">Estadio</label>
+                <input name="stadium" type="text" id="stadium">
+                <hr>
+                <input class="btonEnviar" type="button"
+                    onclick="envioPutTeam(this.form,'stadium','league','name','id2')" value="Enviar">
+            </form>
+            <hr>
+            <h2>Obtener todos los Equipos</h2>
+            <hr>
+            <form>
+                <input class="btonEnviar" type="button" onclick="envioTeamGetAll()" value="Enviar">
+            </form>
+            <hr>
+            <table>
+                <thead>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td>Liga</td>
+                    <td>Estadio</td>
+                </thead>
+                <tbody id="tableTeam">
+                </tbody>
+            </table>
+            <hr>
+            <h2>Obtener equipo por ID</h2>
+            <hr>
+            <form>
+                <label for="id">ID del Usuario</label>
+                <input name="id" type="number" id="id">
+                <hr>
+                <label for="name3">Nombre</label>
+                <input name="name3" type="text" id="name3">
+                <hr>
+                <label for="league2">Liga</label>
+                <input name="league2" type="text" id="league2">
+                <hr>
+                <label for="stadium2">Estadio</label>
+                <input name="stadium2" type="text" id="stadium2">
+                <hr>
+                <input class="btonEnviar" type="button"
+                    onclick="envioGetTeamByID(this.form,'name3','league2','stadium2')" value="Enviar">
+            </form>
+            <hr>
+            <h2>Eliminar equipo por ID</h2>
+            <hr>
+            <form method="delete">
+                <label for="id">ID del Equipo</label>
+                <input name="id" type="number" id="id">
+                <hr>
+                <input class="btonEnviar" type="button" onclick="envioDeleteTeamByID(this.form)" value="Enviar">
+            </form>
+            <hr>
+            <h2>Eliminar todos los Equipos</h2>
+            <hr>
+            <form>
+                <input class="btonEnviar" type="button" onclick="envioDeleteTeamAll()" value="Enviar">
+            </form>
+            <hr>
+            <h1 id="league">Ligas</h1>
         </main>
     </div>
 </body>
