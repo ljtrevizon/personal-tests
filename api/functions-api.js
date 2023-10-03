@@ -8,7 +8,7 @@ var token = ""
  * @param {string} username_id - The ID of the username input field.
  * @param {string} password_id - The ID of the password input field.
  */
-function envioUserLogin(form, username_id, password_id) {
+function envioUserLogin(form, img_id) {
     if (form.username.value == "" || form.password.value == "") {
         alert("Error")
     } else {
@@ -25,15 +25,20 @@ function envioUserLogin(form, username_id, password_id) {
             }
         })
             .then((resp) => resp.json())
-            .then(function (resp) {
-                if (resp.error) {
+            .then(function (resp) {    
+                if (resp.status !== 200) {
                     alert("Error")
-                    return false
+                } else {
+                    token = resp.access_token
+                    fetch("http://localhost:8000/api/image/file/avatar/" + body.username)
+                    .then(function (resp) {
+                        document.getElementById(img_id).src = resp.url
+                        console.log(resp)
+                    })
                 }
-                token = resp.access_token
+
             })
-        document.getElementById(password_id).value = ""
-        document.getElementById(username_id).value = ""
+
     }
 }
 
@@ -57,22 +62,42 @@ function envioPostUser(form, user_password_id, username_id, name_id) {
             username: form.username.value,
             user_password: form.user_password.value
         }
-        fetch("http://localhost:8000/api/user", {
+        var formData = new FormData();
+        formData.append("file", form.file.files[0])
+        qs = "name=" + body.name + "&username=" + body.username + "&user_password=" + body.user_password
+        url = "http://127.0.0.1:8000/api/user?" + qs
+        fetch(url, {
             method: "POST",
-            body: JSON.stringify(body),
-            headers: {
-                "Content-Type": "application/json",
-            }
+            body: formData
         })
-            .then(function (data) {
-                if (data.ok) {
+            .then(function (resp) {
+                if (resp.ok) {
                     alert("Usuario creado")
                 }
+
             })
         document.getElementById(user_password_id).value = ""
         document.getElementById(username_id).value = ""
         document.getElementById(name_id).value = ""
     }
+}
+
+function envioPostImagen(form) {
+    console.log(form.file.value)
+    nombre_file = form.file.value.split('\\')
+    extension = form.file.value.split('.')
+    var formData = new FormData();
+    formData.append("file", form.file.files[0])
+    fetch("http://127.0.0.1:8000/api/image/upload/images", {
+        method: "POST",
+        body: formData
+    })
+        .then(function (resp) {
+            if (resp.ok) {
+                alert("Imagen subida")
+            }
+
+        })
 }
 
 /**
@@ -314,6 +339,34 @@ function envioGetTeamByID(form, nombre_id, league_id, stadium_id) {
         })
 }
 
+function envioImgGetAll() {
+    fetch("http://127.0.0.1:8000/api/image/file")
+        .then((resp) => resp.json())
+        .then(function (resp) {
+            i = 0
+            while (i < resp.length) {
+                $("#tableIMG").append(
+                    "<tr>",
+                    "<td>" + resp[i].id + "</td>",
+                    "<td>" + resp[i].name + "</td>",
+                    "</tr>"
+                )
+                i++
+            }
+
+        })
+}
+
+function envioImgGetID(form, img_id) {
+    var id = form.id.value
+    var img = document.getElementById(img_id)
+    fetch("http://127.0.0.1:8000/api/image/file/" + id)
+        .then(function (resp) {
+            img.src = resp.url
+            console.log(resp)
+        })
+}
+
 //Delete
 
 /**
@@ -366,7 +419,7 @@ function envioDeleteUserAll() {
  * @return {undefined} This function does not return a value.
  */
 
-function envioDeleteTeamrByID(form) {
+function envioDeleteTeamByID(form) {
     var id = form.id.value
     fetch("http://127.0.0.1:8000/api/team/" + id, {
         method: "DELETE",

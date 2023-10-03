@@ -14,14 +14,8 @@
 
 <body>
     <header>
-        <div class="divLeft headerElement">
-            <p>Bienvenido</p>
-        </div>
         <div class="divCenter headerElement">
             <p>Mis Test</p>
-        </div>
-        <div class="divRight headerElement">
-            <p>Welcome</p>
         </div>
     </header>
     <div id="container">
@@ -59,7 +53,9 @@
                 <label for="password">Contraseña</label>
                 <input name="password" type="password" id="password">
                 <hr>
-                <input class="btonEnviar" type="button" onclick="envioUserLogin(this.form,'username','password')"
+                <img id="imgUser" src="" class="imgRedonda">
+                <hr>
+                <input class="btonEnviar" type="button" onclick="envioUserLogin(this.form,'imgUser')"
                     value="Enviar">
             </form>
             <hr>
@@ -74,6 +70,9 @@
                 <hr>
                 <label for="user_password">Contraseña</label>
                 <input name="user_password" type="password" id="user_password">
+                <hr>
+                <label for="file">Avatar</label>
+                <input name="file" type="file" id="file">
                 <hr>
                 <input class="btonEnviar" type="button"
                     onclick="envioPostUser(this.form,'user_password','username','name')" value="Enviar">
@@ -233,7 +232,43 @@
                 <input class="btonEnviar" type="button" onclick="envioDeleteTeamAll()" value="Enviar">
             </form>
             <hr>
-            <h1 id="league">Ligas</h1>
+            <h1 id="league">Imagenes</h1>
+            <hr>
+            <h2>Obtener todas las imagenes</h2>
+            <hr>
+            <form>
+                <input class="btonEnviar" type="button" onclick="envioImgGetAll()" value="Enviar">
+            </form>
+            <hr>
+            <table>
+                <thead>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                </thead>
+                <tbody id="tableIMG">
+                </tbody>
+            </table>
+            <hr>
+            <h2>Obtener la imagen</h2>
+            <hr>
+            <form>
+                <label for="id">ID de la imagen</label>
+                <input name="id" type="number" id="id">
+                <hr>
+                <img src="" id="imgTest" width="10%">
+                <hr>
+                <input class="btonEnviar" type="button" onclick="envioImgGetID(this.form,'imgTest')" value="Enviar">
+            </form>
+            <hr>
+            <h2>Subir la imagen</h2>
+            <hr>
+            <form method="post">
+                <label for="file">Imagen</label>
+                <input name="file" type="file" id="file">
+                <hr>
+                <input class="btonEnviar" type="button" onclick="envioPostImagen(this.form)" value="Enviar">
+            </form>
+            <hr>
         </main>
     </div>
 </body>
